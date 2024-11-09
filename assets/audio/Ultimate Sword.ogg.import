@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bupgylqaayrtm"
+path="res://.godot/imported/Ultimate Sword.ogg-8348c42304a2fdd7c9bec6945d7b3f10.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/Ultimate Sword.ogg"
+dest_files=["res://.godot/imported/Ultimate Sword.ogg-8348c42304a2fdd7c9bec6945d7b3f10.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

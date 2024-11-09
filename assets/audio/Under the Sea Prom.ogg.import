@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dq5jbx1iwwg18"
+path="res://.godot/imported/Under the Sea Prom.ogg-a5be64803938fef26f8568e57aa92feb.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/Under the Sea Prom.ogg"
+dest_files=["res://.godot/imported/Under the Sea Prom.ogg-a5be64803938fef26f8568e57aa92feb.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

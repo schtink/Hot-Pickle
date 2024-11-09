@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://tff84vj1byxq"
+path="res://.godot/imported/Mushroom Island.ogg-444d9c539058e8616823ebfd7b7657a2.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/Mushroom Island.ogg"
+dest_files=["res://.godot/imported/Mushroom Island.ogg-444d9c539058e8616823ebfd7b7657a2.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,508 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1731115865
+default_bus_layout.tres::AudioBusLayout::-1::1609544274::0::1::::<><>::
+default_env.tres::Environment::-1::1600638315::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1633405807::0::1::::<><>::
+icon.png::CompressedTexture2D::3566170412711738137::1601754262::1731115865::1::::<><>::
+README.md::TextFile::-1::1731115265::0::1::::<><>::
+::res://addons/::1731115824
+::res://addons/github-integration/::1731115632
+github-logo.png::CompressedTexture2D::796307227836929996::1634176284::1731115865::1::::<><>::
+plugin.cfg::TextFile::-1::1634176285::0::1::::<><>::
+::res://addons/github-integration/fonts/::1731115641
+Roboto-Black.ttf::FontFile::5140893838346325926::1634176284::1731115865::1::::<><>::
+Roboto-Regular.ttf::FontFile::2456709690732395128::1634176284::1731115865::1::::<><>::
+SEGOEUI.TTF::FontFile::6541694168185216850::1634176284::1731115865::1::::<><>::
+SEGOEUIB.TTF::FontFile::1551761889095399524::1634176284::1731115865::1::::<><>::
+::res://addons/github-integration/icons.pngs/::1731115630
+::res://addons/github-integration/resources/::1731115632
+github-logo.png::CompressedTexture2D::3752162525607412::1634176285::1731115865::1::::<><>::
+proxy.png::CompressedTexture2D::6664247474779439939::1634176285::1731115865::1::::<><>::
+search.png::CompressedTexture2D::4281515831727528518::1634176285::1731115865::1::::<><>::
+::res://addons/github-integration/resources/extraction/::1731115636
+gdunzip.gd::GDScript::-1::1634176285::0::1::::<>RefCounted<>::
+::res://addons/github-integration/resources/loading/::1731115633
+throbber.png::CompressedTexture2D::7039524966461821697::1634176285::1731115865::1::::<><>::
+::res://addons/github-integration/scenes/::1731115637
+EditGist.tscn::PackedScene::-1::1634176285::0::1::::<><>::res://addons/file-editor/fonts/Roboto-Black.ttf
+GitHub.tscn::PackedScene::-1::1634176285::0::1::::<><>::res://addons/github-integration/scripts/GitHub.gd<>res://addons/github-integration/scripts/SignIn.gd<>res://addons/github-integration/github-logo.png<>res://addons/github-integration/fonts/Roboto-Black.ttf<>res://addons/github-integration/fonts/Roboto-Regular.ttf<>res://addons/github-integration/scripts/UserPanel.gd<>res://addons/github-integration/scripts/NewGist.gd<>res://addons/github-integration/scripts/Repo.gd<>res://addons/github-integration/scripts/Commit.gd<>res://addons/github-integration/scripts/Gist.gd<>res://addons/github-integration/resources/search.png<>res://addons/github-integration/scripts/WindowDialog.gd<>res://addons/github-integration/scripts/loading.gd<>res://addons/github-integration/resources/loading/throbber.png
+RepositoryItem.tscn::PackedScene::-1::1634176285::0::1::::<><>::res://addons/github-integration/scripts/RepositoryItem.gd
+::res://addons/github-integration/scripts/::1731115636
+Commit.gd::GDScript::-1::1634176285::0::1::::<>RefCounted<>::
+Gist.gd::GDScript::-1::1634176286::0::1::::<>RefCounted<>::
+github-integration.gd::GDScript::-1::1634176286::0::1::::<>RefCounted<>::
+GitHub.gd::GDScript::-1::1634176286::0::1::::<>RefCounted<>::
+IconLoaderGithub.gd::GDScript::-1::1634176286::0::1::::<>RefCounted<>::
+loading.gd::GDScript::-1::1634176286::0::1::::<>RefCounted<>::
+NewGist.gd::GDScript::-1::1634176286::0::1::::<>RefCounted<>::
+Repo.gd::GDScript::-1::1634176286::0::1::::<>RefCounted<>::
+Repos.gd::GDScript::-1::1634176286::0::1::::<>RefCounted<>::
+RepositoryItem.gd::GDScript::-1::1634176286::0::1::::<>RefCounted<>::
+RestHandler.gd::GDScript::-1::1634176286::0::1::::<>RefCounted<>::
+SignIn.gd::GDScript::-1::1634176286::0::1::::<>RefCounted<>::
+UserPanel.gd::GDScript::-1::1634176286::0::1::::<>RefCounted<>::
+user_data.gd::GDScript::-1::1634176286::0::1::::<>RefCounted<>::
+WindowDialog.gd::GDScript::-1::1634176286::0::1::::<>RefCounted<>::
+::res://addons/github-integration/user/::1731115638
+placeholder.png::CompressedTexture2D::2217371002915864715::1634176286::1731115867::1::::<><>::
+::res://assets/::1731115507
+::res://assets/art/::1731115507
+::res://assets/art/Actors/::1731115635
+Beet Drop..png::CompressedTexture2D::8235126090867097022::1633901065::1731115865::1::::<><>::
+Burger Boss.png::CompressedTexture2D::1516170747204950804::1633857869::1731115865::1::::<><>::
+Dusty Tomato1.png::CompressedTexture2D::5305089528365891426::1634018638::1731115865::1::::<><>::
+Dusty Tomato2.png::CompressedTexture2D::3783423631535959103::1634018638::1731115865::1::::<><>::
+Dusty Tomato3.png::CompressedTexture2D::8316366367464514937::1634018638::1731115865::1::::<><>::
+Dusty Tomato4.png::CompressedTexture2D::2862883496756978631::1634018638::1731115865::1::::<><>::
+Dusty Tomato5.png::CompressedTexture2D::2575319776338359613::1634018638::1731115865::1::::<><>::
+Hot Pickle Dead.png::CompressedTexture2D::3362020588449008698::1603056528::1731115865::1::::<><>::
+Hot Pickle Spork1.png::CompressedTexture2D::8866944439053470275::1634020053::1731115865::1::::<><>::
+Hot Pickle Sprite Sheet.png::CompressedTexture2D::9050227631454511343::1601173732::1731115865::1::::<><>::
+Moldy Tomato.png::CompressedTexture2D::3705691193878699551::1633900417::1731115865::1::::<><>::
+MoldyTomato Single1.png::CompressedTexture2D::1634837662876737080::1633900504::1731115865::1::::<><>::
+Mush Room1.png::CompressedTexture2D::8809080013633899623::1608861437::1731115865::1::::<><>::
+Mush Room2.png::CompressedTexture2D::3213564406884798764::1608861437::1731115865::1::::<><>::
+Mush Room3.png::CompressedTexture2D::271395104404426157::1608861437::1731115865::1::::<><>::
+Mush Room4.png::CompressedTexture2D::4347550435620074201::1608861437::1731115865::1::::<><>::
+Mush Room5.png::CompressedTexture2D::521062626331124833::1608861437::1731115865::1::::<><>::
+Mush Room6.png::CompressedTexture2D::7812721301354613766::1608861437::1731115865::1::::<><>::
+Snorkel.png::CompressedTexture2D::5310091176559817109::1604175925::1731115865::1::::<><>::
+Space Helmet.png::CompressedTexture2D::1078684418057767997::1602213787::1731115865::1::::<><>::
+sporker.png::CompressedTexture2D::5960229704540232038::1633968376::1731115865::1::::<><>::
+::res://assets/art/Actors/Angry Tomato Dead.png/::1731115621
+0.png::CompressedTexture2D::1094852717793886756::1603011222::1731115865::1::::<><>::
+1.png::CompressedTexture2D::8244369493051809539::1603011222::1731115865::1::::<><>::
+2.png::CompressedTexture2D::7778333004168141206::1603011222::1731115865::1::::<><>::
+3.png::CompressedTexture2D::6204224627383149185::1603011222::1731115865::1::::<><>::
+::res://assets/art/Actors/Angry Tomato Splat.png/::1731115621
+0.png::CompressedTexture2D::2330651683711707571::1603012447::1731115865::1::::<><>::
+1.png::CompressedTexture2D::7436923692271006869::1603012447::1731115865::1::::<><>::
+2.png::CompressedTexture2D::2240817310625060537::1603012447::1731115865::1::::<><>::
+::res://assets/art/Actors/Angry Tomato.png/::1731115618
+0.png::CompressedTexture2D::2709475974516782348::1601158127::1731115865::1::::<><>::
+1.png::CompressedTexture2D::4946778366787296471::1601158127::1731115865::1::::<><>::
+2.png::CompressedTexture2D::7436591591938481131::1601158127::1731115865::1::::<><>::
+3.png::CompressedTexture2D::7885561032321585456::1601158127::1731115865::1::::<><>::
+4.png::CompressedTexture2D::2630052755089767947::1601158127::1731115865::1::::<><>::
+::res://assets/art/Actors/Fish/::1731115622
+Rock.png::CompressedTexture2D::5162623883205414470::1601431167::1731115865::1::::<><>::
+Yellow Fish.png::CompressedTexture2D::8776999789052350992::1601430154::1731115865::1::::<><>::
+::res://assets/art/Actors/Hot Pickle Fall/::1731115626
+Hot Pickle Fall1.png::CompressedTexture2D::2377283424174082903::1609300430::1731115865::1::::<><>::
+Hot Pickle Fall2.png::CompressedTexture2D::1555815078409774366::1609300430::1731115865::1::::<><>::
+::res://assets/art/Actors/Hot Pickle Idle/::1731115626
+Hot Pickle Idle1.png::CompressedTexture2D::1137233554247478040::1609299967::1731115865::1::::<><>::
+Hot Pickle Idle2.png::CompressedTexture2D::889556822588710166::1609299967::1731115865::1::::<><>::
+Hot Pickle Idle3.png::CompressedTexture2D::5044131824742040627::1609299967::1731115865::1::::<><>::
+Hot Pickle Idle4.png::CompressedTexture2D::4559636895692508004::1609299967::1731115865::1::::<><>::
+Hot Pickle Idle5.png::CompressedTexture2D::241686926456087093::1609299967::1731115865::1::::<><>::
+Hot Pickle Idle6.png::CompressedTexture2D::8259021608983424680::1609299977::1731115865::1::::<><>::
+Hot Pickle Idle7.png::CompressedTexture2D::3603686526177465106::1609299967::1731115865::1::::<><>::
+Hot Pickle Idle8.png::CompressedTexture2D::7683008178467414645::1609299967::1731115865::1::::<><>::
+::res://assets/art/Actors/Hot Pickle Jump/::1731115626
+Hot Pickle Jump1.png::CompressedTexture2D::6371667605198228021::1609380280::1731115865::1::::<><>::
+Hot Pickle Jump2.png::CompressedTexture2D::2350688554776638228::1609380280::1731115865::1::::<><>::
+::res://assets/art/Actors/Hot Pickle Looky.png/::1731115629
+0.png::CompressedTexture2D::8650154551527442081::1601154937::1731115865::1::::<><>::
+1.png::CompressedTexture2D::943281291643414254::1601154937::1731115865::1::::<><>::
+2.png::CompressedTexture2D::2497533028012121598::1601154937::1731115865::1::::<><>::
+3.png::CompressedTexture2D::707925139436061346::1601154937::1731115865::1::::<><>::
+4.png::CompressedTexture2D::7560214865412528517::1601154937::1731115865::1::::<><>::
+5.png::CompressedTexture2D::1316775173346419319::1601154937::1731115865::1::::<><>::
+6.png::CompressedTexture2D::3958502299868835568::1601154937::1731115865::1::::<><>::
+7.png::CompressedTexture2D::401386159854523073::1601154937::1731115865::1::::<><>::
+::res://assets/art/Actors/Hot Pickle No Legs.png/::1731115630
+0.png::CompressedTexture2D::2127003934265606204::1602299490::1731115865::1::::<><>::
+1.png::CompressedTexture2D::3909273923587237074::1602299490::1731115865::1::::<><>::
+2.png::CompressedTexture2D::3237307554912924650::1602299490::1731115865::1::::<><>::
+3.png::CompressedTexture2D::2608628454010540902::1602299490::1731115865::1::::<><>::
+::res://assets/art/Actors/Hot Pickle Run.png/::1731115629
+0.png::CompressedTexture2D::883009861272143211::1602978524::1731115865::1::::<><>::
+1.png::CompressedTexture2D::8872263809644722341::1602978524::1731115865::1::::<><>::
+2.png::CompressedTexture2D::1258144668497077020::1602978524::1731115865::1::::<><>::
+3.png::CompressedTexture2D::5142545404682089861::1602978524::1731115865::1::::<><>::
+4.png::CompressedTexture2D::3797375889984599318::1602978524::1731115865::1::::<><>::
+5.png::CompressedTexture2D::4396452289965723666::1602978524::1731115865::1::::<><>::
+6.png::CompressedTexture2D::2752624655195444284::1602978524::1731115865::1::::<><>::
+7.png::CompressedTexture2D::1686285504010703865::1602978524::1731115865::1::::<><>::
+8.png::CompressedTexture2D::6895692952912480490::1602978524::1731115865::1::::<><>::
+9.png::CompressedTexture2D::7504598975500513034::1602978524::1731115865::1::::<><>::
+10.png::CompressedTexture2D::114160934948587875::1602978524::1731115865::1::::<><>::
+11.png::CompressedTexture2D::6304811911148576473::1602978524::1731115865::1::::<><>::
+12.png::CompressedTexture2D::6452808215099926145::1602978524::1731115865::1::::<><>::
+13.png::CompressedTexture2D::1464068230174404081::1602978524::1731115865::1::::<><>::
+14.png::CompressedTexture2D::8169551947175797336::1602978524::1731115865::1::::<><>::
+15.png::CompressedTexture2D::3189082988429381367::1602978524::1731115865::1::::<><>::
+16.png::CompressedTexture2D::6347417957701938115::1602978524::1731115865::1::::<><>::
+17.png::CompressedTexture2D::2841968317046557432::1602978524::1731115865::1::::<><>::
+18.png::CompressedTexture2D::3264592765296531614::1602978524::1731115865::1::::<><>::
+19.png::CompressedTexture2D::2160137308331202551::1602978524::1731115865::1::::<><>::
+::res://assets/art/Actors/Hot Pickle Shoot.png/::1731115629
+0.png::CompressedTexture2D::2878148996646909431::1602991107::1731115865::1::::<><>::
+1.png::CompressedTexture2D::9015952430475833078::1602991107::1731115865::1::::<><>::
+2.png::CompressedTexture2D::8643379680388034206::1602991107::1731115865::1::::<><>::
+3.png::CompressedTexture2D::8913250840890006261::1602991107::1731115865::1::::<><>::
+4.png::CompressedTexture2D::9152030245355473289::1602991107::1731115865::1::::<><>::
+5.png::CompressedTexture2D::4444182176215390395::1602991107::1731115865::1::::<><>::
+::res://assets/art/Actors/Hot Pickle Wall Slide/::1731115629
+Hot Pickle Wall Slide1.png::CompressedTexture2D::7428396475024212448::1609298624::1731115866::1::::<><>::
+Hot Pickle Wall Slide2.png::CompressedTexture2D::2722496601565368271::1609119339::1731115866::1::::<><>::
+::res://assets/art/Actors/Hot Picle Running/::1731115628
+Hot Pickle Running1.png::CompressedTexture2D::6471760258100509778::1609299461::1731115866::1::::<><>::
+Hot Pickle Running2.png::CompressedTexture2D::7585422300967708048::1609299461::1731115866::1::::<><>::
+Hot Pickle Running3.png::CompressedTexture2D::7148654368298735648::1609299461::1731115865::1::::<><>::
+Hot Pickle Running4.png::CompressedTexture2D::4361269723797384527::1609299461::1731115865::1::::<><>::
+Hot Pickle Running5.png::CompressedTexture2D::259304501651099292::1609299461::1731115865::1::::<><>::
+Hot Pickle Running6.png::CompressedTexture2D::6785367691210195573::1609299461::1731115865::1::::<><>::
+::res://assets/art/Actors/Onionette Dead.png/::1731115626
+0.png::CompressedTexture2D::8581886173621408257::1603572664::1731115865::1::::<><>::
+1.png::CompressedTexture2D::4155155973181900621::1603572664::1731115865::1::::<><>::
+2.png::CompressedTexture2D::3116822269796022134::1603572664::1731115865::1::::<><>::
+3.png::CompressedTexture2D::2032501553794744204::1603572664::1731115865::1::::<><>::
+::res://assets/art/Actors/Onionette.png/::1731115626
+0.png::CompressedTexture2D::8447203453466192935::1601755408::1731115865::1::::<><>::
+1.png::CompressedTexture2D::7147665467541830516::1601755408::1731115865::1::::<><>::
+2.png::CompressedTexture2D::8964405677527589243::1601755408::1731115865::1::::<><>::
+3.png::CompressedTexture2D::7777474215628565689::1601755408::1731115865::1::::<><>::
+4.png::CompressedTexture2D::6709444578330083272::1601755408::1731115865::1::::<><>::
+5.png::CompressedTexture2D::101534553983016318::1601755408::1731115865::1::::<><>::
+6.png::CompressedTexture2D::6095557866611845054::1601755408::1731115866::1::::<><>::
+7.png::CompressedTexture2D::3216782857799744911::1601755408::1731115866::1::::<><>::
+::res://assets/art/Actors/Player/::1731115635
+Hot Pickle Back.png::CompressedTexture2D::6546895180121406348::1600641993::1731115866::1::::<><>::
+Hot Pickle.png::CompressedTexture2D::7603192466288978414::1600641960::1731115866::1::::<><>::
+::res://assets/art/Actors/Red Pickle No Legs.png/::1731115630
+0.png::CompressedTexture2D::4405447768199269081::1602372123::1731115866::1::::<><>::
+1.png::CompressedTexture2D::6968367054083071904::1602372123::1731115866::1::::<><>::
+2.png::CompressedTexture2D::8610291086448994274::1602372123::1731115866::1::::<><>::
+3.png::CompressedTexture2D::8816175441300104591::1602372123::1731115866::1::::<><>::
+::res://assets/art/Actors/Rock.png/::1731115616
+0.png::CompressedTexture2D::4550630492683889757::1601443646::1731115866::1::::<><>::
+1.png::CompressedTexture2D::4298218335827975165::1601443646::1731115866::1::::<><>::
+2.png::CompressedTexture2D::2273023531095266648::1601443646::1731115866::1::::<><>::
+3.png::CompressedTexture2D::5997471991776112941::1601443646::1731115866::1::::<><>::
+4.png::CompressedTexture2D::3943483939205403612::1601443646::1731115866::1::::<><>::
+5.png::CompressedTexture2D::486925542806416674::1601443646::1731115866::1::::<><>::
+::res://assets/art/Actors/Screaming Fish.png/::1731115632
+0.png::CompressedTexture2D::8758834017240142173::1603915311::1731115866::1::::<><>::
+1.png::CompressedTexture2D::1439509709816027240::1603915311::1731115866::1::::<><>::
+2.png::CompressedTexture2D::854059327597780485::1603915311::1731115866::1::::<><>::
+::res://assets/art/Actors/Squiggle.png/::1731115628
+0.png::CompressedTexture2D::3943327437506035913::1601443747::1731115866::1::::<><>::
+1.png::CompressedTexture2D::3098312129411066426::1601443747::1731115865::1::::<><>::
+2.png::CompressedTexture2D::6220768949472392268::1601443747::1731115865::1::::<><>::
+::res://assets/art/Actors/Yellow Fish Dead.png/::1731115619
+0.png::CompressedTexture2D::218593441932047643::1603675242::1731115865::1::::<><>::
+1.png::CompressedTexture2D::2542793519119418901::1603675242::1731115865::1::::<><>::
+2.png::CompressedTexture2D::8641970305924154550::1603675242::1731115865::1::::<><>::
+3.png::CompressedTexture2D::2732044243905397109::1603675242::1731115865::1::::<><>::
+4.png::CompressedTexture2D::2074814285278562512::1603675242::1731115865::1::::<><>::
+5.png::CompressedTexture2D::5207525824999126789::1603675242::1731115865::1::::<><>::
+::res://assets/art/Actors/Yellow Fish Swimming.png/::1731115621
+0.png::CompressedTexture2D::8191377532753393691::1603674744::1731115865::1::::<><>::
+1.png::CompressedTexture2D::6019284440800278320::1603674744::1731115865::1::::<><>::
+::res://assets/art/Backgrounds/::1731115640
+blue1.png::CompressedTexture2D::2828299385725113951::1601170184::1731115865::1::::<><>::
+Cloud 1.png::CompressedTexture2D::21851566373439503::1601857807::1731115865::1::::<><>::
+Desert-Pyramids.png::CompressedTexture2D::7998243509205142875::1610321386::1731115866::1::::<><>::
+Desert-Sand.png::CompressedTexture2D::5455601530483133071::1610321447::1731115866::1::::<><>::
+Desert-Sun.png::CompressedTexture2D::8229947101275465584::1610321422::1731115865::1::::<><>::
+Greens-Clouds.png::CompressedTexture2D::1393941441905918245::1608790132::1731115865::1::::<><>::
+Greens-Grass.png::CompressedTexture2D::1410638961751896365::1608790114::1731115865::1::::<><>::
+Greens-Mountains.png::CompressedTexture2D::5537196888967475787::1608790089::1731115865::1::::<><>::
+Greens-Sky.png::CompressedTexture2D::3082338671299773673::1608790156::1731115865::1::::<><>::
+Menu.png::CompressedTexture2D::5837091010354252126::1601241443::1731115865::1::::<><>::
+Palm Tree.png::CompressedTexture2D::4448209321321200471::1603666527::1731115865::1::::<><>::
+Planets.png::CompressedTexture2D::3416324324572673464::1609579508::1731115865::1::::<><>::
+space.png::CompressedTexture2D::7236051187155697874::1602213417::1731115865::1::::<><>::
+Stars1.png::CompressedTexture2D::4009188214131235788::1609579544::1731115865::1::::<><>::
+Stars2.png::CompressedTexture2D::3451646751993304351::1609579529::1731115865::1::::<><>::
+Water-Background.png::CompressedTexture2D::397294047588985829::1608948799::1731115865::1::::<><>::
+Water-Bubbles.png::CompressedTexture2D::1183174086108812001::1608948833::1731115865::1::::<><>::
+Water-Stuff.png::CompressedTexture2D::8243242034415847152::1608948816::1731115865::1::::<><>::
+::res://assets/art/Blocks/::1731115630
+Blank.png::CompressedTexture2D::7138460150305173390::1605399061::1731115865::1::::<><>::
+Bricks.png::CompressedTexture2D::7477647784484830262::1601756247::1731115865::1::::<><>::
+Dirt with Rocks End.png::CompressedTexture2D::5071773391315604255::1607896607::1731115865::1::::<><>::
+Dirt with Rocks Left End.png::CompressedTexture2D::3998091860271758322::1607897010::1731115865::1::::<><>::
+Dirt with Rocks.png::CompressedTexture2D::1890857982700125682::1601154295::1731115865::1::::<><>::
+Fridge Corner.png::CompressedTexture2D::8928564713767789041::1607908636::1731115865::1::::<><>::
+Fridge Outside Wall.png::CompressedTexture2D::1523830160030150716::1607908746::1731115865::1::::<><>::
+Fridge Shelf.png::CompressedTexture2D::2851583384805102345::1607907275::1731115865::1::::<><>::
+Fridge Wall Corner.png::CompressedTexture2D::1383712998675926378::1607906547::1731115865::1::::<><>::
+Fridge Wall Inside.png::CompressedTexture2D::60312835262578808::1607906392::1731115865::1::::<><>::
+Grass End.png::CompressedTexture2D::3528541034017417964::1609706570::1731115865::1::::<><>::
+Grass Platform.png::CompressedTexture2D::5796316452417866096::1600642794::1731115865::1::::<><>::
+Grass Slope Inside.png::CompressedTexture2D::4568886650426044938::1605395091::1731115865::1::::<><>::
+Grass Slope.png::CompressedTexture2D::7486453541479844894::1605395117::1731115865::1::::<><>::
+Grass.png::CompressedTexture2D::1128201806156169818::1609706572::1731115865::1::::<><>::
+Green Block.png::CompressedTexture2D::5754014158066150160::1602205354::1731115865::1::::<><>::
+Moon Block.png::CompressedTexture2D::6847040856028170446::1602206182::1731115865::1::::<><>::
+Orange Platform.png::CompressedTexture2D::8263035193386875604::1601160150::1731115865::1::::<><>::
+Sand Dry.png::CompressedTexture2D::4062848112170771287::1625894684::1731115865::1::::<><>::
+Sand End.png::CompressedTexture2D::29901796081050084::1625894429::1731115865::1::::<><>::
+Sand Slope Inside.png::CompressedTexture2D::5712042899760428363::1625894449::1731115865::1::::<><>::
+Sand Slope.png::CompressedTexture2D::8710780166820424742::1625894854::1731115865::1::::<><>::
+Sand with Rocks End.png::CompressedTexture2D::1234126979544515201::1625895262::1731115865::1::::<><>::
+Sand with Rocks Left End.png::CompressedTexture2D::4025181670083794383::1625895264::1731115865::1::::<><>::
+Sand with Rocks.png::CompressedTexture2D::2298783792954576089::1625895264::1731115865::1::::<><>::
+Sand-Bricks.png::CompressedTexture2D::7298621317252313934::1625892459::1731115865::1::::<><>::
+Sand.png::CompressedTexture2D::3568238206666919939::1601442634::1731115865::1::::<><>::
+Shadow.png::CompressedTexture2D::5996905792425237577::1607746108::1731115865::1::::<><>::
+Slime Fridge Bottom.png::CompressedTexture2D::4207213537066936806::1607909253::1731115865::1::::<><>::
+Speckled Dirt End.png::CompressedTexture2D::7502863155403158096::1609708509::1731115865::1::::<><>::
+Speckled Dirt.png::CompressedTexture2D::3133130054237897731::1609706367::1731115865::1::::<><>::
+Speckled Grass End.png::CompressedTexture2D::4521303752586377492::1609708477::1731115865::1::::<><>::
+Speckled Grass.png::CompressedTexture2D::528111092532488634::1609706675::1731115865::1::::<><>::
+Speckled Sand.png::CompressedTexture2D::8698435935094080618::1625893956::1731115865::1::::<><>::
+Water.png::CompressedTexture2D::5235792179812728896::1601442838::1731115865::1::::<><>::
+::res://assets/art/Blocks/Mystery Block.png/::1731115619
+0.png::CompressedTexture2D::5575264564197488588::1607745245::1731115865::1::::<><>::
+1.png::CompressedTexture2D::2677453741092526561::1607745245::1731115865::1::::<><>::
+2.png::CompressedTexture2D::9174636793213054180::1607745245::1731115865::1::::<><>::
+3.png::CompressedTexture2D::6011245848476226370::1607745245::1731115865::1::::<><>::
+4.png::CompressedTexture2D::2729604379434020476::1607745245::1731115865::1::::<><>::
+5.png::CompressedTexture2D::2600019521707894280::1607745245::1731115865::1::::<><>::
+6.png::CompressedTexture2D::7586866614576751411::1607745245::1731115865::1::::<><>::
+7.png::CompressedTexture2D::1864149414273755405::1607745245::1731115865::1::::<><>::
+8.png::CompressedTexture2D::1156489258024757379::1607745245::1731115865::1::::<><>::
+9.png::CompressedTexture2D::3557291748501074525::1607745245::1731115865::1::::<><>::
+10.png::CompressedTexture2D::1288529327953975255::1607745245::1731115865::1::::<><>::
+11.png::CompressedTexture2D::4784629252060983358::1607745245::1731115865::1::::<><>::
+12.png::CompressedTexture2D::397771184195337472::1607745245::1731115865::1::::<><>::
+13.png::CompressedTexture2D::4226379487421353548::1607745245::1731115865::1::::<><>::
+14.png::CompressedTexture2D::1210802842970042328::1607745245::1731115865::1::::<><>::
+::res://assets/art/Blocks/Water Top.png/::1731115616
+0.png::CompressedTexture2D::633047238307605876::1601442099::1731115865::1::::<><>::
+1.png::CompressedTexture2D::8332935659281176916::1601442099::1731115865::1::::<><>::
+::res://assets/art/Fonts/::1731115636
+BitPickle.ttf::FontFile::1979135779901079482::1602455846::1731115865::1::::<><>::
+::res://assets/art/Lighting/::1731115637
+circle-light.png::CompressedTexture2D::2679433456355484625::1608495477::1731115865::1::::<><>::
+yellow.png::CompressedTexture2D::731361093514273167::1608498642::1731115865::1::::<><>::
+::res://assets/art/Objects/::1731115633
+Big TV.png::CompressedTexture2D::8255435946289822315::1602371442::1731115865::1::::<><>::
+Corn Cob.png::CompressedTexture2D::6956467032669686580::1603497446::1731115865::1::::<><>::
+Corn.png::CompressedTexture2D::4513580674871303317::1603236680::1731115865::1::::<><>::
+Empty Jar.png::CompressedTexture2D::8923802656344864818::1603087977::1731115865::1::::<><>::
+Fry.png::CompressedTexture2D::1416300281028524222::1607896050::1731115865::1::::<><>::
+Heart.png::CompressedTexture2D::8332121215540800176::1604264098::1731115865::1::::<><>::
+Ice Cube.png::CompressedTexture2D::1619768832744861423::1607906896::1731115865::1::::<><>::
+Lightbulb.png::CompressedTexture2D::2288192172939876325::1608521402::1731115865::1::::<><>::
+Null Block.png::CompressedTexture2D::1715777610852460867::1603497763::1731115865::1::::<><>::
+Pepper Shaker.png::CompressedTexture2D::6366147871198364866::1603504451::1731115865::1::::<><>::
+Peppercorn.png::CompressedTexture2D::1245338308269376898::1602984883::1731115865::1::::<><>::
+Pickle Jar.png::CompressedTexture2D::7005284476803145585::1600643181::1731115865::1::::<><>::
+Slime Ball.png::CompressedTexture2D::5974453343194127023::1607909393::1731115865::1::::<><>::
+Slime.png::CompressedTexture2D::8659760114771739364::1607909333::1731115865::1::::<><>::
+Spikes.png::CompressedTexture2D::4249795515040712863::1608773824::1731115865::1::::<><>::
+::res://assets/art/Objects/Checkpoint.png/::1731115622
+0.png::CompressedTexture2D::830748746675834856::1604108701::1731115865::1::::<><>::
+1.png::CompressedTexture2D::831531026151348223::1604110397::1731115865::1::::<><>::
+2.png::CompressedTexture2D::6018049576706708245::1604110397::1731115865::1::::<><>::
+3.png::CompressedTexture2D::814427313722148421::1604110397::1731115865::1::::<><>::
+4.png::CompressedTexture2D::8682822698447870327::1604110397::1731115865::1::::<><>::
+5.png::CompressedTexture2D::4012167319480509154::1604110397::1731115865::1::::<><>::
+6.png::CompressedTexture2D::5162397467948218750::1604110397::1731115865::1::::<><>::
+::res://assets/art/Objects/chicken-leg/::1731115625
+Chicken-Leg1.png::CompressedTexture2D::7686111797578825068::1608691711::1731115865::1::::<><>::
+Chicken-Leg2.png::CompressedTexture2D::371329675070684734::1608691711::1731115865::1::::<><>::
+Chicken-Leg3.png::CompressedTexture2D::7979078281056463504::1608691711::1731115865::1::::<><>::
+Chicken-Leg4.png::CompressedTexture2D::3612246006026391757::1608691711::1731115865::1::::<><>::
+::res://assets/art/Objects/Green Heart.png/::1731115618
+0.png::CompressedTexture2D::4552011927258511045::1606690549::1731115865::1::::<><>::
+1.png::CompressedTexture2D::3336142872766894228::1606690549::1731115865::1::::<><>::
+2.png::CompressedTexture2D::7520902088434486558::1606690549::1731115865::1::::<><>::
+3.png::CompressedTexture2D::8043077439050240989::1606690549::1731115865::1::::<><>::
+4.png::CompressedTexture2D::4382718321261926389::1606690549::1731115865::1::::<><>::
+5.png::CompressedTexture2D::6817009959594239779::1606690549::1731115865::1::::<><>::
+::res://assets/art/Objects/Kelp Top.png/::1731115616
+0.png::CompressedTexture2D::3247604876893328197::1601432114::1731115865::1::::<><>::
+1.png::CompressedTexture2D::7547480786275478697::1601432114::1731115865::1::::<><>::
+::res://assets/art/Objects/Kelp.png/::1731115616
+0.png::CompressedTexture2D::82635877286835765::1601431757::1731115865::1::::<><>::
+1.png::CompressedTexture2D::6793859316116048886::1601431757::1731115865::1::::<><>::
+::res://assets/art/Objects/Pickle Jar Wiggle.png/::1731115621
+0.png::CompressedTexture2D::3784698454015581552::1601152973::1731115865::1::::<><>::
+1.png::CompressedTexture2D::2537992163701951833::1601152973::1731115865::1::::<><>::
+2.png::CompressedTexture2D::6631841680060437776::1601152973::1731115865::1::::<><>::
+3.png::CompressedTexture2D::5785049903375181514::1601152973::1731115865::1::::<><>::
+4.png::CompressedTexture2D::8489091157894263600::1601152973::1731115865::1::::<><>::
+5.png::CompressedTexture2D::6600790340937878978::1601152973::1731115865::1::::<><>::
+6.png::CompressedTexture2D::3233416047935714437::1601152973::1731115865::1::::<><>::
+7.png::CompressedTexture2D::4412948549917815940::1601152973::1731115865::1::::<><>::
+8.png::CompressedTexture2D::2819900789706701940::1601152973::1731115865::1::::<><>::
+9.png::CompressedTexture2D::3355061577733527621::1601152973::1731115865::1::::<><>::
+10.png::CompressedTexture2D::801300863409972006::1601152973::1731115865::1::::<><>::
+11.png::CompressedTexture2D::9182533702351210348::1601152973::1731115865::1::::<><>::
+::res://assets/art/UI/::1731115632
+Ben Stark Studios.png::CompressedTexture2D::9059674480317784939::1604268639::1731115865::1::::<><>::
+Checkbox1.png::CompressedTexture2D::4859289865874203::1609110043::1731115865::1::::<><>::
+Checkbox2.png::CompressedTexture2D::6967330063600866967::1609110043::1731115865::1::::<><>::
+Item Box.png::CompressedTexture2D::2268256503656938802::1609130594::1731115865::1::::<><>::
+Slider Ball.png::CompressedTexture2D::3949711256008748793::1609550232::1731115865::1::::<><>::
+Slider.png::CompressedTexture2D::5271794943568538089::1609550063::1731115865::1::::<><>::
+top-bar.png::CompressedTexture2D::1811712360398274362::1608707732::1731115865::1::::<><>::
+::res://assets/art/UI/Green Button.png/::1731115616
+0.png::CompressedTexture2D::2171717686281483047::1601247584::1731115865::1::::<><>::
+1.png::CompressedTexture2D::4941946639444330392::1601247584::1731115865::1::::<><>::
+2.png::CompressedTexture2D::6290624396790645670::1601247584::1731115865::1::::<><>::
+::res://assets/art/UI/Quit Button.png/::1731115616
+0.png::CompressedTexture2D::8489516297487356768::1601246677::1731115865::1::::<><>::
+1.png::CompressedTexture2D::2099885083427648630::1601246677::1731115865::1::::<><>::
+2.png::CompressedTexture2D::6841028496555093081::1601246677::1731115865::1::::<><>::
+::res://assets/audio/::1731115824
+Mushroom Island.ogg::AudioStreamOggVorbis::1344273990117386374::1603063995::1731115865::1::::<><>::
+Pyramid Bop-Loop.ogg::AudioStreamOggVorbis::1776287162798468835::1610322513::1731115865::1::::<><>::
+The Adventure Begins.ogg::AudioStreamOggVorbis::5281469744979778455::1600639292::1731115865::1::::<><>::
+Ultimate Sword.ogg::AudioStreamOggVorbis::3821570986249647510::1600639271::1731115865::1::::<><>::
+Under the Sea Prom.ogg::AudioStreamOggVorbis::8344764369234141117::1609543665::1731115865::1::::<><>::
+Vigilante City Loop.ogg::AudioStreamOggVorbis::4299607129297313296::1602212919::1731115865::1::::<><>::
+::res://assets/audio/effects/::1731115640
+bell.wav::AudioStreamWAV::3110530419655576082::1603574413::1731115867::1::::<><>::
+Block Break.wav::AudioStreamWAV::6733667399169885888::1603595110::1731115867::1::::<><>::
+Bump.wav::AudioStreamWAV::7028969285369786953::1603595132::1731115867::1::::<><>::
+chomp.wav::AudioStreamWAV::8162983681279143143::1603919528::1731115867::1::::<><>::
+Dead_Music.wav::AudioStreamWAV::4300628422742169215::1603593708::1731115867::1::::<><>::
+die1.wav::AudioStreamWAV::8648368041301215886::1603673919::1731115867::1::::<><>::
+die2.wav::AudioStreamWAV::5921874278604750502::1603572864::1731115867::1::::<><>::
+die3.wav::AudioStreamWAV::7162628082977345716::1603067355::1731115867::1::::<><>::
+eat.wav::AudioStreamWAV::316257382555953524::1608845002::1731115867::1::::<><>::
+Fireball.wav::AudioStreamWAV::5275622592763378138::1603595192::1731115867::1::::<><>::
+hup.wav::AudioStreamWAV::3436663723930662360::1608845001::1731115867::1::::<><>::
+jump2.wav::AudioStreamWAV::8984028554053755748::1603574027::1731115867::1::::<><>::
+jump.wav::AudioStreamWAV::651526172015482143::1603065847::1731115867::1::::<><>::
+ohno.wav::AudioStreamWAV::4741761336484847232::1603065726::1731115867::1::::<><>::
+ow.wav::AudioStreamWAV::7987522973759456188::1608845002::1731115867::1::::<><>::
+owowow.wav::AudioStreamWAV::7905351079868393052::1608845002::1731115867::1::::<><>::
+Pause.wav::AudioStreamWAV::459692093220509594::1603595216::1731115867::1::::<><>::
+PowerUp.wav::AudioStreamWAV::8632615417140566508::1603595247::1731115867::1::::<><>::
+shoot2.wav::AudioStreamWAV::4302284458244113223::1603573957::1731115867::1::::<><>::
+shoot.wav::AudioStreamWAV::4935722935170928843::1603065605::1731115867::1::::<><>::
+squish.wav::AudioStreamWAV::8525506689848155626::1603673964::1731115867::1::::<><>::
+Swim.wav::AudioStreamWAV::529267832115662272::1603616552::1731115867::1::::<><>::
+Walk2.wav::AudioStreamWAV::7691128014173049878::1603593804::1731115867::1::::<><>::
+walk.ogg::AudioStreamOggVorbis::4804924441484422709::1603061362::1731115865::1::::<><>::
+yeah.wav::AudioStreamWAV::1389444361998853735::1604109616::1731115867::1::::<><>::
+::res://assets/Backgrounds/::1731115643
+Desert-Pyramids.png::CompressedTexture2D::4449787180777501421::1610321352::1731115866::1::::<><>::
+Desert-Sand.png::CompressedTexture2D::2782714648698827901::1610321268::1731115866::1::::<><>::
+Desert-Sun.png::CompressedTexture2D::1746612425708054576::1610321309::1731115866::1::::<><>::
+::res://src/::1731115733
+AudioManager.gd::GDScript::-1::1731115733::0::1::::<>Node<>::
+Main.gd::GDScript::-1::1633405144::0::1::::<>Node2D<>::
+StateMachine.gd::GDScript::-1::1604129198::0::1::::StateMachine<>Node<>::
+::res://src/Actors/::1731115633
+Angry Tomato.gd::GDScript::-1::1609710538::0::1::::<>KinematicBody2D<>::
+Angry Tomato.tscn::PackedScene::-1::1608846834::0::1::::<><>::res://assets/art/Actors/Angry Tomato.png/2.png<>res://assets/art/Actors/Angry Tomato.png/3.png<>res://assets/art/Actors/Angry Tomato.png/1.png<>res://assets/art/Actors/Angry Tomato.png/4.png<>res://assets/art/Actors/Angry Tomato.png/0.png<>res://src/Actors/Angry Tomato.gd<>res://assets/art/Actors/Angry Tomato Splat.png/1.png<>res://assets/art/Actors/Angry Tomato Splat.png/0.png<>res://assets/art/Actors/Angry Tomato Splat.png/2.png
+Fish.gd::GDScript::-1::1608764389::0::1::::<>KinematicBody2D<>::
+Fish.tscn::PackedScene::-1::1608764404::0::1::::<><>::res://assets/art/Actors/Yellow Fish Swimming.png/1.png<>res://src/Actors/Fish.gd<>res://assets/art/Actors/Yellow Fish Swimming.png/0.png<>res://assets/art/Actors/Yellow Fish Dead.png/5.png<>res://assets/art/Actors/Yellow Fish Dead.png/3.png<>res://assets/art/Actors/Yellow Fish Dead.png/4.png<>res://assets/art/Actors/Yellow Fish Dead.png/0.png<>res://assets/art/Actors/Yellow Fish Dead.png/1.png<>res://assets/art/Actors/Yellow Fish Dead.png/2.png<>res://assets/art/Actors/Screaming Fish.png/2.png<>res://assets/art/Actors/Screaming Fish.png/1.png<>res://assets/art/Actors/Screaming Fish.png/0.png
+Onionette.gd::GDScript::-1::1608764567::0::1::::<>KinematicBody2D<>::
+Onionette.tscn::PackedScene::-1::1609710330::0::1::::<><>::res://assets/art/Actors/Onionette.png/1.png<>res://assets/art/Actors/Onionette.png/0.png<>res://assets/art/Actors/Onionette.png/5.png<>res://assets/art/Actors/Onionette.png/3.png<>res://assets/art/Actors/Onionette.png/2.png<>res://assets/art/Actors/Onionette.png/4.png<>res://assets/art/Actors/Onionette.png/6.png<>res://assets/art/Actors/Onionette.png/7.png<>res://src/Actors/Onionette.gd<>res://assets/art/Actors/Onionette Dead.png/2.png<>res://assets/art/Actors/Onionette Dead.png/1.png<>res://assets/art/Actors/Onionette Dead.png/3.png<>res://assets/art/Actors/Onionette Dead.png/0.png
+Player.gd::GDScript::-1::1609707350::0::1::::<>KinematicBody2D<>::
+Player.tscn::PackedScene::-1::1609381503::0::1::::<><>::res://assets/art/Actors/Hot Picle Running/Hot Pickle Running6.png<>res://src/Actors/Player.gd<>res://assets/art/Actors/Hot Picle Running/Hot Pickle Running5.png<>res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle1.png<>res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle5.png<>res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle6.png<>res://assets/art/Actors/Hot Picle Running/Hot Pickle Running1.png<>res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle3.png<>res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle4.png<>res://assets/art/Actors/Hot Pickle Shoot.png/4.png<>res://assets/art/Actors/Hot Pickle Fall/Hot Pickle Fall2.png<>res://assets/art/Actors/Hot Pickle Run.png/6.png<>res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle7.png<>res://assets/art/Actors/Hot Pickle Run.png/8.png<>res://assets/art/Actors/Hot Pickle Run.png/9.png<>res://assets/art/Actors/Hot Pickle Fall/Hot Pickle Fall1.png<>res://assets/art/Actors/Hot Pickle Wall Slide/Hot Pickle Wall Slide1.png<>res://assets/art/Actors/Hot Pickle Shoot.png/5.png<>res://assets/art/Actors/Hot Pickle Shoot.png/2.png<>res://assets/art/Actors/Hot Pickle Dead.png<>res://src/Actors/player_dead.gd<>res://src/Actors/PlayerSM.gd<>res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle8.png<>res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle2.png<>res://assets/art/Actors/Hot Picle Running/Hot Pickle Running2.png<>res://assets/art/Actors/Hot Pickle Run.png/4.png<>res://assets/art/Actors/Hot Pickle Run.png/5.png<>res://assets/art/Actors/Hot Picle Running/Hot Pickle Running3.png<>res://assets/art/Actors/Hot Picle Running/Hot Pickle Running4.png<>res://assets/art/Actors/Hot Pickle Jump/Hot Pickle Jump1.png<>res://assets/art/Actors/Hot Pickle Jump/Hot Pickle Jump2.png
+PlayerSM.gd::GDScript::-1::1609707507::0::1::::<>Node<>::
+player_dead.gd::GDScript::-1::1603058474::0::1::::<>Sprite<>::
+Rock.tscn::PackedScene::-1::1607825127::0::1::::<><>::res://assets/art/Actors/Rock.png/5.png<>res://assets/art/Actors/Rock.png/3.png<>res://assets/art/Actors/Rock.png/2.png<>res://assets/art/Actors/Rock.png/0.png<>res://assets/art/Actors/Rock.png/4.png<>res://assets/art/Actors/Rock.png/1.png
+Slime.gd::GDScript::-1::1607911721::0::1::::<>KinematicBody2D<>::
+Slime.tscn::PackedScene::-1::1608496715::0::1::::<><>::res://src/Actors/Slime.gd<>res://assets/art/Objects/Slime.png
+Squiggle.gd::GDScript::-1::1604174349::0::1::::<>KinematicBody2D<>::
+Squiggle.tscn::PackedScene::-1::1607825179::0::1::::<><>::res://assets/art/Actors/Squiggle.png/0.png<>res://assets/art/Actors/Squiggle.png/1.png<>res://assets/art/Actors/Squiggle.png/2.png<>res://src/Actors/Squiggle.gd
+Temp-Player.gd::GDScript::-1::1607300297::0::1::::<>KinematicBody2D<>::
+Temp-Player.tscn::PackedScene::-1::1607302372::0::1::::<><>::res://assets/art/Actors/Hot Pickle Run.png/12.png<>res://src/Actors/Temp-Player.gd<>res://assets/art/Actors/Hot Pickle Run.png/15.png<>res://assets/art/Actors/Hot Pickle Run.png/18.png<>res://assets/art/Actors/Hot Pickle Run.png/19.png<>res://assets/art/Actors/Hot Pickle Run.png/11.png<>res://assets/art/Actors/Hot Pickle Run.png/10.png<>res://assets/art/Actors/Hot Pickle Run.png/17.png<>res://assets/art/Actors/Hot Pickle Run.png/13.png<>res://assets/art/Actors/Hot Pickle Run.png/14.png<>res://assets/art/Actors/Hot Pickle Run.png/16.png
+::res://src/Background/::1731115629
+Cloud 1.gd::GDScript::-1::1606762422::0::1::::<>Area2D<>::
+Cloud 1.tscn::PackedScene::-1::1608520087::0::1::::<><>::res://assets/art/Backgrounds/Cloud 1.png<>res://src/Background/Cloud 1.gd
+Desert.tscn::PackedScene::-1::1610322359::0::1::::<><>::res://assets/art/Backgrounds/Desert-Pyramids.png<>res://assets/art/Backgrounds/Desert-Sand.png<>res://assets/art/Backgrounds/Desert-Sun.png
+Greens.tscn::PackedScene::-1::1609623895::0::1::::<><>::res://assets/art/Backgrounds/Greens-Mountains.png<>res://assets/art/Backgrounds/Greens-Sky.png<>res://assets/art/Backgrounds/Greens-Clouds.png
+Palm_tree.tscn::PackedScene::-1::1603666643::0::1::::<><>::res://assets/art/Backgrounds/Palm Tree.png
+Space.tscn::PackedScene::-1::1609623620::0::1::::<><>::res://assets/art/Backgrounds/Planets.png<>res://assets/art/Backgrounds/Stars2.png<>res://assets/art/Backgrounds/Stars1.png
+Water.tscn::PackedScene::-1::1609623742::0::1::::<><>::res://assets/art/Backgrounds/Water-Background.png<>res://assets/art/Backgrounds/Water-Bubbles.png<>res://assets/art/Backgrounds/Water-Stuff.png
+::res://src/Blocks/::1731115633
+Bricks.tscn::PackedScene::-1::1601878643::0::1::::<><>::res://assets/art/Blocks/Bricks.png
+Dirt with Rocks.tscn::PackedScene::-1::1601154503::0::1::::<><>::res://assets/art/Blocks/Dirt with Rocks.png
+DropZone.gd::GDScript::-1::1608846886::0::1::::<>KinematicBody2D<>::
+DropZone.tscn::PackedScene::-1::1608846773::0::1::::<><>::res://src/Blocks/DropZone.gd
+Empty Block.tscn::PackedScene::-1::1607824622::0::1::::<><>::
+Grass End.tscn::PackedScene::-1::1603505203::0::1::::<><>::res://assets/art/Blocks/Grass End.png
+Grass Platform.tscn::PackedScene::-1::1600647583::0::1::::<><>::res://assets/art/Blocks/Grass Platform.png
+Grass.tscn::PackedScene::-1::1601169591::0::1::::<><>::res://assets/art/Blocks/Grass.png
+Green Block.tscn::PackedScene::-1::1602208139::0::1::::<><>::res://assets/art/Blocks/Green Block.png
+Hidden Block.gd::GDScript::-1::1608708386::0::1::::<>KinematicBody2D<>::
+Hidden Block.tscn::PackedScene::-1::1608708591::0::1::::<><>::res://src/Blocks/Hidden Block.gd<>res://assets/art/Blocks/Blank.png<>res://assets/art/Objects/Null Block.png
+Kelp Top.tscn::PackedScene::-1::1601523175::0::1::::<><>::res://assets/art/Objects/Kelp Top.png/1.png<>res://assets/art/Objects/Kelp Top.png/0.png
+Kelp.tscn::PackedScene::-1::1601433137::0::1::::<><>::res://assets/art/Objects/Kelp.png/0.png<>res://assets/art/Objects/Kelp.png/1.png
+Moon Block.tscn::PackedScene::-1::1602213121::0::1::::<><>::res://assets/art/Blocks/Moon Block.png
+Mystery Block.gd::GDScript::-1::1608847840::0::1::::<>KinematicBody2D<>::
+Mystery Block.tscn::PackedScene::-1::1609548383::0::1::::<><>::res://assets/art/Blocks/Mystery Block.png/1.png<>res://assets/art/Blocks/Mystery Block.png/4.png<>res://assets/art/Blocks/Mystery Block.png/0.png<>res://assets/art/Blocks/Mystery Block.png/7.png<>res://assets/art/Blocks/Mystery Block.png/6.png<>res://assets/art/Blocks/Mystery Block.png/5.png<>res://assets/art/Blocks/Mystery Block.png/3.png<>res://assets/art/Blocks/Mystery Block.png/8.png<>res://assets/art/Blocks/Mystery Block.png/9.png<>res://assets/art/Blocks/Mystery Block.png/10.png<>res://assets/art/Blocks/Mystery Block.png/11.png<>res://assets/art/Blocks/Mystery Block.png/12.png<>res://assets/art/Blocks/Mystery Block.png/13.png<>res://assets/art/Blocks/Mystery Block.png/14.png<>res://assets/art/Blocks/Mystery Block.png/2.png<>res://src/Blocks/Mystery Block.gd<>res://assets/art/Objects/Null Block.png
+Sand.tscn::PackedScene::-1::1601444251::0::1::::<><>::res://assets/art/Blocks/Sand.png
+Water Top.tscn::PackedScene::-1::1607824013::0::1::::<><>::res://assets/art/Blocks/Water Top.png/1.png<>res://assets/art/Blocks/Water Top.png/0.png
+Water.tscn::PackedScene::-1::1601521814::0::1::::<><>::res://assets/art/Blocks/Water.png
+::res://src/Level/::1731115785
+Fridge.gd::GDScript::-1::1608498095::0::1::::<>Node2D<>::
+Fridge.tscn::PackedScene::-1::1609543529::0::1::::<><>::res://src/UserInterface/PlayerElements.tscn<>res://src/Actors/Slime.tscn<>res://src/Objects/Pickle Jar.tscn<>res://src/Objects/Lightbulb.tscn<>res://src/Actors/Player.tscn<>res://assets/art/Lighting/yellow.png<>res://src/Objects/Moving Platform.tscn<>res://src/Objects/Green Heart.tscn<>res://src/Level/Fridge.gd<>res://src/Actors/Angry Tomato.tscn<>res://src/Actors/Onionette.tscn<>res://src/Blocks/DropZone.tscn<>res://src/Blocks/Hidden Block.tscn<>res://src/Blocks/Mystery Block.tscn<>res://src/Level/Mushroom Island.tscn<>res://src/Objects/Level_Complete.tscn<>res://src/Objects/Checkpoint.tscn<>res://src/Objects/Chicken-Leg.tscn<>res://src/Level/TileMap.tres<>res://src/Level/ScreenShake.gd
+Greens4.gd::GDScript::-1::1606769371::0::1::::<>Node2D<>::
+Greens4.tscn::PackedScene::-1::1633405337::0::1::::<><>::res://src/Objects/Pickle Jar.tscn<>res://src/Actors/Player.tscn<>res://src/Level/TileMap.tres<>res://src/UserInterface/PlayerElements.tscn<>res://src/Level/Mushroom Island.tscn<>res://src/Level/World1/Greens.gd<>res://src/Background/Palm_tree.tscn<>res://src/Actors/Angry Tomato.tscn<>res://src/Blocks/Mystery Block.tscn<>res://assets/art/Backgrounds/blue1.png<>res://src/Objects/Moving Platform.tscn<>res://src/Blocks/Empty Block.tscn<>res://src/Background/Cloud 1.tscn<>res://src/Objects/Checkpoint.tscn<>res://src/Blocks/DropZone.tscn<>res://src/Level/ScreenShake.gd<>res://src/Objects/Level_Complete.tscn<>res://src/Blocks/Hidden Block.tscn<>res://src/Actors/Onionette.tscn<>res://src/Objects/Green Heart.tscn
+Moon Level.gd::GDScript::-1::1606769361::0::1::::<>Node2D<>::
+Moon Level.tscn::PackedScene::-1::1609579756::0::1::::<><>::res://assets/art/Actors/Space Helmet.png<>res://src/Actors/Player.tscn<>res://src/Level/TileMap.tres<>res://src/Blocks/Empty Block.tscn<>res://src/Objects/Pickle Jar.tscn<>res://src/Background/Space.tscn<>res://src/Actors/Rock.tscn<>res://src/Objects/Moving Platform.tscn<>res://src/Level/Moon Song.tscn<>res://src/Level/Moon Song.gd<>res://src/Actors/Angry Tomato.tscn<>res://src/Blocks/DropZone.tscn<>res://src/Objects/Level_Complete.tscn<>res://src/Blocks/Mystery Block.tscn<>res://src/Level/Moon Level.gd<>res://src/UserInterface/PlayerElements.tscn
+Moon Song.gd::GDScript::-1::1602223646::0::1::::<>AudioStreamPlayer<>::
+Moon Song.tscn::PackedScene::-1::1609551414::0::1::::<><>::res://assets/audio/Vigilante City Loop.ogg
+Mushroom Island.tscn::PackedScene::-1::1609551401::0::1::::<><>::res://assets/audio/Mushroom Island.ogg
+OverworldPlayer.gd::GDScript::-1::1603927796::0::1::::<>AnimatedSprite<>::
+Pyramid Bop.tscn::PackedScene::-1::1610322580::0::1::::<><>::res://assets/audio/Pyramid Bop-Loop.ogg
+ScreenShake.gd::GDScript::-1::1603087267::0::1::::<>Node2D<>::
+Templ Scene.tscn::PackedScene::-1::1607895441::0::1::::<><>::res://src/Actors/Temp-Player.tscn<>res://src/Level/TileMap.tres<>res://src/Objects/Moving Platform.tscn
+TileMap.tres::TileSet::-1::1633404949::0::1::::<><>::res://assets/art/Blocks/Grass.png<>res://assets/art/Blocks/Bricks.png<>res://assets/art/Blocks/Moon Block.png<>res://assets/art/Blocks/Green Block.png<>res://assets/art/Blocks/Grass End.png<>res://assets/art/Blocks/Sand.png<>res://assets/art/Blocks/Dirt with Rocks.png<>res://assets/art/Blocks/Grass Slope Inside.png<>res://assets/art/Blocks/Grass Slope.png<>res://assets/art/Blocks/Dirt with Rocks End.png<>res://assets/art/Blocks/Dirt with Rocks Left End.png<>res://assets/art/Blocks/Fridge Shelf.png<>res://assets/art/Blocks/Fridge Wall Corner.png<>res://assets/art/Blocks/Fridge Wall Inside.png<>res://assets/art/Blocks/Fridge Corner.png<>res://assets/art/Blocks/Fridge Outside Wall.png<>res://assets/art/Blocks/Slime Fridge Bottom.png<>res://assets/art/Blocks/Speckled Dirt End.png<>res://assets/art/Blocks/Speckled Dirt.png<>res://assets/art/Blocks/Speckled Grass.png<>res://assets/art/Blocks/Speckled Grass End.png<>res://assets/art/Blocks/Sand Dry.png<>res://assets/art/Blocks/Sand End.png<>res://assets/art/Blocks/Sand Slope Inside.png<>res://assets/art/Blocks/Sand Slope.png<>res://assets/art/Blocks/Sand-Bricks.png<>res://assets/art/Blocks/Speckled Sand.png
+TileMap.tscn::PackedScene::-1::1603663351::0::1::::<><>::res://src/Level/TileMap.tres
+Ultimate Sword Music.gd::GDScript::-1::1600645253::0::1::::<>AudioStreamPlayer<>::
+Ultimate Sword Music.tscn::PackedScene::-1::1609551387::0::1::::<><>::res://src/Level/Ultimate Sword Music.gd<>res://assets/audio/Ultimate Sword.ogg
+WaterMusic.tscn::PackedScene::-1::1609551394::0::1::::<><>::res://assets/audio/Under the Sea Prom.ogg
+::res://src/Level/World1/::1731115636
+Desert.gd::GDScript::-1::1610321546::0::1::::<>Node2D<>::
+Desert.tscn::PackedScene::-1::1625895129::0::1::::<><>::res://src/UserInterface/PlayerElements.tscn<>res://src/Background/Desert.tscn<>res://src/Objects/Pickle Jar.tscn<>res://src/Objects/Chicken-Leg.tscn<>res://src/Actors/Player.tscn<>res://src/Actors/Rock.tscn<>res://src/Objects/Moving Platform.tscn<>res://src/Objects/Green Heart.tscn<>res://src/Blocks/Empty Block.tscn<>res://src/Actors/Angry Tomato.tscn<>res://src/Actors/Onionette.tscn<>res://src/Blocks/DropZone.tscn<>res://src/Level/Pyramid Bop.tscn<>res://src/Blocks/Mystery Block.tscn<>res://src/Objects/Level_Complete.tscn<>res://src/Objects/Checkpoint.tscn<>res://src/UserInterface/PauseScreen.tscn<>res://src/Level/TileMap.tres<>res://src/Level/World1/Desert.gd<>res://src/Level/ScreenShake.gd
+Greens.gd::GDScript::-1::1609140854::0::1::::<>Node2D<>::
+Greens.tscn::PackedScene::-1::1633405586::0::1::::<><>::res://src/UserInterface/PlayerElements.tscn<>res://src/Background/Greens.tscn<>res://src/Objects/Pickle Jar.tscn<>res://src/Objects/Chicken-Leg.tscn<>res://src/Actors/Player.tscn<>res://src/Actors/Rock.tscn<>res://src/Objects/Moving Platform.tscn<>res://src/Objects/Green Heart.tscn<>res://src/Blocks/Empty Block.tscn<>res://src/Actors/Angry Tomato.tscn<>res://src/Actors/Onionette.tscn<>res://src/Blocks/DropZone.tscn<>res://src/Blocks/Mystery Block.tscn<>res://src/Level/Mushroom Island.tscn<>res://src/Objects/Level_Complete.tscn<>res://src/Objects/Checkpoint.tscn<>res://src/UserInterface/PauseScreen.tscn<>res://src/Level/TileMap.tres<>res://src/Level/World1/Greens.gd<>res://src/Level/ScreenShake.gd
+Overworld-1.tscn::PackedScene::-1::1607202850::0::1::::<><>::res://assets/art/Actors/Player/Hot Pickle.png<>res://src/Level/OverworldPlayer.gd
+Water Level.gd::GDScript::-1::1606769687::0::1::::<>Node2D<>::
+Water Level.tscn::PackedScene::-1::1633405718::0::1::::<><>::res://src/Actors/Player.tscn<>res://src/Background/Water.tscn<>res://src/Level/TileMap.tres<>res://src/Blocks/Kelp.tscn<>res://src/Actors/Squiggle.tscn<>res://src/Blocks/Water Top.tscn<>res://src/Actors/Rock.tscn<>res://src/Blocks/Kelp Top.tscn<>res://src/Actors/Fish.tscn<>res://src/Blocks/Mystery Block.tscn<>res://src/Blocks/DropZone.tscn<>res://src/Objects/Level_Complete.tscn<>res://src/Objects/Pickle Jar.tscn<>res://src/Blocks/Empty Block.tscn<>res://assets/art/Backgrounds/blue1.png<>res://src/Level/World1/Water Level.gd<>res://src/Objects/Checkpoint.tscn<>res://assets/art/Actors/Snorkel.png<>res://src/UserInterface/PlayerElements.tscn<>res://src/Level/WaterMusic.tscn
+::res://src/Objects/::1731115632
+Checkpoint.gd::GDScript::-1::1606622148::0::1::::<>Area2D<>::
+Checkpoint.tscn::PackedScene::-1::1609710148::0::1::::<><>::res://src/Objects/Checkpoint.gd<>res://assets/art/Objects/Checkpoint.png/0.png<>res://assets/art/Objects/Checkpoint.png/1.png<>res://assets/art/Objects/Checkpoint.png/6.png<>res://assets/art/Objects/Checkpoint.png/2.png<>res://assets/art/Objects/Checkpoint.png/4.png<>res://assets/art/Objects/Checkpoint.png/5.png<>res://assets/art/Objects/Checkpoint.png/3.png
+Chicken-Leg.gd::GDScript::-1::1608846377::0::1::::<>Area2D<>::
+Chicken-Leg.tscn::PackedScene::-1::1608693293::0::1::::<><>::res://assets/art/Objects/chicken-leg/Chicken-Leg3.png<>res://assets/art/Objects/chicken-leg/Chicken-Leg4.png<>res://assets/art/Objects/chicken-leg/Chicken-Leg1.png<>res://assets/art/Objects/chicken-leg/Chicken-Leg2.png<>res://src/Objects/Chicken-Leg.gd
+Corn.gd::GDScript::-1::1603920144::0::1::::<>Area2D<>::
+Corn.tscn::PackedScene::-1::1608497493::0::1::::<><>::res://assets/art/Objects/Corn.png<>res://src/Objects/Corn.gd
+CornCob.gd::GDScript::-1::1603618524::0::1::::<>RigidBody2D<>::
+CornCob.tscn::PackedScene::-1::1608497372::0::1::::<><>::res://assets/art/Objects/Corn Cob.png<>res://src/Objects/CornCob.gd
+Green Heart.gd::GDScript::-1::1606691926::0::1::::<>Area2D<>::
+Green Heart.tscn::PackedScene::-1::1608692104::0::1::::<><>::res://assets/art/Objects/Green Heart.png/0.png<>res://src/Objects/Green Heart.gd<>res://assets/art/Objects/Green Heart.png/5.png<>res://assets/art/Objects/Green Heart.png/1.png<>res://assets/art/Objects/Green Heart.png/4.png<>res://assets/art/Objects/Green Heart.png/2.png<>res://assets/art/Objects/Green Heart.png/3.png
+Level_Complete.gd::GDScript::-1::1606769505::0::1::::<>Area2D<>::
+Level_Complete.tscn::PackedScene::-1::1607824739::0::1::::<><>::res://assets/art/Objects/Empty Jar.png<>res://src/Objects/Level_Complete.gd
+Lightbulb.tscn::PackedScene::-1::1608763666::0::1::::<><>::res://assets/art/Lighting/circle-light.png<>res://assets/art/Objects/Lightbulb.png
+Moving Platform.gd::GDScript::-1::1607295174::0::1::::<>Node2D<>::
+Moving Platform.tscn::PackedScene::-1::1608497235::0::1::::<><>::res://assets/art/Objects/Fry.png<>res://src/Objects/Moving Platform.gd
+Pepper Shaker.gd::GDScript::-1::1603618545::0::1::::<>RigidBody2D<>::
+Pepper Shaker.tscn::PackedScene::-1::1608497472::0::1::::<><>::res://assets/art/Objects/Pepper Shaker.png<>res://src/Objects/Pepper Shaker.gd
+Peppercorn.gd::GDScript::-1::1603237458::0::1::::<>Area2D<>::
+Peppercorn.tscn::PackedScene::-1::1608497519::0::1::::<><>::res://assets/art/Objects/Peppercorn.png<>res://src/Objects/Peppercorn.gd
+Pickle Jar.gd::GDScript::-1::1606688760::0::1::::<>Area2D<>::
+Pickle Jar.tscn::PackedScene::-1::1608692087::0::1::::<><>::res://assets/art/Objects/Pickle Jar Wiggle.png/8.png<>res://src/Objects/Pickle Jar.gd<>res://assets/art/Objects/Pickle Jar Wiggle.png/9.png<>res://assets/art/Objects/Pickle Jar Wiggle.png/10.png<>res://assets/art/Objects/Pickle Jar Wiggle.png/11.png<>res://assets/art/Objects/Pickle Jar Wiggle.png/0.png<>res://assets/art/Objects/Pickle Jar Wiggle.png/5.png<>res://assets/art/Objects/Pickle Jar Wiggle.png/6.png<>res://assets/art/Objects/Pickle Jar Wiggle.png/3.png<>res://assets/art/Objects/Pickle Jar Wiggle.png/4.png<>res://assets/art/Objects/Pickle Jar Wiggle.png/2.png<>res://assets/art/Objects/Pickle Jar Wiggle.png/7.png<>res://assets/art/Objects/Pickle Jar Wiggle.png/1.png
+::res://src/UserInterface/::1731115785
+BitPickle.tres::FontFile::-1::1608846985::0::1::::<><>::res://assets/art/Fonts/BitPickle.ttf
+BusSlider.gd::GDScript::-1::1609547387::0::1::::<>HSlider<>::
+Game Over.gd::GDScript::-1::1606622915::0::1::::<>Node2D<>::
+Game Over.tscn::PackedScene::-1::1609624185::0::1::::<><>::res://assets/art/Fonts/BitPickle.ttf<>res://src/UserInterface/Game Over.gd
+grabber_style.tres::StyleBoxFlat::-1::1609551121::0::1::::<><>::
+Options.tscn::PackedScene::-1::1609710371::0::1::::<><>::res://assets/art/UI/Quit Button.png/2.png<>res://assets/audio/The Adventure Begins.ogg<>res://assets/art/UI/Quit Button.png/0.png<>res://assets/art/UI/Checkbox1.png<>res://assets/art/UI/Quit Button.png/1.png<>res://assets/art/UI/Checkbox2.png<>res://src/UserInterface/BusSlider.gd<>res://src/UserInterface/BitPickle.tres<>res://assets/art/UI/Green Button.png/1.png<>res://src/UserInterface/grabber_style.tres<>res://assets/art/UI/Green Button.png/2.png<>res://src/Background/Greens.tscn<>res://assets/art/UI/Slider Ball.png<>res://assets/art/UI/Green Button.png/0.png<>res://assets/art/Fonts/BitPickle.ttf
+PauseScreen.gd::GDScript::-1::1609549013::0::1::::<>Control<>::
+PauseScreen.tscn::PackedScene::-1::1609141086::0::1::::<><>::res://assets/art/UI/Green Button.png/0.png<>res://assets/art/UI/Green Button.png/2.png<>res://src/UserInterface/BitPickle.tres<>res://assets/art/UI/Green Button.png/1.png<>res://src/UserInterface/PauseScreen.gd
+PlayerElements.gd::GDScript::-1::1609111513::0::1::::<>CanvasLayer<>::
+PlayerElements.tscn::PackedScene::-1::1609117720::0::1::::<><>::res://assets/art/Objects/Pickle Jar.png<>res://assets/art/Actors/Hot Pickle No Legs.png/0.png<>res://src/UserInterface/BitPickle.tres<>res://src/UserInterface/PlayerElements.gd<>res://assets/art/Objects/Corn Cob.png<>res://assets/art/Objects/chicken-leg/Chicken-Leg1.png<>res://assets/art/UI/Item Box.png<>res://assets/art/UI/top-bar.png<>res://assets/art/Objects/Pepper Shaker.png<>res://assets/art/Blocks/Blank.png
+Quit Button.gd::GDScript::-1::1601251441::0::1::::<>TextureButton<>::
+Remaining Lives.gd::GDScript::-1::1609117182::0::1::::<>Node2D<>::
+Remaining Lives.tscn::PackedScene::-1::1609624871::0::1::::<><>::res://assets/art/Fonts/BitPickle.ttf<>res://src/UserInterface/Remaining Lives.gd<>res://assets/art/Actors/Hot Pickle No Legs.png/3.png<>res://assets/art/Actors/Hot Pickle No Legs.png/2.png<>res://assets/art/Actors/Hot Pickle No Legs.png/0.png<>res://assets/art/Actors/Hot Pickle No Legs.png/1.png
+StartGame.gd::GDScript::-1::1601251271::0::1::::<>TextureButton<>::
+Title Screen.tscn::PackedScene::2422477197097003450::1731115733::0::1::::<><>::uid://c4p30fjegfvyn::::res://assets/art/UI/Quit Button.png/2.png<>uid://chinbgsj4tcpj::::res://assets/audio/The Adventure Begins.ogg<>uid://ds7ndfuv4dvhw::::res://assets/art/UI/Quit Button.png/0.png<>res://src/Level/TileMap.tres<>uid://46g2hn6b2sqg::::res://assets/art/UI/Quit Button.png/1.png<>res://src/Blocks/Empty Block.tscn<>res://src/Actors/Rock.tscn<>uid://ccn6ey3exm1gu::::res://assets/art/UI/Green Button.png/1.png<>res://src/UserInterface/Transistions/FadeIn.tscn<>uid://cvvhwupcs6tys::::res://assets/art/UI/Green Button.png/2.png<>res://src/Background/Greens.tscn<>uid://5684xgo3strj::::res://assets/art/UI/Green Button.png/0.png<>res://src/Objects/Moving Platform.tscn<>res://src/Blocks/Mystery Block.tscn<>res://src/Objects/Pickle Jar.tscn<>res://src/Actors/Angry Tomato.tscn<>res://src/Actors/Onionette.tscn
+::res://src/UserInterface/Transistions/::1731115625
+FadeIn.gd::GDScript::-1::1601252471::0::1::::<>ColorRect<>::
+FadeIn.tscn::PackedScene::-1::1601252231::0::1::::<><>::res://src/UserInterface/Transistions/FadeIn.gd
