@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Mushroom Island.ogg-444d9c539058e8616823ebfd7b7657a2.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Mushroom Island.ogg"
+dest_files=[ "res://.import/Mushroom Island.ogg-444d9c539058e8616823ebfd7b7657a2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

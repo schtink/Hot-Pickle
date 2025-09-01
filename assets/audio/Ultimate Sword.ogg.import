@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ultimate Sword.ogg-8348c42304a2fdd7c9bec6945d7b3f10.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Ultimate Sword.ogg"
+dest_files=[ "res://.import/Ultimate Sword.ogg-8348c42304a2fdd7c9bec6945d7b3f10.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

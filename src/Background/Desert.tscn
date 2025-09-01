@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/art/Backgrounds/Desert-Pyramids.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/Backgrounds/Desert-Sand.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/Backgrounds/Desert-Sun.png" type="Texture" id=3]
+
+[node name="Desert" type="ParallaxBackground"]
+
+[node name="Sun" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0, 0 )
+
+[node name="Sprite" type="Sprite" parent="Sun"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="Sand" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.25, -0.003 )
+motion_offset = Vector2( 0, -200 )
+motion_mirroring = Vector2( 5120, 0 )
+
+[node name="Sprite" type="Sprite" parent="Sand"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+
+[node name="Pyramids" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.5, 0 )
+motion_mirroring = Vector2( 5120, 0 )
+
+[node name="Sprite" type="Sprite" parent="Pyramids"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Objects/FireShaderMaterial.tres" type="Material" id=1]
+
+[node name="FireShader" type="ColorRect"]
+material = ExtResource( 1 )
+margin_left = 3040.0
+margin_top = 1328.0
+margin_right = 3168.0
+margin_bottom = 1456.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

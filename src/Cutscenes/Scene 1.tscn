@@ -1,0 +1,107 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/Cutscenes/TypingText.gd" type="Script" id=1]
+[ext_resource path="res://assets/art/Fonts/BitPickle.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/Cutscenes/Scene 1.gd" type="Script" id=3]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle1.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/Actors/OldCrustyP.png" type="Texture" id=5]
+[ext_resource path="res://src/Background/PickleVillage.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/audio/Pickle Beats 120 bpm.ogg" type="AudioStream" id=7]
+[ext_resource path="res://src/UserInterface/Transistions/FadeInLong.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "AudioFade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0 ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 10
+font_data = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Pickle Village" parent="." instance=ExtResource( 6 )]
+offset = Vector2( 0, 0 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+current = true
+
+[node name="SpeechTime" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="AudioFade" type="AnimationPlayer" parent="."]
+anims/AudioFade = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = 3.0
+autoplay = true
+bus = "Music"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hot Pickle" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 4287.11, -2992.75 )
+scale = Vector2( 12.227, 12.227 )
+texture = ExtResource( 4 )
+offset = Vector2( -301.147, 314.744 )
+flip_h = true
+
+[node name="Hot Pickle2" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 5086, -3021.13 )
+scale = Vector2( 12.2267, 12.2267 )
+texture = ExtResource( 5 )
+offset = Vector2( -301.147, 314.744 )
+
+[node name="Pickle Speech" type="RichTextLabel" parent="CanvasLayer"]
+show_behind_parent = true
+margin_left = 272.078
+margin_top = 257.002
+margin_right = 1072.08
+margin_bottom = 557.002
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.0862745, 0.737255, 0.0117647, 1 )
+bbcode_text = "Hello, I am some sample text. Lorem ipsum sit amet dolar, I don't know what I'm talking about."
+text = "Hello, I am some sample text. Lorem ipsum sit amet dolar, I don't know what I'm talking about."
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Crusty P Speech" type="RichTextLabel" parent="CanvasLayer"]
+show_behind_parent = true
+margin_left = 758.014
+margin_top = 214.498
+margin_right = 1558.01
+margin_bottom = 514.498
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 1, 0.72549, 0, 1 )
+bbcode_text = "Hello, I am some sample text. Lorem ipsum sit amet dolar, I don't know what I'm talking about."
+text = "Hello, I am some sample text. Lorem ipsum sit amet dolar, I don't know what I'm talking about."
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FadeIn" parent="CanvasLayer" instance=ExtResource( 8 )]
+visible = false
+[connection signal="timeout" from="SpeechTime" to="." method="_on_SpeechTime_timeout"]
+[connection signal="fadein_finished" from="CanvasLayer/FadeIn" to="." method="_on_FadeIn_fadein_finished"]

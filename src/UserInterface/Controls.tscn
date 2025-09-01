@@ -1,0 +1,157 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/audio/The Adventure Begins.ogg" type="AudioStream" id=2]
+[ext_resource path="res://src/UserInterface/BitPickle.tres" type="DynamicFont" id=8]
+[ext_resource path="res://assets/art/UI/Green Button.png/1.png" type="Texture" id=9]
+[ext_resource path="res://assets/art/UI/Green Button.png/2.png" type="Texture" id=11]
+[ext_resource path="res://src/Background/Greens.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/art/UI/Green Button.png/0.png" type="Texture" id=14]
+[ext_resource path="res://src/UserInterface/Controls.gd" type="Script" id=15]
+[ext_resource path="res://assets/art/Fonts/BitPickle.ttf" type="DynamicFontData" id=18]
+
+[sub_resource type="DynamicFont" id=1]
+size = 130
+outline_size = 9
+outline_color = Color( 0.2, 0.294118, 0.207843, 1 )
+font_data = ExtResource( 18 )
+
+[node name="Controls" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Greens" parent="." instance=ExtResource( 12 )]
+offset = Vector2( 1280, 540 )
+transform = Transform2D( 1, 0, 0, 1, 1280, 540 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 100
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 536.0
+margin_top = 100.0
+margin_right = 1383.0
+margin_bottom = 980.0
+size_flags_horizontal = 4
+custom_constants/separation = 50
+
+[node name="Game Title" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 847.0
+margin_bottom = 131.0
+rect_min_size = Vector2( 0, 90 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.164706, 1, 0.0117647, 1 )
+text = "CONTROLS!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_left = 47.0
+margin_top = 351.0
+margin_right = 800.0
+margin_bottom = 709.0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+custom_constants/separation = 100
+
+[node name="Left" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 256.0
+margin_bottom = 358.0
+custom_constants/separation = 30
+
+[node name="BACK" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Left"]
+margin_right = 256.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Left/BACK"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "< BACK"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 356.0
+margin_right = 753.0
+margin_bottom = 358.0
+custom_constants/separation = 20
+
+[node name="Jump" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Right"]
+margin_right = 397.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 8 )
+text = "W / Up Arrow - JUMP"
+
+[node name="left" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Right"]
+margin_top = 54.0
+margin_right = 397.0
+margin_bottom = 88.0
+custom_fonts/font = ExtResource( 8 )
+text = "A / Left Arrow - MOVE LEFT"
+
+[node name="down" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Right"]
+margin_top = 108.0
+margin_right = 397.0
+margin_bottom = 142.0
+custom_fonts/font = ExtResource( 8 )
+text = "S / Down Arrow - MOVE DOWN"
+
+[node name="right" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Right"]
+margin_top = 162.0
+margin_right = 397.0
+margin_bottom = 196.0
+custom_fonts/font = ExtResource( 8 )
+text = "D / Right Arrow - MOVE RIGHT"
+
+[node name="shoot" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Right"]
+margin_top = 216.0
+margin_right = 397.0
+margin_bottom = 250.0
+custom_fonts/font = ExtResource( 8 )
+text = "E / Control - SHOOT"
+
+[node name="dash" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Right"]
+margin_top = 270.0
+margin_right = 397.0
+margin_bottom = 304.0
+custom_fonts/font = ExtResource( 8 )
+text = "Space Bar - DASH"
+
+[node name="esc" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Right"]
+margin_top = 324.0
+margin_right = 397.0
+margin_bottom = 358.0
+custom_fonts/font = ExtResource( 8 )
+text = "Escape - PAUSE MENU"
+
+[node name="The Adventure Begins" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+bus = "Music"
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Left/BACK" to="." method="_on_BACK_pressed"]

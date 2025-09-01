@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Under the Sea Prom.ogg-a5be64803938fef26f8568e57aa92feb.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Under the Sea Prom.ogg"
+dest_files=[ "res://.import/Under the Sea Prom.ogg-a5be64803938fef26f8568e57aa92feb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

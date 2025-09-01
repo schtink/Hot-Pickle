@@ -1,0 +1,570 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://src/UserInterface/Selection.gd" type="Script" id=1]
+[ext_resource path="res://assets/audio/The Adventure Begins.ogg" type="AudioStream" id=2]
+[ext_resource path="res://src/UserInterface/Transistions/FadeIn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UserInterface/BitPickle.tres" type="DynamicFont" id=8]
+[ext_resource path="res://assets/art/UI/Green Button.png/1.png" type="Texture" id=9]
+[ext_resource path="res://assets/art/UI/Green Button.png/2.png" type="Texture" id=11]
+[ext_resource path="res://src/Background/Greens.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/art/UI/Green Button.png/0.png" type="Texture" id=14]
+[ext_resource path="res://assets/art/Fonts/BitPickle.ttf" type="DynamicFontData" id=18]
+
+[sub_resource type="DynamicFont" id=1]
+size = 130
+outline_size = 9
+outline_color = Color( 0.2, 0.294118, 0.207843, 1 )
+font_data = ExtResource( 18 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 36
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 10
+font_data = ExtResource( 18 )
+
+[node name="Selection Screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Greens" parent="." instance=ExtResource( 12 )]
+offset = Vector2( 1280, 540 )
+transform = Transform2D( 1, 0, 0, 1, 1280, 540 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 100
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 333.0
+margin_top = 100.0
+margin_right = 1587.0
+margin_bottom = 980.0
+size_flags_horizontal = 4
+custom_constants/separation = 50
+
+[node name="Game Title" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 1254.0
+margin_bottom = 131.0
+rect_min_size = Vector2( 0, 90 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.164706, 1, 0.0117647, 1 )
+text = "SELECT SCENE!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 272.0
+margin_right = 1254.0
+margin_bottom = 788.0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+custom_constants/separation = 100
+
+[node name="Col 1" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 256.0
+margin_bottom = 516.0
+custom_constants/separation = 30
+
+[node name="Scenes" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Col 1"]
+margin_right = 256.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.164706, 1, 0.0117647, 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Col 1"]
+margin_top = 76.0
+margin_right = 256.0
+margin_bottom = 140.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Col 1/Back"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "BACK"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Col 2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 356.0
+margin_right = 612.0
+margin_bottom = 516.0
+custom_constants/separation = 30
+
+[node name="Scenes" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Col 2"]
+margin_right = 256.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.164706, 1, 0.0117647, 1 )
+text = "SCENES"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene 1" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Col 2"]
+margin_top = 76.0
+margin_right = 256.0
+margin_bottom = 140.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Col 2/Scene 1"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "The Beginning"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene 2" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Col 2"]
+margin_top = 170.0
+margin_right = 256.0
+margin_bottom = 234.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Col 2/Scene 2"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "Sporker Defects"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene 3" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Col 2"]
+margin_top = 264.0
+margin_right = 256.0
+margin_bottom = 328.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Col 2/Scene 3"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "Leaving PC"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene 4" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Col 2"]
+margin_top = 358.0
+margin_right = 256.0
+margin_bottom = 422.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Col 2/Scene 4"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "The End"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="End Credits" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Col 2"]
+margin_top = 452.0
+margin_right = 256.0
+margin_bottom = 516.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Col 2/End Credits"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "End Credits"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 712.0
+margin_right = 1254.0
+margin_bottom = 516.0
+custom_constants/separation = 30
+
+[node name="Scenes" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 542.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.164706, 1, 0.0117647, 1 )
+text = "LEVELS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Col 3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 76.0
+margin_right = 542.0
+margin_bottom = 516.0
+custom_constants/separation = 30
+
+[node name="Levels 1-5" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3"]
+margin_right = 256.0
+margin_bottom = 440.0
+custom_constants/separation = 30
+
+[node name="Greens 1" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 1-5"]
+margin_right = 256.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 1-5/Greens 1"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "Greens 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Greens 2" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 1-5"]
+margin_top = 94.0
+margin_right = 256.0
+margin_bottom = 158.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 1-5/Greens 2"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "Greens 2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ocean" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 1-5"]
+margin_top = 188.0
+margin_right = 256.0
+margin_bottom = 252.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 1-5/Ocean"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "Cross the Ocean"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Desert of Pain" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 1-5"]
+margin_top = 282.0
+margin_right = 256.0
+margin_bottom = 346.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 1-5/Desert of Pain"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "Dessert Desert"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mines" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 1-5"]
+margin_top = 376.0
+margin_right = 256.0
+margin_bottom = 440.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 1-5/Mines"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "Into the Mines"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels 6-10" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3"]
+margin_left = 286.0
+margin_right = 542.0
+margin_bottom = 440.0
+custom_constants/separation = 30
+
+[node name="Mines2" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 6-10"]
+margin_right = 256.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 6-10/Mines2"]
+anchor_top = -0.0128746
+anchor_bottom = -0.0128746
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "Mines Chase"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Space" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 6-10"]
+margin_top = 94.0
+margin_right = 256.0
+margin_bottom = 158.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 6-10/Space"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "Pickles in Space"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="The Fridge" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 6-10"]
+margin_top = 188.0
+margin_right = 256.0
+margin_bottom = 252.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 6-10/The Fridge"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "The Fridge"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grease Trap" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 6-10"]
+margin_top = 282.0
+margin_right = 256.0
+margin_bottom = 346.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 6-10/Grease Trap"]
+margin_left = 15.5815
+margin_top = 16.0
+margin_right = 239.582
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "Grease Trap"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Kitchen" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 6-10"]
+margin_top = 376.0
+margin_right = 256.0
+margin_bottom = 440.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 6-10/Kitchen"]
+margin_left = 15.5815
+margin_top = 16.0
+margin_right = 239.582
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "Kitchen"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="The Adventure Begins" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+bus = "Music"
+
+[node name="FadeIn" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Col 1/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Col 2/Scene 1" to="." method="_on_Scene_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Col 2/Scene 2" to="." method="_on_Scene_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Col 2/Scene 3" to="." method="_on_Scene_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Col 2/Scene 4" to="." method="_on_Scene_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Col 2/End Credits" to="." method="_on_End_Credits_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 1-5/Greens 1" to="." method="_on_Greens_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 1-5/Greens 2" to="." method="_on_Greens_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 1-5/Ocean" to="." method="_on_Ocean_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 1-5/Desert of Pain" to="." method="_on_Desert_of_Pain_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 1-5/Mines" to="." method="_on_Mines_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 6-10/Mines2" to="." method="_on_Mines2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 6-10/Space" to="." method="_on_Space_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 6-10/The Fridge" to="." method="_on_The_Fridge_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 6-10/Grease Trap" to="." method="_on_Grease_Trap_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Col 3/Levels 6-10/Kitchen" to="." method="_on_Kitchen_pressed"]
+[connection signal="fadein_finished" from="FadeIn" to="." method="_on_FadeIn_fadein_finished"]

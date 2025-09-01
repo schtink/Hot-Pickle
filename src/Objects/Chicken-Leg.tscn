@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/art/Objects/chicken-leg/Chicken-Leg3.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/Objects/chicken-leg/Chicken-Leg4.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/Objects/chicken-leg/Chicken-Leg1.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/Objects/chicken-leg/Chicken-Leg2.png" type="Texture" id=4]
+[ext_resource path="res://src/Objects/Chicken-Leg.gd" type="Script" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 30.4767 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( -16, -16, -8, -32, 0, -16, 8, -32, 16, -16, 16, 0, 0, 32, 0, 32, -16, 0 )
+
+[node name="Chicken Leg" type="Area2D"]
+collision_layer = 4
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+speed_scale = 0.5
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -1.52329 )
+shape = SubResource( 2 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+light_mask = 4
+occluder = SubResource( 3 )
+light_mask = 4
+[connection signal="body_shape_entered" from="." to="." method="_on_Chicken_Leg_body_shape_entered"]

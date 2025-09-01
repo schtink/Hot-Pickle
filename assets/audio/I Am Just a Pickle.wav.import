@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/I Am Just a Pickle.wav-dafaf256c3c926b671a5e1f7f5396d43.sample"
+
+[deps]
+
+source_file="res://assets/audio/I Am Just a Pickle.wav"
+dest_files=[ "res://.import/I Am Just a Pickle.wav-dafaf256c3c926b671a5e1f7f5396d43.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Pyramid Bop-Loop.ogg-423cfb31f1c0558665f18d9e73a86592.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Pyramid Bop-Loop.ogg"
+dest_files=[ "res://.import/Pyramid Bop-Loop.ogg-423cfb31f1c0558665f18d9e73a86592.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

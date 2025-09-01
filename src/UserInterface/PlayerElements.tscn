@@ -1,0 +1,203 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/art/Objects/Pickle Jar.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/Actors/Hot Pickle No Legs.png/0.png" type="Texture" id=2]
+[ext_resource path="res://src/UserInterface/BitPickle.tres" type="DynamicFont" id=3]
+[ext_resource path="res://src/UserInterface/PlayerElements.gd" type="Script" id=4]
+[ext_resource path="res://assets/art/Objects/Corn Cob.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/Objects/chicken-leg/Chicken-Leg1.png" type="Texture" id=6]
+[ext_resource path="res://assets/art/UI/Item Box.png" type="Texture" id=7]
+[ext_resource path="res://assets/art/UI/top-bar.png" type="Texture" id=8]
+[ext_resource path="res://assets/art/Objects/Pepper Shaker.png" type="Texture" id=9]
+[ext_resource path="res://assets/art/Blocks/Blank.png" type="Texture" id=10]
+[ext_resource path="res://src/UserInterface/Transistions/FadeInLong.tscn" type="PackedScene" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "pepper",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "corn",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="GDScript" id=2]
+
+[node name="PlayerElements" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 640, 76 )
+scale = Vector2( 12.8, 1.52 )
+texture = ExtResource( 8 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.00012207
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 80
+custom_constants/margin_bottom = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+margin_left = 1780.0
+margin_top = 40.0
+margin_right = 1880.0
+margin_bottom = 98.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+margin_right = 100.0
+margin_bottom = 50.0
+size_flags_horizontal = 10
+size_flags_vertical = 10
+
+[node name="Sprite" type="Sprite" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+position = Vector2( -52, 23 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 1 )
+
+[node name="Score" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 50 )
+rect_clip_content = false
+size_flags_horizontal = 8
+size_flags_vertical = 8
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_text = "00000"
+text = "00000"
+scroll_active = false
+
+[node name="Health" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 100.0
+margin_bottom = 54.0
+
+[node name="NoHealth1" type="Sprite" parent="Control/MarginContainer/VBoxContainer/Health"]
+modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( -484, -30 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="NoHealth2" type="Sprite" parent="Control/MarginContainer/VBoxContainer/Health"]
+modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( -444, -30 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Nohealth3" type="Sprite" parent="Control/MarginContainer/VBoxContainer/Health"]
+modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( -404, -30 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="NoHealth4" type="Sprite" parent="Control/MarginContainer/VBoxContainer/Health"]
+modulate = Color( 0, 0, 0, 0.392157 )
+position = Vector2( -364, -30 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Health1" type="Sprite" parent="Control/MarginContainer/VBoxContainer/Health"]
+visible = false
+position = Vector2( -484, -30 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Health2" type="Sprite" parent="Control/MarginContainer/VBoxContainer/Health"]
+visible = false
+position = Vector2( -444, -30 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Health3" type="Sprite" parent="Control/MarginContainer/VBoxContainer/Health"]
+visible = false
+position = Vector2( -404, -30 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Health4" type="Sprite" parent="Control/MarginContainer/VBoxContainer/Health"]
+visible = false
+position = Vector2( -364, -30 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Item" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+margin_top = 58.0
+margin_right = 100.0
+margin_bottom = 58.0
+
+[node name="Item" type="AnimatedSprite" parent="Control/MarginContainer/VBoxContainer/Item"]
+position = Vector2( -780, -34 )
+scale = Vector2( 0.75, 0.75 )
+frames = SubResource( 1 )
+
+[node name="ItemBox" type="Sprite" parent="Control/MarginContainer/VBoxContainer/Item"]
+position = Vector2( -780, -34 )
+texture = ExtResource( 7 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer"]
+margin_left = 80.0
+margin_top = 40.0
+margin_right = 280.0
+margin_bottom = 144.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="Sprite" type="Sprite" parent="Control/MarginContainer/VBoxContainer2"]
+position = Vector2( -30, 24 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Lives" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer2"]
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
+rect_clip_content = false
+size_flags_horizontal = 8
+size_flags_vertical = 8
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_text = "00000"
+text = "00000"
+scroll_active = false
+script = SubResource( 2 )
+
+[node name="FPS" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer2"]
+margin_top = 54.0
+margin_right = 200.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 200, 50 )
+rect_clip_content = false
+size_flags_horizontal = 8
+size_flags_vertical = 8
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_text = "00000"
+text = "00000"
+scroll_active = false
+script = SubResource( 2 )
+
+[node name="FadeIn" parent="." instance=ExtResource( 11 )]
+visible = false
+[connection signal="fadein_finished" from="FadeIn" to="." method="_on_FadeIn_fadein_finished"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/art/Actors/Player/Hot Pickle.png" type="Texture" id=1]
+[ext_resource path="res://src/Level/OverworldPlayer.gd" type="Script" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 640, 448, -127.34, 0, 127.34, 0, 776, 320, 0, 0, 0, 0, 904, 448, 0, 0, 0, 0, 904, 640, 135.527, -1.04251, -135.527, 1.04251, 768, 776, 0, 0, 0, 0, 640, 640, 0, 0, 0, 0, 640, 448, 0, 0, 0, 0, 640, 448 )
+}
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Overworld-1" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 640, 448 )
+rotate = false
+loop = false
+
+[node name="OverworldPlayer" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
+position = Vector2( 0, -16 )
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 2 )
+script = ExtResource( 2 )

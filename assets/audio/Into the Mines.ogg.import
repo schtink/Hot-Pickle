@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Into the Mines.ogg-7e84acf38e3c5925d11946b8604e8b99.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Into the Mines.ogg"
+dest_files=[ "res://.import/Into the Mines.ogg-7e84acf38e3c5925d11946b8604e8b99.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

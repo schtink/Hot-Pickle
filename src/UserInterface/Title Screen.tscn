@@ -1,0 +1,326 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://assets/art/UI/Quit Button.png/2.png" type="Texture" id=1]
+[ext_resource path="res://assets/audio/The Adventure Begins.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/art/UI/Quit Button.png/0.png" type="Texture" id=3]
+[ext_resource path="res://src/Level/TileMap.tres" type="TileSet" id=4]
+[ext_resource path="res://assets/art/UI/Quit Button.png/1.png" type="Texture" id=5]
+[ext_resource path="res://src/Blocks/Empty Block.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Actors/Rock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/UserInterface/BitPickle.tres" type="DynamicFont" id=8]
+[ext_resource path="res://assets/art/UI/Green Button.png/1.png" type="Texture" id=9]
+[ext_resource path="res://src/UserInterface/Transistions/FadeIn.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/art/UI/Green Button.png/2.png" type="Texture" id=11]
+[ext_resource path="res://src/Background/Greens.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/art/UI/Green Button.png/0.png" type="Texture" id=14]
+[ext_resource path="res://assets/art/Fonts/BitPickle.ttf" type="DynamicFontData" id=18]
+[ext_resource path="res://src/Objects/Moving Platform.tscn" type="PackedScene" id=20]
+[ext_resource path="res://src/Blocks/Mystery Block.tscn" type="PackedScene" id=21]
+[ext_resource path="res://src/Objects/Pickle Jar.tscn" type="PackedScene" id=22]
+[ext_resource path="res://src/Actors/Angry Tomato.tscn" type="PackedScene" id=23]
+[ext_resource path="res://src/Actors/Onionette.tscn" type="PackedScene" id=24]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+onready var continue_button = get_node(\"MarginContainer/VBoxContainer/VBoxContainer/Continue\")
+onready var options_button = get_node(\"MarginContainer/VBoxContainer/VBoxContainer/Options\")
+onready var quit_button = get_node(\"MarginContainer/VBoxContainer/VBoxContainer/Quit Button\")
+onready var game_version_label = get_node(\"MarginContainer/VBoxContainer/VBoxContainer2/Version\")
+onready var select_scene_button = get_node(\"MarginContainer/VBoxContainer/VBoxContainer/Select\")
+
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+
+	AudioManager.play(\"res://assets/audio/effects/bell.wav\")
+	continue_button.grab_focus()
+	Main._refresh_player_data()
+	if Main.beat_game:
+		select_scene_button.visible = true
+	if Main.current_level > 1 or Main.level_checkpoint != \"none\":
+		$MarginContainer/VBoxContainer/VBoxContainer/Continue/Label.text = \"CONTINUE\"
+	var game_version = ProjectSettings.get_setting(\"application/config/Version\")
+	game_version = (\"v \" + game_version)
+	game_version_label.text = game_version
+
+func _physics_process(delta):
+	if continue_button.is_hovered() == true:
+		continue_button.grab_focus()
+	if select_scene_button.is_hovered() == true:
+		select_scene_button.grab_focus()
+	if options_button.is_hovered() == true:
+		options_button.grab_focus()
+	if quit_button.is_hovered() == true:
+		quit_button.grab_focus()
+	
+func _on_Quit_Button_pressed():
+	get_tree().quit()
+
+func _on_Continue_pressed():
+	$FadeIn.show()
+	$FadeIn.fade_in()
+
+func _on_FadeIn_fadein_finished():
+	get_tree().change_scene(Main.target_stage)
+
+func _on_Options_pressed():
+	get_tree().change_scene(\"res://src/UserInterface/Options.tscn\")
+
+func _on_Select_pressed():
+	get_tree().change_scene(\"res://src/UserInterface/Selection.tscn\")
+"
+
+[sub_resource type="DynamicFont" id=2]
+size = 130
+outline_size = 9
+outline_color = Color( 0.2, 0.294118, 0.207843, 1 )
+font_data = ExtResource( 18 )
+
+[node name="Title Screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Greens" parent="." instance=ExtResource( 12 )]
+layer = -1
+offset = Vector2( 1280, 540 )
+transform = Transform2D( 1, 0, 0, 1, 1280, 540 )
+
+[node name="Decorative" type="Node" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Decorative"]
+tile_set = ExtResource( 4 )
+format = 1
+tile_data = PoolIntArray( 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786454, 536870921, 0, 786455, 536870917, 0, 786456, 536870917, 0, 786457, 9, 0, 851989, 536870921, 0, 851990, 536870922, 0, 851991, 2, 0, 851992, 2, 0, 851993, 10, 0, 851994, 9, 0, 917524, 536870921, 0, 917525, 536870922, 0, 917526, 2, 0, 917527, 2, 0, 917528, 2, 0, 917529, 2, 0, 917530, 10, 0, 917531, 9, 0, 983040, 5, 0, 983041, 5, 0, 983042, 5, 0, 983043, 5, 0, 983044, 5, 0, 983045, 5, 0, 983046, 5, 0, 983047, 5, 0, 983048, 5, 0, 983049, 3, 0, 983054, 536870915, 0, 983055, 5, 0, 983056, 5, 0, 983057, 5, 0, 983058, 5, 0, 983059, 5, 0, 983060, 536870922, 0, 983061, 2, 0, 983062, 2, 0, 983063, 2, 0, 983064, 2, 0, 983065, 2, 0, 983066, 2, 0, 983067, 10, 0, 983068, 5, 0, 983069, 5, 0, 1048576, 2, 0, 1048577, 2, 0, 1048578, 2, 0, 1048579, 2, 0, 1048580, 2, 0, 1048581, 2, 0, 1048582, 2, 0, 1048583, 2, 0, 1048584, 2, 0, 1048585, 11, 0, 1048590, 12, 0, 1048591, 2, 0, 1048592, 2, 0, 1048593, 2, 0, 1048594, 2, 0, 1048595, 2, 0, 1048596, 2, 0, 1048597, 2, 0, 1048598, 2, 0, 1048599, 2, 0, 1048600, 2, 0, 1048601, 2, 0, 1048602, 2, 0, 1048603, 2, 0, 1048604, 2, 0, 1048605, 2, 0 )
+
+[node name="Empty Block" parent="Decorative" instance=ExtResource( 6 )]
+position = Vector2( 1952, 872 )
+
+[node name="Empty Block2" parent="Decorative" instance=ExtResource( 6 )]
+position = Vector2( 1952, 936 )
+
+[node name="Empty Block3" parent="Decorative" instance=ExtResource( 6 )]
+position = Vector2( 1952, 808 )
+
+[node name="Rock" parent="Decorative" instance=ExtResource( 7 )]
+position = Vector2( 936, 928 )
+
+[node name="Moving Orange Platform" parent="Decorative" instance=ExtResource( 20 )]
+position = Vector2( 1768, 696 )
+move_to = Vector2( 0, -164 )
+speed = 1.0
+
+[node name="Pickle Jar" parent="Decorative" instance=ExtResource( 22 )]
+position = Vector2( 1768, 400 )
+
+[node name="Pickle Jar2" parent="Decorative" instance=ExtResource( 22 )]
+position = Vector2( 1768, 511 )
+
+[node name="Pickle Jar3" parent="Decorative" instance=ExtResource( 22 )]
+position = Vector2( 1768, 296 )
+
+[node name="Mystery Block" parent="Decorative" instance=ExtResource( 21 )]
+position = Vector2( 352, 559 )
+
+[node name="Angry Tomato2" parent="Decorative" instance=ExtResource( 23 )]
+position = Vector2( 1056, 928 )
+
+[node name="Onionette2" parent="Decorative" instance=ExtResource( 24 )]
+position = Vector2( 584, 930 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 100
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 487.0
+margin_top = 100.0
+margin_right = 1433.0
+margin_bottom = 980.0
+size_flags_horizontal = 4
+custom_constants/separation = 50
+
+[node name="Game Title" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 946.0
+margin_bottom = 131.0
+rect_min_size = Vector2( 0, 90 )
+custom_colors/font_color = Color( 0.164706, 1, 0.0117647, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "HOT PICKLE!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_left = 345.0
+margin_top = 181.0
+margin_right = 601.0
+margin_bottom = 433.0
+size_flags_horizontal = 4
+custom_constants/separation = 30
+alignment = 1
+
+[node name="Continue" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+margin_right = 256.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/Continue"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 8 )
+text = "START GAME"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+margin_top = 94.0
+margin_right = 256.0
+margin_bottom = 158.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/Options"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 8 )
+text = "OPTIONS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Select" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+visible = false
+margin_top = 188.0
+margin_right = 256.0
+margin_bottom = 252.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/Select"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 8 )
+text = "SELECT SCENE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit Button" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+margin_top = 188.0
+margin_right = 256.0
+margin_bottom = 252.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 5 )
+texture_focused = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/Quit Button"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 8 )
+text = "QUIT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_left = 277.0
+margin_top = 483.0
+margin_right = 668.0
+margin_bottom = 561.0
+size_flags_horizontal = 4
+custom_constants/separation = 10
+
+[node name="Version" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+margin_left = 164.0
+margin_right = 227.0
+margin_bottom = 34.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 8 )
+text = "0.0.0"
+
+[node name="Copyright" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+margin_top = 44.0
+margin_right = 391.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 8 )
+text = "Copyright 2022 Benjamin Stark"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 208.0
+margin_top = 888.0
+margin_right = 1744.0
+margin_bottom = 951.0
+custom_constants/separation = 25
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FadeIn" parent="." instance=ExtResource( 10 )]
+visible = false
+
+[node name="The Adventure Begins" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+bus = "Music"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Select" to="." method="_on_Select_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Quit Button" to="." method="_on_Quit_Button_pressed"]
+[connection signal="fadein_finished" from="FadeIn" to="." method="_on_FadeIn_fadein_finished"]

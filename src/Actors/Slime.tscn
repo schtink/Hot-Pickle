@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/Actors/Slime.gd" type="Script" id=1]
+[ext_resource path="res://assets/art/Objects/Slime.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/Objects/Slime Ball.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( -32, -32, 32, -32, 23.4281, -16.4105, 14.9959, -10.1194, 13.4364, -2.63885, 10.1587, 2.1984, 9.57715, 9.3089, 3.39181, 15.785, -1.65691, 15.8379, -5.48971, 13.221, -8.889, 5.85673, -14.4981, -3.82306, -20.0226, -4.24599, -21.7672, -6.75713, -21.6086, -17.1453, -28.4284, -25.7731, -31.7854, -26.0639 )
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 13.1003
+
+[sub_resource type="OccluderPolygon2D" id=6]
+polygon = PoolVector2Array( 13.9495, -11.9625, 13.6872, -9.86365, 16.0746, -10.2047, 15.8647, -6.29558, 13.9495, -5.92827, 13.9495, -2.09784, 15.849, -2.10312, 15.9015, 5.8201, 13.9863, 5.74139, 13.8551, 11.7756, 9.72328, 11.8526, 9.80427, 14.1788, 5.92137, 14.1264, 5.86889, 16.2515, -5.72734, 15.8579, -5.93723, 14.1526, -10.03, 14.0739, -10.1612, 11.7914, -12.1551, 11.8963, -12.0502, 9.95487, -13.9392, 9.87616, -13.9916, 8.06589, -16.0905, 8.09212, -15.8964, 2.03165, -13.9024, 1.9267, -13.9024, -1.90373, -12.1079, -1.93521, -12.0135, -11.7002, -9.77308, -11.7837, -9.5098, -13.6924, -1.77602, -13.9886, -1.80235, -15.9435, 9.8806, -15.9106, 9.68314, -12.1918 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Drip"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Drip:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 32 ), Vector2( 0, 350 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DripCollision:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 32 ), Vector2( 0, 350 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LightOccluder2D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 32.0262 ), Vector2( 0, 350 ) ]
+}
+
+[node name="Slime" type="KinematicBody2D" groups=[
+"enemy",
+]]
+collision_layer = 2
+collision_mask = 11
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.0264339, 0.026433 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 2 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+light_mask = 4
+position = Vector2( 0.026433, -0.052866 )
+occluder = SubResource( 3 )
+light_mask = 4
+
+[node name="Drip" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, 350 )
+texture = ExtResource( 3 )
+
+[node name="DripCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, 350 )
+shape = SubResource( 5 )
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+visible = false
+light_mask = 16
+position = Vector2( 0, 350 )
+occluder = SubResource( 6 )
+light_mask = 16
+
+[node name="DripTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="SlimeAnimation" type="AnimationPlayer" parent="."]
+anims/Drip = SubResource( 4 )
+
+[connection signal="timeout" from="DripTimer" to="." method="_on_DripTimer_timeout"]
+[connection signal="animation_finished" from="SlimeAnimation" to="." method="_on_SlimeAnimation_animation_finished"]

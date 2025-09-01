@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ow.wav-7fc4b0054d8e0d1e2dcdd2664478f393.sample"
+
+[deps]
+
+source_file="res://assets/audio/effects/ow.wav"
+dest_files=[ "res://.import/ow.wav-7fc4b0054d8e0d1e2dcdd2664478f393.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

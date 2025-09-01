@@ -1,0 +1,81 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/art/Actors/Mush Room5.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/Actors/Mush Roomdie2.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/Actors/Mush Room2.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/Actors/Mush Room1.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/Actors/Mush Room4.png" type="Texture" id=5]
+[ext_resource path="res://src/Actors/Dizzy Shroom.gd" type="Script" id=6]
+[ext_resource path="res://assets/art/Actors/Mush Room3.png" type="Texture" id=7]
+[ext_resource path="res://assets/art/Actors/Mush Roomdie1.png" type="Texture" id=8]
+[ext_resource path="res://assets/art/Actors/Mush Roomdie3.png" type="Texture" id=9]
+[ext_resource path="res://assets/art/Actors/Mush Room6.png" type="Texture" id=10]
+[ext_resource path="res://assets/art/Actors/hp-alt.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 2 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 10 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 30.1739
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( -0.813499, -32.7599, 18.3341, -26.9566, 24.498, -19.7574, 30.5658, -9.35545, 29.5627, 6.20174, 12.6582, 10.9791, 2.73604, -0.413055, 4.38749, 29.652, -12.0823, 31.2123, -10.8688, 0.526428, -22.6207, 11.3466, -32.1754, 7.3042, -33.233, -10.2223, -28.3787, -17.3303, -15.8964, -27.7323 )
+
+[node name="Dizzy SHroom" type="KinematicBody2D" groups=[
+"dizzy",
+"enemy",
+]]
+collision_layer = 2
+collision_mask = 11
+script = ExtResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
+"enemy",
+]]
+position = Vector2( -1, -1 )
+frames = SubResource( 1 )
+frame = 1
+speed_scale = 2.0
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 32, 0 )
+enabled = true
+cast_to = Vector2( 0, 36 )
+collision_mask = 12
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+light_mask = 2
+occluder = SubResource( 3 )
+light_mask = 2
+
+[node name="DeadTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HealthBar" type="ColorRect" parent="."]
+margin_left = -20.0
+margin_top = -40.0
+margin_right = 20.0
+margin_bottom = -37.0
+color = Color( 0, 0, 0, 0.470588 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TotalHealth" type="Sprite" parent="HealthBar"]
+position = Vector2( 20, 2 )
+texture = ExtResource( 11 )
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

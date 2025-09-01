@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Pickle Beats 120 bpm.ogg-786bc3336c65823d5ac7972d84c45f40.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Pickle Beats 120 bpm.ogg"
+dest_files=[ "res://.import/Pickle Beats 120 bpm.ogg-786bc3336c65823d5ac7972d84c45f40.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/yeah.wav-03f7c3ff87f5cd80c7670ce8d23aa47c.sample"
+
+[deps]
+
+source_file="res://assets/audio/effects/yeah.wav"
+dest_files=[ "res://.import/yeah.wav-03f7c3ff87f5cd80c7670ce8d23aa47c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

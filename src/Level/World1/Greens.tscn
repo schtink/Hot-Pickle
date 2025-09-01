@@ -1,0 +1,664 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://src/UserInterface/PlayerElements.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Background/Greens.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Objects/Pickle Jar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Objects/Chicken-Leg.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Actors/Rock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Objects/Moving Platform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Objects/Green Heart.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Blocks/Empty Block.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Actors/Angry Tomato.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Actors/Onionette.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/Blocks/DropZone.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/Objects/Arrow.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/Blocks/Mystery Block.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/Level/Mushroom Island.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/Objects/Level_Complete.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/Objects/Checkpoint.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/UserInterface/PauseScreen.tscn" type="PackedScene" id=18]
+[ext_resource path="res://src/Level/TileMap.tres" type="TileSet" id=19]
+[ext_resource path="res://src/Level/World1/Greens.gd" type="Script" id=20]
+[ext_resource path="res://src/Level/ScreenShake.gd" type="Script" id=21]
+[ext_resource path="res://assets/audio/Ultimate Sword.ogg" type="AudioStream" id=22]
+[ext_resource path="res://assets/art/Fonts/BitPickle.ttf" type="DynamicFontData" id=23]
+
+[sub_resource type="Animation" id=1]
+resource_name = "AudioFade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mushroom Island:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0 ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 34
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 10
+font_data = ExtResource( 23 )
+
+[node name="Main" type="Node2D"]
+position = Vector2( 544, -816 )
+script = ExtResource( 20 )
+levelID = 1
+
+[node name="PlayerElements" parent="." instance=ExtResource( 1 )]
+
+[node name="PauseScreen" parent="." instance=ExtResource( 18 )]
+
+[node name="Greens" parent="." instance=ExtResource( 2 )]
+offset = Vector2( 0, 0 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Arrow" parent="." instance=ExtResource( 13 )]
+position = Vector2( 15776.3, 1151.77 )
+
+[node name="Arrow3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 6842.3, 667.386 )
+rotation = -1.5708
+
+[node name="Arrow2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 16487.1, 1151.77 )
+
+[node name="Player" type="Node" parent="."]
+
+[node name="Player" parent="Player" instance=ExtResource( 5 )]
+position = Vector2( 52, 568 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 96, 688 )
+tile_set = ExtResource( 19 )
+collision_use_kinematic = true
+collision_layer = 8
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( -458569, 0, 0, -458568, 0, 0, -261969, 0, 0, -261968, 0, 0, -130965, 536870915, 0, -130964, 5, 0, -130963, 5, 0, -130962, 5, 0, -130961, 9, 0, -65429, 12, 0, -65428, 2, 0, -65427, 2, 0, -65426, 2, 0, -65425, 10, 0, -65424, 9, 0, -65369, 536870933, 0, -65368, 22, 0, -65367, 22, 0, -65366, 21, 0, 107, 12, 0, 108, 2, 0, 109, 2, 0, 110, 2, 0, 111, 2, 0, 112, 10, 0, 113, 9, 0, 167, 536870931, 0, 168, 20, 0, 169, 20, 0, 170, 19, 0, 181, 22, 0, 182, 22, 0, 183, 21, 0, 65636, 0, 0, 65637, 0, 0, 65638, 0, 0, 65643, 12, 0, 65644, 2, 0, 65645, -1610612726, 0, 65646, 1610612741, 0, 65647, 1610612741, 0, 65648, 1610612746, 0, 65649, 10, 0, 65650, 9, 0, 65703, 536870931, 0, 65704, 20, 0, 65705, 20, 0, 65706, 19, 0, 65717, 20, 0, 65718, 20, 0, 65719, 19, 0, 131179, 12, 0, 131180, 2, 0, 131181, -536870907, 0, 131184, -2147483643, 0, 131185, 2, 0, 131186, 10, 0, 131187, 9, 0, 131239, 536870931, 0, 131240, 20, 0, 131241, 20, 0, 131242, 19, 0, 131253, 20, 0, 131254, 20, 0, 131255, 19, 0, 196701, 0, 0, 196702, 0, 0, 196703, 0, 0, 196715, 12, 0, 196716, 2, 0, 196717, 10, 0, 196718, 536870917, 0, 196719, 536870917, 0, 196720, -1073741814, 0, 196721, 2, 0, 196722, 2, 0, 196723, 10, 0, 196724, 9, 0, 196775, 536870931, 0, 196776, 20, 0, 196777, 20, 0, 196778, 19, 0, 196780, 536870933, 0, 196781, 22, 0, 196782, 22, 0, 196783, 21, 0, 196789, 20, 0, 196790, 20, 0, 196791, 19, 0, 262251, 12, 0, 262252, 2, 0, 262253, 2, 0, 262254, 2, 0, 262255, 2, 0, 262256, 2, 0, 262257, 2, 0, 262258, 2, 0, 262259, 2, 0, 262260, 10, 0, 262261, 9, 0, 262311, 536870931, 0, 262312, 20, 0, 262313, 20, 0, 262314, 19, 0, 262316, 536870931, 0, 262317, 20, 0, 262318, 20, 0, 262319, 19, 0, 262325, 20, 0, 262326, 20, 0, 262327, 19, 0, 327768, 0, 0, 327769, 0, 0, 327770, 0, 0, 327787, 12, 0, 327788, 2, 0, 327789, 2, 0, 327790, 2, 0, 327791, 2, 0, 327792, 2, 0, 327793, 2, 0, 327794, 2, 0, 327795, 2, 0, 327796, 2, 0, 327797, 10, 0, 327798, 9, 0, 327829, 536870912, 0, 327832, 536870912, 0, 327847, 536870931, 0, 327848, 20, 0, 327849, 20, 0, 327850, 19, 0, 327852, 536870931, 0, 327853, 20, 0, 327854, 20, 0, 327855, 19, 0, 327861, 20, 0, 327862, 20, 0, 327863, 19, 0, 327865, 22, 0, 327866, 22, 0, 327867, 21, 0, 393323, 12, 0, 393324, 2, 0, 393325, 2, 0, 393326, 2, 0, 393327, 2, 0, 393328, 2, 0, 393329, -1610612726, 0, 393330, 1073741829, 0, 393331, 1073741829, 0, 393332, 1610612746, 0, 393333, 2, 0, 393334, 10, 0, 393335, 9, 0, 393365, 536870912, 0, 393368, 536870912, 0, 393382, 536870933, 0, 393383, 22, 0, 393384, 22, 0, 393385, 22, 0, 393386, 22, 0, 393387, 21, 0, 393388, 536870931, 0, 393389, 20, 0, 393390, 20, 0, 393391, 19, 0, 393397, 20, 0, 393398, 20, 0, 393399, 19, 0, 393401, 20, 0, 393402, 20, 0, 393403, 19, 0, 458784, 536870915, 0, 458785, 5, 0, 458786, 5, 0, 458787, 9, 0, 458802, 536870921, 0, 458803, 536870917, 0, 458804, 5, 0, 458805, 3, 0, 458810, 536870933, 0, 458811, 22, 0, 458812, 22, 0, 458813, 22, 0, 458814, 22, 0, 458815, 22, 0, 458816, 22, 0, 458817, 21, 0, 458859, 12, 0, 458860, 2, 0, 458861, 2, 0, 458862, 2, 0, 458863, 2, 0, 458864, 2, 0, 458865, -1610612731, 0, 458868, -2147483643, 0, 458869, 536870914, 0, 458870, 2, 0, 458871, 10, 0, 458872, 9, 0, 458901, 536870912, 0, 458904, 536870912, 0, 458918, 536870931, 0, 458919, 20, 0, 458920, 20, 0, 458921, 20, 0, 458922, 20, 0, 458923, 19, 0, 458924, 536870931, 0, 458925, 20, 0, 458926, 20, 0, 458927, 19, 0, 458933, 20, 0, 458934, 20, 0, 458935, 19, 0, 458937, 20, 0, 458938, 20, 0, 458939, 19, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524320, 12, 0, 524321, 536870914, 0, 524322, 536870914, 0, 524323, 10, 0, 524324, 9, 0, 524328, 536870933, 0, 524329, 536870934, 0, 524330, 536870934, 0, 524331, 536870934, 0, 524332, 536870934, 0, 524333, 21, 0, 524337, 536870921, 0, 524338, 536870922, 0, 524339, 536870914, 0, 524340, 536870914, 0, 524341, 11, 0, 524346, 536870931, 0, 524347, 20, 0, 524348, 20, 0, 524349, 20, 0, 524350, 20, 0, 524351, 20, 0, 524352, 20, 0, 524353, 19, 0, 524359, 536870933, 0, 524360, 536870934, 0, 524361, 536870934, 0, 524362, 21, 0, 524395, 12, 0, 524396, 2, 0, 524397, 2, 0, 524398, 2, 0, 524399, 2, 0, 524400, 2, 0, 524401, 10, 0, 524402, 536870917, 0, 524403, 5, 0, 524404, -1073741814, 0, 524405, 2, 0, 524406, 2, 0, 524407, 2, 0, 524408, 10, 0, 524409, 9, 0, 524434, 536870912, 0, 524437, 536870912, 0, 524440, 536870912, 0, 524443, 536870912, 0, 524454, 536870931, 0, 524455, 20, 0, 524456, 20, 0, 524457, 20, 0, 524458, 20, 0, 524459, 19, 0, 524460, 536870931, 0, 524461, 20, 0, 524462, 20, 0, 524463, 19, 0, 524469, 20, 0, 524470, 20, 0, 524471, 19, 0, 524473, 20, 0, 524474, 20, 0, 524475, 19, 0, 655354, 536870933, 0, 655355, 22, 0, 655356, 22, 0, 655357, 22, 0, 655358, 21, 0, 589856, 12, 0, 589857, 536870914, 0, 589858, 536870914, 0, 589859, 536870914, 0, 589860, 10, 0, 589861, 9, 0, 589864, 536870931, 0, 589865, 536870932, 0, 589866, 536870932, 0, 589867, 536870932, 0, 589868, 536870932, 0, 589869, 19, 0, 589872, 536870921, 0, 589873, 536870922, 0, 589874, 536870914, 0, 589875, 536870914, 0, 589876, 536870914, 0, 589877, 11, 0, 589881, 536870933, 0, 589882, 22, 0, 589883, 22, 0, 589884, 22, 0, 589885, 22, 0, 589886, 22, 0, 589887, 22, 0, 589888, 22, 0, 589889, 22, 0, 589890, 21, 0, 589895, 536870931, 0, 589896, 536870932, 0, 589897, 536870932, 0, 589898, 19, 0, 589931, 12, 0, 589932, 2, 0, 589933, 2, 0, 589934, 2, 0, 589935, 2, 0, 589936, 2, 0, 589937, 2, 0, 589938, 2, 0, 589939, 2, 0, 589940, 2, 0, 589941, 2, 0, 589942, 2, 0, 589943, 2, 0, 589944, 2, 0, 589945, 10, 0, 589946, 9, 0, 589970, 536870912, 0, 589973, 536870912, 0, 589976, 536870912, 0, 589979, 536870912, 0, 589990, 536870931, 0, 589991, 20, 0, 589992, 20, 0, 589993, 20, 0, 589994, 20, 0, 589995, 19, 0, 589996, 536870931, 0, 589997, 20, 0, 589998, 20, 0, 589999, 19, 0, 590004, 536870915, 0, 590005, 4, 0, 590006, 4, 0, 590007, 4, 0, 590008, 4, 0, 590009, 4, 0, 590010, 4, 0, 590011, 4, 0, 590012, 9, 0, 590050, 536870921, 0, 590051, 536870916, 0, 590052, 536870916, 0, 590053, 536870916, 0, 590054, 536870916, 0, 590055, 536870916, 0, 590056, 536870916, 0, 590057, 536870916, 0, 590058, 3, 0, 590061, 536870915, 0, 590062, 536870916, 0, 590063, 536870916, 0, 590064, 536870916, 0, 590065, 3, 0, 590072, 536870915, 0, 590073, 5, 0, 590074, 5, 0, 590075, 5, 0, 590076, 3, 0, 590083, 536870915, 0, 590084, 5, 0, 590085, 5, 0, 590086, 5, 0, 590087, 3, 0, 720890, 536870931, 0, 720891, 536870932, 0, 720892, 536870932, 0, 720893, 536870932, 0, 720894, 19, 0, 655392, 12, 0, 655393, 536870914, 0, 655394, 536870914, 0, 655395, 536870914, 0, 655396, 2, 0, 655397, 10, 0, 655398, 9, 0, 655400, 536870931, 0, 655401, 536870932, 0, 655402, 536870932, 0, 655403, 536870932, 0, 655404, 536870932, 0, 655405, 19, 0, 655407, 536870921, 0, 655408, 536870922, 0, 655409, 536870914, 0, 655410, 536870914, 0, 655411, 536870914, 0, 655412, 536870914, 0, 655413, 11, 0, 655417, 536870931, 0, 655418, 536870932, 0, 655419, 536870932, 0, 655420, 536870932, 0, 655421, 20, 0, 655422, 20, 0, 655423, 20, 0, 655424, 20, 0, 655425, 536870932, 0, 655426, 19, 0, 655431, 536870931, 0, 655432, 536870932, 0, 655433, 536870932, 0, 655434, 19, 0, 655467, 12, 0, 655468, 2, 0, 655469, 2, 0, 655470, 2, 0, 655471, 2, 0, 655472, 2, 0, 655473, 2, 0, 655474, 2, 0, 655475, 2, 0, 655476, 2, 0, 655477, 2, 0, 655478, 2, 0, 655479, 2, 0, 655480, 2, 0, 655481, 2, 0, 655482, 10, 0, 655483, 9, 0, 655506, 536870912, 0, 655509, 536870912, 0, 655512, 536870912, 0, 655515, 536870912, 0, 655518, 536870912, 0, 655526, 536870931, 0, 655527, 20, 0, 655528, 20, 0, 655529, 20, 0, 655530, 20, 0, 655531, 19, 0, 655532, 536870933, 0, 655533, 22, 0, 655534, 22, 0, 655535, 22, 0, 655536, 22, 0, 655537, 21, 0, 655540, 12, 0, 655541, 2, 0, 655542, 2, 0, 655543, 2, 0, 655544, 2, 0, 655545, 2, 0, 655546, 2, 0, 655547, 2, 0, 655548, 10, 0, 655549, 9, 0, 655585, 536870921, 0, 655586, 536870922, 0, 655587, 536870914, 0, 655588, 536870914, 0, 655589, 536870914, 0, 655590, 536870914, 0, 655591, 536870914, 0, 655592, 536870914, 0, 655593, 536870914, 0, 655594, 11, 0, 655597, 12, 0, 655598, -1610612726, 0, 655599, 1610612758, 0, 655600, 1610612746, 0, 655601, 11, 0, 655608, 12, 0, 655609, -1610612726, 0, 655610, 1610612758, 0, 655611, 1610612746, 0, 655612, 11, 0, 655619, 12, 0, 655620, -1610612726, 0, 655621, 1610612758, 0, 655622, 1610612746, 0, 655623, 11, 0, 786426, 536870931, 0, 786427, 536870932, 0, 786428, 536870932, 0, 786429, 536870932, 0, 786430, 19, 0, 720928, 12, 0, 720929, 536870914, 0, 720930, 536870914, 0, 720931, 536870914, 0, 720932, 2, 0, 720933, 2, 0, 720934, 10, 0, 720935, 9, 0, 720936, 536870931, 0, 720937, 536870932, 0, 720938, 536870932, 0, 720939, 536870932, 0, 720940, 536870932, 0, 720941, 19, 0, 720942, 536870921, 0, 720943, 536870922, 0, 720944, 536870914, 0, 720945, 536870914, 0, 720946, 536870914, 0, 720947, 536870914, 0, 720948, 536870914, 0, 720949, 11, 0, 720953, 536870915, 0, 720954, 5, 0, 720955, 5, 0, 720956, 536870917, 0, 720957, 536870917, 0, 720958, 536870917, 0, 720959, 536870917, 0, 720960, 536870917, 0, 720961, 536870917, 0, 720962, 536870917, 0, 720963, 536870917, 0, 720964, 536870917, 0, 720965, 536870917, 0, 720966, 536870917, 0, 720967, 536870917, 0, 720968, 536870917, 0, 720969, 536870917, 0, 720970, 536870916, 0, 720971, 536870916, 0, 720972, 536870916, 0, 720973, 3, 0, 720986, 536870915, 0, 720987, 536870916, 0, 720988, 536870916, 0, 720989, 536870916, 0, 720990, 536870916, 0, 720991, 536870916, 0, 720992, 536870916, 0, 720993, 536870916, 0, 720994, 536870916, 0, 720995, 536870916, 0, 720996, 536870916, 0, 720997, 536870916, 0, 720998, 536870916, 0, 720999, 536870916, 0, 721000, 536870916, 0, 721001, 536870916, 0, 721002, 536870916, 0, 721003, 536870914, 0, 721004, 2, 0, 721005, 2, 0, 721006, 2, 0, 721007, 2, 0, 721008, 2, 0, 721009, 2, 0, 721010, 2, 0, 721011, 2, 0, 721012, 2, 0, 721013, 2, 0, 721014, -1610612726, 0, 721015, 1073741829, 0, 721016, 1073741829, 0, 721017, 1610612746, 0, 721018, 2, 0, 721019, 10, 0, 721020, 9, 0, 721039, 536870912, 0, 721042, 536870912, 0, 721045, 536870912, 0, 721048, 536870912, 0, 721051, 536870912, 0, 721054, 536870912, 0, 721062, 536870931, 0, 721063, 20, 0, 721064, 20, 0, 721065, 20, 0, 721066, 20, 0, 721067, 19, 0, 721068, 536870931, 0, 721069, 20, 0, 721070, 20, 0, 721071, 20, 0, 721072, 20, 0, 721073, 19, 0, 721076, 12, 0, 721077, 2, 0, 721078, 2, 0, 721079, 2, 0, 721080, 2, 0, 721081, 2, 0, 721082, 2, 0, 721083, 2, 0, 721084, 2, 0, 721085, 10, 0, 721086, 9, 0, 721120, 536870921, 0, 721121, 536870922, 0, 721122, 536870914, 0, 721123, 536870914, 0, 721124, 536870914, 0, 721125, 536870914, 0, 721126, 536870914, 0, 721127, 536870914, 0, 721128, 536870914, 0, 721129, 536870914, 0, 721130, 11, 0, 721133, 12, 0, 721134, -1610612714, 0, 721136, -1073741802, 0, 721137, 11, 0, 721144, 12, 0, 721145, -1610612714, 0, 721147, -1073741802, 0, 721148, 11, 0, 721155, 12, 0, 721156, -1610612714, 0, 721158, -1073741802, 0, 721159, 11, 0, 851958, 5, 0, 851959, 5, 0, 851960, 5, 0, 851961, 5, 0, 851962, 5, 0, 851963, 5, 0, 851964, 5, 0, 851965, 5, 0, 851966, 5, 0, 851967, 5, 0, 786432, 5, 0, 786433, 5, 0, 786434, 5, 0, 786435, 5, 0, 786436, 5, 0, 786437, 5, 0, 786438, 5, 0, 786439, 5, 0, 786440, 5, 0, 786441, 5, 0, 786442, 5, 0, 786443, 5, 0, 786444, 5, 0, 786445, 5, 0, 786446, 3, 0, 786451, 536870915, 0, 786452, 536870917, 0, 786453, 536870917, 0, 786454, 536870917, 0, 786455, 536870916, 0, 786456, 3, 0, 786464, 12, 0, 786465, 536870914, 0, 786466, 536870914, 0, 786467, 536870914, 0, 786468, 2, 0, 786469, 2, 0, 786470, 2, 0, 786471, 10, 0, 786472, 5, 0, 786473, 5, 0, 786474, 5, 0, 786475, 5, 0, 786476, 5, 0, 786477, 5, 0, 786478, 536870922, 0, 786479, 536870914, 0, 786480, 536870914, 0, 786481, 536870914, 0, 786482, 536870914, 0, 786483, 536870914, 0, 786484, 536870914, 0, 786485, 11, 0, 786489, 12, 0, 786490, 536870914, 0, 786491, 536870914, 0, 786492, 536870914, 0, 786493, 536870914, 0, 786494, 536870914, 0, 786495, 536870914, 0, 786496, 536870914, 0, 786497, 536870914, 0, 786498, 536870914, 0, 786499, 536870914, 0, 786500, 536870914, 0, 786501, 536870914, 0, 786502, 536870914, 0, 786503, 536870914, 0, 786504, 536870914, 0, 786505, 536870914, 0, 786506, 536870914, 0, 786507, 536870914, 0, 786508, 536870914, 0, 786509, 536870924, 0, 786522, 536870923, 0, 786523, 536870914, 0, 786524, 536870914, 0, 786525, 536870914, 0, 786526, 536870914, 0, 786527, 536870914, 0, 786528, 536870914, 0, 786529, 536870914, 0, 786530, 536870914, 0, 786531, 536870914, 0, 786532, 536870914, 0, 786533, 536870914, 0, 786534, 536870914, 0, 786535, 536870914, 0, 786536, 536870914, 0, 786537, 536870914, 0, 786538, 536870914, 0, 786539, 536870914, 0, 786540, 2, 0, 786541, 2, 0, 786542, 2, 0, 786543, 2, 0, 786544, 2, 0, 786545, 2, 0, 786546, 2, 0, 786547, 2, 0, 786548, 2, 0, 786549, 2, 0, 786550, -536870907, 0, 786553, -2147483643, 0, 786554, 2, 0, 786555, 2, 0, 786556, 10, 0, 786557, 9, 0, 786562, 536870933, 0, 786563, 536870934, 0, 786564, 22, 0, 786565, 22, 0, 786566, 22, 0, 786567, 536870934, 0, 786568, 21, 0, 786575, 536870912, 0, 786578, 536870912, 0, 786581, 536870912, 0, 786584, 536870912, 0, 786587, 536870912, 0, 786590, 536870912, 0, 786598, 536870931, 0, 786599, 20, 0, 786600, 20, 0, 786601, 20, 0, 786602, 20, 0, 786603, 19, 0, 786604, 536870931, 0, 786605, 20, 0, 786606, 20, 0, 786607, 20, 0, 786608, 20, 0, 786609, 19, 0, 786612, 12, 0, 786613, 2, 0, 786614, 2, 0, 786615, 2, 0, 786616, 2, 0, 786617, 2, 0, 786618, 2, 0, 786619, 2, 0, 786620, 2, 0, 786621, 2, 0, 786622, 10, 0, 786623, 9, 0, 786655, 536870921, 0, 786656, 536870922, 0, 786657, 536870914, 0, 786658, 536870914, 0, 786659, 536870914, 0, 786660, 536870914, 0, 786661, 536870914, 0, 786662, 536870914, 0, 786663, 536870914, 0, 786664, 536870914, 0, 786665, 536870914, 0, 786666, 11, 0, 786669, 12, 0, 786670, 10, 0, 786671, 22, 0, 786672, -1073741814, 0, 786673, 11, 0, 786680, 12, 0, 786681, 10, 0, 786682, 22, 0, 786683, -1073741814, 0, 786684, 11, 0, 786691, 12, 0, 786692, 10, 0, 786693, 22, 0, 786694, -1073741814, 0, 786695, 11, 0, 786702, 536870933, 0, 786703, 22, 0, 786704, 22, 0, 786705, 22, 0, 786706, 22, 0, 917494, 2, 0, 917495, 2, 0, 917496, 2, 0, 917497, 2, 0, 917498, 2, 0, 917499, 2, 0, 917500, 2, 0, 917501, 2, 0, 917502, 2, 0, 917503, 2, 0, 851968, 2, 0, 851969, 2, 0, 851970, 2, 0, 851971, 2, 0, 851972, 2, 0, 851973, 2, 0, 851974, 2, 0, 851975, 2, 0, 851976, 2, 0, 851977, 2, 0, 851978, 2, 0, 851979, 2, 0, 851980, 2, 0, 851981, 2, 0, 851982, 11, 0, 851987, 12, 0, 851988, 536870914, 0, 851989, 536870914, 0, 851990, 536870914, 0, 851991, 536870914, 0, 851992, 536870924, 0, 852000, 12, 0, 852001, 536870914, 0, 852002, 536870914, 0, 852003, 536870914, 0, 852004, 2, 0, 852005, 2, 0, 852006, 2, 0, 852007, 2, 0, 852008, 2, 0, 852009, 2, 0, 852010, 2, 0, 852011, 2, 0, 852012, 2, 0, 852013, 2, 0, 852014, 536870914, 0, 852015, 536870914, 0, 852016, 536870914, 0, 852017, 536870914, 0, 852018, 536870914, 0, 852019, 536870914, 0, 852020, 536870914, 0, 852021, 11, 0, 852025, 12, 0, 852026, 536870914, 0, 852027, 536870914, 0, 852028, 536870914, 0, 852029, 536870914, 0, 852030, 536870914, 0, 852031, 536870914, 0, 852032, 536870914, 0, 852033, 536870914, 0, 852034, 536870914, 0, 852035, 536870914, 0, 852036, 536870914, 0, 852037, 536870914, 0, 852038, 536870914, 0, 852039, 536870914, 0, 852040, 536870914, 0, 852041, 536870914, 0, 852042, 536870914, 0, 852043, 536870914, 0, 852044, 536870914, 0, 852045, 536870924, 0, 852058, 536870923, 0, 852059, 536870914, 0, 852060, 536870914, 0, 852061, 536870914, 0, 852062, 536870914, 0, 852063, 536870914, 0, 852064, 536870914, 0, 852065, 536870914, 0, 852066, 536870914, 0, 852067, 536870914, 0, 852068, 536870914, 0, 852069, 536870914, 0, 852070, 536870914, 0, 852071, 536870914, 0, 852072, 536870914, 0, 852073, 536870914, 0, 852074, 536870914, 0, 852075, 536870914, 0, 852076, 2, 0, 852077, 2, 0, 852078, 2, 0, 852079, 2, 0, 852080, 2, 0, 852081, 2, 0, 852082, 2, 0, 852083, 2, 0, 852084, 2, 0, 852085, 2, 0, 852086, 10, 0, 852087, 5, 0, 852088, 5, 0, 852089, -1073741814, 0, 852090, 2, 0, 852091, 2, 0, 852092, 2, 0, 852093, 10, 0, 852094, 4, 0, 852095, 4, 0, 852096, 4, 0, 852097, 4, 0, 852098, 4, 0, 852099, 4, 0, 852100, 4, 0, 852101, 4, 0, 852102, 4, 0, 852103, 4, 0, 852104, 3, 0, 852108, 536870915, 0, 852109, 536870916, 0, 852110, 536870916, 0, 852111, 536870916, 0, 852112, 536870916, 0, 852113, 536870916, 0, 852114, 536870916, 0, 852115, 536870916, 0, 852116, 536870916, 0, 852117, 536870916, 0, 852118, 536870916, 0, 852119, 536870916, 0, 852120, 536870916, 0, 852121, 536870916, 0, 852122, 536870916, 0, 852123, 536870916, 0, 852124, 536870916, 0, 852125, 536870916, 0, 852126, 536870916, 0, 852127, 536870916, 0, 852128, 536870916, 0, 852129, 3, 0, 852133, 536870915, 0, 852134, 4, 0, 852135, 4, 0, 852136, 4, 0, 852137, 4, 0, 852138, 4, 0, 852139, 4, 0, 852140, 4, 0, 852141, 4, 0, 852142, 4, 0, 852143, 4, 0, 852144, 4, 0, 852145, 3, 0, 852148, 12, 0, 852149, 2, 0, 852150, 2, 0, 852151, 2, 0, 852152, 2, 0, 852153, 2, 0, 852154, 2, 0, 852155, 2, 0, 852156, 2, 0, 852157, 2, 0, 852158, 2, 0, 852159, 10, 0, 852165, 536870912, 0, 852169, 536870912, 0, 852173, 536870912, 0, 852177, 536870912, 0, 852181, 536870912, 0, 852185, 536870912, 0, 852191, 536870922, 0, 852192, 536870914, 0, 852193, 536870914, 0, 852194, 536870914, 0, 852195, 536870914, 0, 852196, 536870914, 0, 852197, 536870914, 0, 852198, 536870914, 0, 852199, 536870914, 0, 852200, 536870914, 0, 852201, 536870914, 0, 852202, 11, 0, 852205, 12, 0, 852206, 2, 0, 852207, 2, 0, 852208, 2, 0, 852209, 11, 0, 852216, 12, 0, 852217, 2, 0, 852218, 2, 0, 852219, 2, 0, 852220, 11, 0, 852227, 12, 0, 852228, 2, 0, 852229, 2, 0, 852230, 2, 0, 852231, 11, 0, 852234, 536870915, 0, 852235, 5, 0, 852236, 5, 0, 852237, 5, 0, 852238, 5, 0, 852239, 4, 0, 852240, 4, 0, 852241, 4, 0, 852242, 5, 0 )
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Orange Platforms" type="Node" parent="Platforms"]
+
+[node name="Moving Platform2" parent="Platforms/Orange Platforms" instance=ExtResource( 7 )]
+position = Vector2( 5608, 256.794 )
+move_to = Vector2( 512, 0 )
+speed = 2.0
+
+[node name="Moving Platform7" parent="Platforms/Orange Platforms" instance=ExtResource( 7 )]
+position = Vector2( 2467.34, 592.773 )
+move_to = Vector2( 0, -448 )
+
+[node name="Moving Platform3" parent="Platforms/Orange Platforms" instance=ExtResource( 7 )]
+position = Vector2( 12937.9, 20.7987 )
+move_to = Vector2( 640, 0 )
+
+[node name="Moving Platform4" parent="Platforms/Orange Platforms" instance=ExtResource( 7 )]
+position = Vector2( 14614.5, 214.482 )
+move_to = Vector2( -640, 0 )
+
+[node name="Jars" type="Node" parent="."]
+
+[node name="Pickle Jar" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 1294.27, 326.093 )
+
+[node name="Pickle Jar2" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 1173.12, 326.488 )
+
+[node name="Pickle Jar3" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 1059.35, 328.361 )
+
+[node name="Pickle Jar5" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 4192, 40 )
+
+[node name="Pickle Jar10" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 3232, 608 )
+
+[node name="Pickle Jar12" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 4320, 99.4299 )
+
+[node name="Pickle Jar14" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 4072, 100.953 )
+
+[node name="Pickle Jar17" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 5550.7, 102.477 )
+
+[node name="Pickle Jar19" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 5756.4, 101.982 )
+
+[node name="Pickle Jar21" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 5956.25, 101.982 )
+
+[node name="Pickle Jar23" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 6162.02, 101.982 )
+
+[node name="Pickle Jar24" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 6363.82, 103.466 )
+
+[node name="Pickle Jar27" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 6688.61, -76.7931 )
+
+[node name="Pickle Jar31" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 7132.31, -159.855 )
+
+[node name="Pickle Jar29" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 9919.61, 647.374 )
+
+[node name="Pickle Jar33" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 10498.9, 564.313 )
+
+[node name="Pickle Jar48" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 10116.3, 564.313 )
+
+[node name="Pickle Jar30" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 10690.7, 647.374 )
+
+[node name="Pickle Jar35" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 11458.6, 200.814 )
+
+[node name="Pickle Jar37" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 11841.3, 464.892 )
+
+[node name="Pickle Jar39" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 11781.6, 17.2477 )
+
+[node name="Pickle Jar41" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 12563.4, 149.873 )
+
+[node name="Pickle Jar43" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 11454.7, -234.926 )
+
+[node name="Pickle Jar45" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 12295.5, -173.258 )
+
+[node name="Pickle Jar49" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 12942.2, -43.6156 )
+
+[node name="Pickle Jar50" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 13165.5, -43.6156 )
+
+[node name="Pickle Jar51" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 13401.4, -43.6156 )
+
+[node name="Pickle Jar52" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 13691.9, -43.6156 )
+
+[node name="Pickle Jar53" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 13894.9, 112.581 )
+
+[node name="Pickle Jar54" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 14149.5, 112.581 )
+
+[node name="Pickle Jar55" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 14380.7, 112.581 )
+
+[node name="Pickle Jar56" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 14611.9, 111.479 )
+
+[node name="Pickle Jar57" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 15979.8, 326.52 )
+
+[node name="Pickle Jar60" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 15443.7, 324.295 )
+
+[node name="Pickle Jar58" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 16678.3, 326.52 )
+
+[node name="Pickle Jar59" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 17425.8, 326.52 )
+
+[node name="Pickle Jar47" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 11902.5, -509.796 )
+
+[node name="Pickle Jar32" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 7840, -224 )
+
+[node name="Pickle Jar34" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 7968, -96 )
+
+[node name="Pickle Jar36" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 8096, 32 )
+
+[node name="Pickle Jar38" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 8224, 160 )
+
+[node name="Pickle Jar40" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 8352, 288 )
+
+[node name="Pickle Jar42" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 8480, 416 )
+
+[node name="Pickle Jar44" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 8608, 544 )
+
+[node name="Pickle Jar46" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 8736, 680 )
+
+[node name="Pickle Jar6" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 2777.81, 160.045 )
+
+[node name="Pickle Jar7" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 3397.94, 338.84 )
+
+[node name="Pickle Jar9" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 3552, 608 )
+
+[node name="Pickle Jar28" parent="Jars" instance=ExtResource( 3 )]
+position = Vector2( 3393.98, 608 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Green Heart2" parent="Node" instance=ExtResource( 8 )]
+position = Vector2( 12415.1, -680.903 )
+
+[node name="Bad Guys" type="Node" parent="."]
+
+[node name="Angry Tomato2" parent="Bad Guys" instance=ExtResource( 10 )]
+position = Vector2( 8352, 672 )
+
+[node name="Angry Tomato5" parent="Bad Guys" instance=ExtResource( 10 )]
+position = Vector2( 7968, 352 )
+
+[node name="Angry Tomato7" parent="Bad Guys" instance=ExtResource( 10 )]
+position = Vector2( 7760, 32 )
+
+[node name="Angry Tomato8" parent="Bad Guys" instance=ExtResource( 10 )]
+position = Vector2( 7082.97, 543.373 )
+
+[node name="Angry Tomato9" parent="Bad Guys" instance=ExtResource( 10 )]
+position = Vector2( 10114.4, 672.204 )
+
+[node name="Angry Tomato10" parent="Bad Guys" instance=ExtResource( 10 )]
+position = Vector2( 10307, 670.734 )
+
+[node name="Angry Tomato12" parent="Bad Guys" instance=ExtResource( 10 )]
+position = Vector2( 15258.4, 418.39 )
+
+[node name="Angry Tomato14" parent="Bad Guys" instance=ExtResource( 10 )]
+position = Vector2( 15969.2, 608.029 )
+speed = Vector2( 0, 0 )
+spin = 0.0
+
+[node name="Angry Tomato15" parent="Bad Guys" instance=ExtResource( 10 )]
+position = Vector2( 16673.2, 608.029 )
+speed = Vector2( 0, 0 )
+spin = 0.0
+
+[node name="Angry Tomato16" parent="Bad Guys" instance=ExtResource( 10 )]
+position = Vector2( 17377.7, 608.029 )
+speed = Vector2( 0, 0 )
+spin = 0.0
+
+[node name="Angry Tomato13" parent="Bad Guys" instance=ExtResource( 10 )]
+position = Vector2( 15583.9, 418.709 )
+
+[node name="Angry Tomato17" parent="Bad Guys" instance=ExtResource( 10 )]
+position = Vector2( 15462.1, 418.709 )
+
+[node name="Angry Tomato11" parent="Bad Guys" instance=ExtResource( 10 )]
+position = Vector2( 10497.4, 672.204 )
+
+[node name="Angry Tomato4" parent="Bad Guys" instance=ExtResource( 10 )]
+position = Vector2( 1198.45, 609.477 )
+
+[node name="Angry Tomato6" parent="Bad Guys" instance=ExtResource( 10 )]
+position = Vector2( 3833.33, 347.459 )
+
+[node name="Onionette" parent="Bad Guys" instance=ExtResource( 11 )]
+position = Vector2( 2048.79, 351.4 )
+
+[node name="Onionette2" parent="Bad Guys" instance=ExtResource( 11 )]
+position = Vector2( 5520.23, 547.209 )
+
+[node name="Onionette4" parent="Bad Guys" instance=ExtResource( 11 )]
+position = Vector2( 4619.07, 292.349 )
+
+[node name="Onionette6" parent="Bad Guys" instance=ExtResource( 11 )]
+position = Vector2( 11476.3, 673.791 )
+
+[node name="Onionette7" parent="Bad Guys" instance=ExtResource( 11 )]
+position = Vector2( 12423.8, 422.189 )
+
+[node name="Onionette5" parent="Bad Guys" instance=ExtResource( 11 )]
+position = Vector2( 6688, 32 )
+
+[node name="Rock" parent="Bad Guys" instance=ExtResource( 6 )]
+position = Vector2( 1433.08, 609.871 )
+
+[node name="Rock2" parent="Bad Guys" instance=ExtResource( 6 )]
+position = Vector2( 933.703, 609.871 )
+
+[node name="Rock3" parent="Bad Guys" instance=ExtResource( 6 )]
+position = Vector2( 2850.1, 289.673 )
+
+[node name="Rock4" parent="Bad Guys" instance=ExtResource( 6 )]
+position = Vector2( 3937.95, 289.477 )
+
+[node name="Rock5" parent="Bad Guys" instance=ExtResource( 6 )]
+position = Vector2( 6487.61, 546.965 )
+
+[node name="Rock6" parent="Bad Guys" instance=ExtResource( 6 )]
+position = Vector2( 15199.1, 416.885 )
+
+[node name="Rock7" parent="Bad Guys" instance=ExtResource( 6 )]
+position = Vector2( 15644.5, 416.495 )
+
+[node name="Mystery Blocks" type="Node" parent="."]
+
+[node name="Mystery Block4" parent="Mystery Blocks" instance=ExtResource( 14 )]
+position = Vector2( 416, 264 )
+power_up = 1
+
+[node name="Mystery Block2" parent="Mystery Blocks" instance=ExtResource( 14 )]
+position = Vector2( 5050.56, 354.489 )
+power_up = 4
+
+[node name="Mystery Block3" parent="Mystery Blocks" instance=ExtResource( 14 )]
+position = Vector2( 8871.97, 487.93 )
+
+[node name="Mystery Block5" parent="Mystery Blocks" instance=ExtResource( 14 )]
+position = Vector2( 10304, -24 )
+power_up = 6
+
+[node name="Empty Blocks" type="Node" parent="."]
+
+[node name="Empty Block" parent="Empty Blocks" instance=ExtResource( 9 )]
+position = Vector2( -32, 80 )
+scale = Vector2( 1, 22 )
+
+[node name="Empty Block2" parent="Empty Blocks" instance=ExtResource( 9 )]
+position = Vector2( 18271.8, 144 )
+scale = Vector2( 1, 22 )
+
+[node name="Hidden Blocks" type="Node" parent="."]
+
+[node name="DropZone" type="Node" parent="."]
+
+[node name="DropZone" parent="DropZone" instance=ExtResource( 12 )]
+position = Vector2( 9514.78, 875.978 )
+scale = Vector2( 300, 1 )
+
+[node name="ScreenShake" type="Node2D" parent="."]
+position = Vector2( 64, 704 )
+script = ExtResource( 21 )
+
+[node name="Tween" type="Tween" parent="ScreenShake"]
+
+[node name="Level_Complete" parent="." instance=ExtResource( 16 )]
+position = Vector2( 17567, 1355.13 )
+rotation = -1.5708
+target_stage = "res://src/Level/World1/Greens2.tscn"
+
+[node name="AudioFade" type="AnimationPlayer" parent="."]
+anims/AudioFade = SubResource( 1 )
+
+[node name="Mushroom Island" parent="." instance=ExtResource( 15 )]
+stream = ExtResource( 22 )
+
+[node name="Checkpoint" parent="." instance=ExtResource( 17 )]
+position = Vector2( 8648.82, 1360.4 )
+scale = Vector2( 3, 3 )
+level_checkpoint = "greens1"
+
+[node name="Chicken Leg" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1925.29, 713.306 )
+
+[node name="Chicken Leg2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 7072, 424 )
+
+[node name="Chicken Leg3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 9753.96, 1387.23 )
+
+[node name="BoxText" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = -253.959
+margin_top = 865.185
+margin_right = 46.0408
+margin_bottom = 1115.19
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.0862745, 0.737255, 0.0117647, 1 )
+bbcode_text = "Try bumping this Mystery Box with your head"
+text = "Try bumping this Mystery Box with your head"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoxText2" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 512.0
+margin_top = 912.0
+margin_right = 812.0
+margin_bottom = 1162.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.0862745, 0.737255, 0.0117647, 1 )
+bbcode_text = "Press E  to shoot the Angry Tomato with peppercorns"
+text = "Press E  to shoot the Angry Tomato with peppercorns"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoxText4" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 2723.73
+margin_top = 937.017
+margin_right = 3023.73
+margin_bottom = 1187.02
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.0862745, 0.737255, 0.0117647, 1 )
+bbcode_text = "Collect 100 pickle jars to get an extra life"
+text = "Collect 100 pickle jars to get an extra life"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoxText6" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 4368.0
+margin_top = 944.0
+margin_right = 4668.0
+margin_bottom = 1194.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.0862745, 0.737255, 0.0117647, 1 )
+bbcode_text = "You never know what you'll find in a Mystery Box"
+text = "You never know what you'll find in a Mystery Box"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoxText7" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 6655.98
+margin_top = 1208.21
+margin_right = 6955.98
+margin_bottom = 1458.21
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.0862745, 0.737255, 0.0117647, 1 )
+bbcode_text = "Try jumping up the wall"
+text = "Try jumping up the wall"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoxText8" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 8536.0
+margin_top = 1040.0
+margin_right = 8836.0
+margin_bottom = 1290.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.0862745, 0.737255, 0.0117647, 1 )
+bbcode_text = "Checkpoints save your progress in the level if you die"
+text = "Checkpoints save your progress in the level if you die"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoxText14" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 8064.0
+margin_top = 1040.0
+margin_right = 8364.0
+margin_bottom = 1290.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.0862745, 0.737255, 0.0117647, 1 )
+bbcode_text = "Corn deals more damage than pepper"
+text = "Corn deals more damage than pepper"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoxText9" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 9309.58
+margin_top = 959.827
+margin_right = 9609.58
+margin_bottom = 1209.83
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.0862745, 0.737255, 0.0117647, 1 )
+bbcode_text = "You might need to wall-jump here"
+text = "You might need to wall-jump here"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoxText10" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 11736.0
+margin_top = -40.0
+margin_right = 12036.0
+margin_bottom = 210.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.0862745, 0.737255, 0.0117647, 1 )
+bbcode_text = "Collect hearts to get extra lives"
+text = "Collect hearts to get extra lives"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoxText11" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 15632.0
+margin_top = 848.0
+margin_right = 15984.0
+margin_bottom = 1098.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.0862745, 0.737255, 0.0117647, 1 )
+bbcode_text = "Some gaps require you to DASH across.  Press Space Bar while jumping to dash."
+text = "Some gaps require you to DASH across.  Press Space Bar while jumping to dash."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoxText13" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 16360.0
+margin_top = 888.0
+margin_right = 16712.0
+margin_bottom = 1138.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.0862745, 0.737255, 0.0117647, 1 )
+bbcode_text = "You can dash in mid-air if you're still on an upward trajectory."
+text = "You can dash in mid-air if you're still on an upward trajectory."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoxText12" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 17304.0
+margin_top = 1088.0
+margin_right = 17604.0
+margin_bottom = 1338.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.0862745, 0.737255, 0.0117647, 1 )
+bbcode_text = "The pickle jar is the level exit"
+text = "The pickle jar is the level exit"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoxText5" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 1823.12
+margin_top = 519.57
+margin_right = 2123.12
+margin_bottom = 769.57
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0.0862745, 0.737255, 0.0117647, 1 )
+bbcode_text = "Chicken and donuts restore your health"
+text = "Chicken and donuts restore your health"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="jar_collected" from="Jars/Pickle Jar" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar2" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar3" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar5" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar10" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar12" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar14" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar17" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar19" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar21" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar23" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar24" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar27" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar31" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar29" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar33" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar48" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar30" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar35" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar37" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar39" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar41" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar43" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar45" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar49" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar50" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar51" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar52" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar53" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar54" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar55" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar56" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar57" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar60" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar58" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar59" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar47" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar32" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar34" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar36" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar38" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar40" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar42" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar44" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar46" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar6" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar7" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar9" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar28" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="green_heart_collected" from="Node/Green Heart2" to="PlayerElements" method="_on_Green_Heart_green_heart_collected"]
+[connection signal="tween_completed" from="ScreenShake/Tween" to="ScreenShake" method="_on_Tween_tween_completed"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/art/Objects/Kitchen/Hot cheese 3.png" type="Texture" id=1]
+[ext_resource path="res://src/Objects/Fireball.gd" type="Script" id=2]
+[ext_resource path="res://assets/art/Objects/Kitchen/Hot cheese 2.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/Objects/Kitchen/Hot cheese.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/Lighting/circle-light.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 33.6846
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( -42.178, 18.9701, -43.0938, -8.22863, -35.5844, -25.8117, -23.2946, -34.5482, -4.2463, -35.0977, 10.2231, -30.244, 21.6704, -19.8041, 29.9124, -7.07471, 31.3777, 5.47152, 27.623, 19.5746, 21.3956, 27.1756, 14.3258, 33.2564, -3.34882, 38.0184, -24.4118, 36.7363 )
+
+[node name="Fireball" type="Area2D"]
+collision_layer = 8
+collision_mask = 10
+script = ExtResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 22.1659, -6.64977 )
+texture = ExtResource( 5 )
+energy = 0.33
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 20.6922, -7.34859 )
+shape = SubResource( 4 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
+scale = Vector2( 0.8, 0.8 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+light_mask = 16
+position = Vector2( 26.6855, -9.86205 )
+occluder = SubResource( 3 )
+light_mask = 16
+
+[connection signal="area_shape_exited" from="." to="." method="_on_Fireball_area_shape_exited"]
+[connection signal="body_entered" from="." to="." method="_on_Fireball_body_entered"]

@@ -1,0 +1,244 @@
+[gd_scene load_steps=40 format=2]
+
+[ext_resource path="res://assets/art/Actors/Hot Picle Running/Hot Pickle Running6.png" type="Texture" id=1]
+[ext_resource path="res://src/Actors/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/art/Actors/Hot Picle Running/Hot Pickle Running5.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle1.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle5.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle6.png" type="Texture" id=6]
+[ext_resource path="res://assets/art/Actors/Hot Picle Running/Hot Pickle Running1.png" type="Texture" id=7]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle3.png" type="Texture" id=8]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle4.png" type="Texture" id=9]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Shoot.png/4.png" type="Texture" id=10]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Fall/Hot Pickle Fall2.png" type="Texture" id=11]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Run.png/6.png" type="Texture" id=12]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle7.png" type="Texture" id=13]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Run.png/8.png" type="Texture" id=14]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Run.png/9.png" type="Texture" id=15]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Fall/Hot Pickle Fall1.png" type="Texture" id=16]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Wall Slide/Hot Pickle Wall Slide1.png" type="Texture" id=17]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Shoot.png/5.png" type="Texture" id=18]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Shoot.png/2.png" type="Texture" id=19]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Dead.png" type="Texture" id=20]
+[ext_resource path="res://src/Actors/player_dead.gd" type="Script" id=21]
+[ext_resource path="res://src/Actors/PlayerSM.gd" type="Script" id=22]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle8.png" type="Texture" id=23]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Idle/Hot Pickle Idle2.png" type="Texture" id=24]
+[ext_resource path="res://assets/art/Actors/Hot Picle Running/Hot Pickle Running2.png" type="Texture" id=25]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Run.png/4.png" type="Texture" id=26]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Run.png/5.png" type="Texture" id=27]
+[ext_resource path="res://assets/art/Actors/Hot Picle Running/Hot Pickle Running3.png" type="Texture" id=28]
+[ext_resource path="res://assets/art/Actors/Hot Picle Running/Hot Pickle Running4.png" type="Texture" id=29]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Jump/Hot Pickle Jump1.png" type="Texture" id=30]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Jump/Hot Pickle Jump2.png" type="Texture" id=31]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Dash/Hot Pickle Dash3.png" type="Texture" id=32]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Dash/Hot Pickle Dash4.png" type="Texture" id=33]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Dash/Hot Pickle Dash2.png" type="Texture" id=34]
+[ext_resource path="res://assets/art/Actors/Hot Pickle Dash/Hot Pickle Dash1.png" type="Texture" id=35]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "wall_slide",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 25 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 34 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "dash",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 10 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "swim",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 24 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 23 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="OccluderPolygon2D" id=2]
+cull_mode = 1
+polygon = PoolVector2Array( -16, -56, 0, -56, 16, -40, 16, 24, 8, 32, 8, 56, 16, 64, 0, 64, -16, 64, -16, 40, -16, 32, -16, 16, -24, -8, -24, -40 )
+
+[sub_resource type="Animation" id=3]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -128 ), Vector2( 0, -128 ), Vector2( 0, 256 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 22, 63 )
+
+[node name="Player" type="KinematicBody2D" groups=[
+"persist",
+"player",
+"save",
+]]
+collision_mask = 14
+script = ExtResource( 2 )
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="hot_pickle" type="AnimatedSprite" parent="Body"]
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+animation = "idle"
+frame = 4
+speed_scale = 2.0
+playing = true
+flip_h = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Body"]
+light_mask = 33
+occluder = SubResource( 2 )
+light_mask = 33
+
+[node name="player_dead" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 2, 2 )
+z_index = 100
+texture = ExtResource( 20 )
+flip_h = true
+script = ExtResource( 21 )
+
+[node name="player_dead_animation" type="AnimationPlayer" parent="player_dead"]
+anims/dead = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2, 1 )
+shape = SubResource( 4 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 50, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+current = true
+limit_left = -64
+limit_top = -1080
+limit_right = 5000
+limit_bottom = 64
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+drag_margin_left = 0.14
+drag_margin_top = 0.3
+drag_margin_right = 0.15
+drag_margin_bottom = 0.3
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="ShootTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.3
+one_shot = true
+
+[node name="LeftWallRayCast1" type="RayCast2D" parent="."]
+position = Vector2( -24, -40 )
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 8
+
+[node name="RightWallRayCast1" type="RayCast2D" parent="."]
+position = Vector2( 20, 40 )
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 8
+
+[node name="LeftWallRayCast2" type="RayCast2D" parent="."]
+position = Vector2( -24, 40 )
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 8
+
+[node name="RightWallRayCast2" type="RayCast2D" parent="."]
+position = Vector2( 20, -40 )
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 8
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 0, 64 )
+enabled = true
+cast_to = Vector2( 0, 16 )
+collision_mask = 15
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2( -20, 64 )
+enabled = true
+cast_to = Vector2( 0, 16 )
+collision_mask = 15
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+position = Vector2( 20, 64 )
+enabled = true
+cast_to = Vector2( 0, 16 )
+collision_mask = 15
+
+[node name="PlayerSM" type="Node" parent="."]
+script = ExtResource( 22 )
+
+[node name="WallSlideCoolDown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="WallSlideStickyTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="HitTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+[connection signal="animation_finished" from="Body/hot_pickle" to="." method="_on_hot_pickle_animation_finished"]
+[connection signal="player_dead_finished" from="player_dead" to="." method="_on_player_dead_player_dead_finished"]
+[connection signal="animation_finished" from="player_dead/player_dead_animation" to="player_dead" method="_on_player_dead_animation_animation_finished"]
+[connection signal="timeout" from="WallSlideStickyTimer" to="PlayerSM" method="_on_WallSlideStickyTimer_timeout"]
+[connection signal="timeout" from="StunTimer" to="." method="_on_StunTimer_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_DashTimer_timeout"]

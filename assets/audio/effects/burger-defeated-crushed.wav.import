@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/burger-defeated-crushed.wav-2d9cf0bded8613f7ac50bf8fb6cecdab.sample"
+
+[deps]
+
+source_file="res://assets/audio/effects/burger-defeated-crushed.wav"
+dest_files=[ "res://.import/burger-defeated-crushed.wav-2d9cf0bded8613f7ac50bf8fb6cecdab.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

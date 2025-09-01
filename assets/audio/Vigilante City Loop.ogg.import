@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Vigilante City Loop.ogg-a5eca2d92039fd59965fbbb3a9c4f8e5.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Vigilante City Loop.ogg"
+dest_files=[ "res://.import/Vigilante City Loop.ogg-a5eca2d92039fd59965fbbb3a9c4f8e5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

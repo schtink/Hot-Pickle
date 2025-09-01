@@ -1,0 +1,1352 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://src/Objects/Pickle Jar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Level/TileMap.tres" type="TileSet" id=3]
+[ext_resource path="res://src/UserInterface/PlayerElements.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Level/Mushroom Island.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Level/World1/Greens.gd" type="Script" id=6]
+[ext_resource path="res://src/Background/Palm_tree.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Actors/Angry Tomato.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Blocks/Mystery Block.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/art/Backgrounds/blue1.png" type="Texture" id=10]
+[ext_resource path="res://src/Objects/Moving Platform.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/Blocks/Empty Block.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/Background/Cloud 1.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/Objects/Checkpoint.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/Blocks/DropZone.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/Level/ScreenShake.gd" type="Script" id=16]
+[ext_resource path="res://src/Objects/Level_Complete.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/Blocks/Hidden Block.tscn" type="PackedScene" id=18]
+[ext_resource path="res://src/Actors/Onionette.tscn" type="PackedScene" id=19]
+[ext_resource path="res://src/Objects/Green Heart.tscn" type="PackedScene" id=20]
+
+[node name="Main" type="Node2D"]
+position = Vector2( 616, -792 )
+script = ExtResource( 6 )
+levelID = 1
+
+[node name="PlayerElements" parent="." instance=ExtResource( 4 )]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enable = true
+scroll_base_scale = Vector2( 0.1, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 4672, -171 )
+scale = Vector2( 2.425, 0.886111 )
+z_index = -100
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 3840, 2160 )
+
+[node name="Trees" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 80, 718.523 )
+motion_scale = Vector2( -1, 1 )
+motion_mirroring = Vector2( 6000, 0 )
+
+[node name="Palm Tree" parent="ParallaxBackground/Trees" instance=ExtResource( 7 )]
+position = Vector2( 864, -320 )
+scale = Vector2( 3, 3 )
+
+[node name="Palm Tree2" parent="ParallaxBackground/Trees" instance=ExtResource( 7 )]
+position = Vector2( 2512, -320 )
+scale = Vector2( 3, 3 )
+
+[node name="Palm Tree3" parent="ParallaxBackground/Trees" instance=ExtResource( 7 )]
+position = Vector2( 4968, -320 )
+scale = Vector2( 3, 3 )
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 80, 718.523 )
+motion_scale = Vector2( -0.25, 1 )
+motion_mirroring = Vector2( 4300, 0 )
+
+[node name="Cloud 1" parent="ParallaxBackground/Clouds" instance=ExtResource( 13 )]
+position = Vector2( 304, -728 )
+z_index = -100
+
+[node name="Cloud 2" parent="ParallaxBackground/Clouds" instance=ExtResource( 13 )]
+position = Vector2( 1248, -528 )
+z_index = -100
+
+[node name="Cloud 3" parent="ParallaxBackground/Clouds" instance=ExtResource( 13 )]
+position = Vector2( 3032, -656 )
+z_index = -100
+
+[node name="Player" type="Node" parent="."]
+
+[node name="Player" parent="Player" instance=ExtResource( 2 )]
+position = Vector2( 96, 621.523 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 8, 694.523 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -589690, 0, 0, -589686, 0, 0, -589682, 0, 0, -589678, 0, 0, -589674, 0, 0, -327482, 0, 0, -327466, 0, 0, -65338, 0, 0, -65322, 0, 0, 74, 0, 0, 78, 0, 0, 82, 0, 0, 86, 0, 0, 90, 0, 0, 94, 0, 0, 98, 0, 0, 102, 0, 0, 106, 0, 0, 110, 0, 0, 114, 0, 0, 118, 0, 0, 122, 0, 0, 196806, 0, 0, 196810, 0, 0, 196814, 0, 0, 196818, 0, 0, 196822, 0, 0, 197014, 536870915, 0, 197018, 3, 0, 721262, 536870921, 0, 721266, 536870917, 0, 721270, 536870917, 0, 721274, 536870917, 0, 721278, 9, 0, 917899, 536870915, 0, 917903, 3, 0, 983406, -1073741819, 0, 983410, 2, 0, 983414, 2, 0, 983418, 2, 0, 983422, -536870907, 0, 1245358, 0, 0, 1245374, 0, 0, 1245550, -1073741819, 0, 1245554, 2, 0, 1245558, 2, 0, 1245562, 2, 0, 1245566, -1610612731, 0, 1507502, 0, 0, 1507506, 0, 0, 1507510, 0, 0, 1507514, 0, 0, 1507518, 0, 0, 1507582, 536870915, 0, 1507586, 5, 0, 1507590, 3, 0, 1507694, 1610612745, 0, 1507698, 1610612741, 0, 1507702, 1610612741, 0, 1507706, 1610612741, 0, 1507710, 1073741833, 0, 1769618, 0, 0, 1769634, 0, 0, 1769726, 2, 0, 1769730, 2, 0, 1769734, 2, 0, 2031762, 0, 0, 2031766, 0, 0, 2031770, 0, 0, 2031774, 0, 0, 2031778, 0, 0, 2031870, 2, 0, 2031874, 2, 0, 2031878, 2, 0, 2294014, 2, 0, 2294018, 2, 0, 2294022, 2, 0, 2424894, 536870921, 0, 2424898, 5, 0, 2424902, 5, 0, 2424906, 9, 0, 2424962, 0, 0, 2425242, 536870912, 0, 2425262, 536870912, 0, 2556158, 2, 0, 2556162, 2, 0, 2556166, 2, 0, 2621506, 2, 0, 2621510, 2, 0, 2687034, 536870921, 0, 2687038, 536870922, 0, 2687050, 10, 0, 2687054, 9, 0, 2687106, 0, 0, 2687386, 536870912, 0, 2687406, 536870912, 0, 2818302, 2, 0, 2818306, 2, 0, 2818310, 2, 0, 2818562, 0, 0, 2818566, 0, 0, 2818582, 0, 0, 2818586, 0, 0, 2883646, 2, 0, 2883650, 2, 0, 2883654, 2, 0, 2883658, 2, 0, 2949174, 536870921, 0, 2949178, 536870922, 0, 2949198, 10, 0, 2949202, 9, 0, 2949250, 0, 0, 2949530, 536870915, 0, 2949534, 5, 0, 2949538, 5, 0, 2949542, 5, 0, 2949546, 5, 0, 2949550, 3, 0, 2949570, 536870915, 0, 2949574, 3, 0, 2949590, 536870915, 0, 2949594, 3, 0, 2949610, 536870915, 0, 2949614, 3, 0, 3080446, 2, 0, 3080450, 2, 0, 3080454, 2, 0, 3080706, 0, 0, 3080710, 0, 0, 3080726, 0, 0, 3080730, 0, 0, 3211246, 3, 0, 3211247, 3, 0, 3211258, 536870914, 0, 3211262, 536870914, 0, 3145730, 536870914, 0, 3145734, 536870914, 0, 3145738, 536870914, 0, 3145786, 2, 0, 3145790, 2, 0, 3145794, 2, 0, 3145798, 2, 0, 3145802, 2, 0, 3145806, 2, 0, 3146138, 2, 0, 3146142, 2, 0, 3146146, 2, 0, 3146150, 2, 0, 3146154, 2, 0, 3146158, 2, 0, 3146178, 2, 0, 3146182, 2, 0, 3146198, 2, 0, 3146202, 2, 0, 3146218, 2, 0, 3146222, 2, 0, 3276762, 5, 0, 3276766, 5, 0, 3276770, 5, 0, 3276774, 5, 0, 3276778, 5, 0, 3276782, 536870922, 0, 3276784, 3, 0, 3276785, 3, 0, 3276786, 3, 0, 3276787, 3, 0, 3276788, 3, 0, 3276789, 3, 0, 3276790, 3, 0, 3276791, 3, 0, 3276792, 3, 0, 3276793, 3, 0, 3276794, 3, 0, 3276795, 3, 0, 3276796, 3, 0, 3276797, 3, 0, 3276798, 3, 0, 3276799, 3, 0, 3211264, 3, 0, 3211265, 3, 0, 3211266, 3, 0, 3211267, 3, 0, 3211268, 3, 0, 3211269, 3, 0, 3211270, 3, 0, 3211271, 3, 0, 3211272, 3, 0, 3211273, 3, 0, 3211274, 3, 0, 3211275, 3, 0, 3211276, 3, 0, 3211277, 3, 0, 3211278, 3, 0, 3211279, 3, 0, 3211282, 5, 0, 3211286, 5, 0, 3211290, 5, 0, 3211294, 5, 0, 3211298, 5, 0, 3211302, 5, 0, 3211306, 5, 0, 3211310, 5, 0, 3211314, 5, 0, 3211318, 536870922, 0, 3211346, 10, 0, 3211350, 5, 0, 3211354, 5, 0, 3211358, 5, 0, 3211362, 5, 0, 3211366, 5, 0, 3211370, 5, 0, 3211374, 5, 0, 3211378, 5, 0, 3211382, 5, 0, 3211386, 5, 0, 3211390, 5, 0, 3211394, 3, 0, 3342590, 2, 0, 3342594, 2, 0, 3342598, 2, 0, 3342850, 0, 0, 3342854, 0, 0, 3342870, 0, 0, 3342874, 0, 0, 3473370, 2, 0, 3473374, 2, 0, 3473378, 2, 0, 3473382, 2, 0, 3473386, 2, 0, 3473390, 2, 0, 3473394, 2, 0, 3473398, 2, 0, 3473402, 2, 0, 3473406, 2, 0, 3407874, 2, 0, 3407878, 2, 0, 3407882, 2, 0, 3407886, 2, 0, 3407890, 2, 0, 3407894, 2, 0, 3407898, 2, 0, 3407902, 2, 0, 3407906, 2, 0, 3407910, 2, 0, 3407914, 2, 0, 3407918, 2, 0, 3407922, 2, 0, 3407926, 2, 0, 3407930, 2, 0, 3407934, 2, 0, 3407938, 2, 0, 3407942, 2, 0, 3407946, 2, 0, 3407950, 2, 0, 3407954, 2, 0, 3407958, 2, 0, 3407962, 2, 0, 3407966, 2, 0, 3407970, 2, 0, 3407974, 2, 0, 3407978, 2, 0, 3407982, 2, 0, 3407986, 2, 0, 3407990, 2, 0, 3407994, 2, 0, 3407998, 2, 0, 3408002, 2, 0, 3408282, 2, 0, 3408286, 2, 0, 3408290, 2, 0, 3408294, 2, 0, 3408298, 2, 0, 3408302, 2, 0, 3408322, 2, 0, 3408326, 2, 0, 3408342, 2, 0, 3408346, 2, 0, 3408362, 2, 0, 3408366, 2, 0, 3604994, 536870915, 0, 3604998, 5, 0, 3605002, 5, 0, 3605006, 5, 0, 3605010, 5, 0, 3605014, 5, 0, 3605018, 3, 0 )
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Orange Platforms" type="Node" parent="Platforms"]
+
+[node name="Moving Platform" parent="Platforms/Orange Platforms" instance=ExtResource( 11 )]
+position = Vector2( 3984, 414.523 )
+move_to = Vector2( 360, 0 )
+
+[node name="Moving Platform2" parent="Platforms/Orange Platforms" instance=ExtResource( 11 )]
+position = Vector2( 5264, 190.523 )
+move_to = Vector2( 360, 0 )
+
+[node name="Moving Platform7" parent="Platforms/Orange Platforms" instance=ExtResource( 11 )]
+position = Vector2( 1456, 70.5228 )
+move_to = Vector2( 360, 0 )
+
+[node name="Moving Platform3" parent="Platforms/Orange Platforms" instance=ExtResource( 11 )]
+position = Vector2( 4432, 222.523 )
+move_to = Vector2( 360, 0 )
+
+[node name="Moving Platform5" parent="Platforms/Orange Platforms" instance=ExtResource( 11 )]
+position = Vector2( 6032, 190.523 )
+move_to = Vector2( 360, 0 )
+
+[node name="Jars" type="Node" parent="."]
+
+[node name="Pickle Jar" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 624, 294.523 )
+
+[node name="Pickle Jar2" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 624, 222.523 )
+
+[node name="Pickle Jar3" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 624, 150.523 )
+
+[node name="Pickle Jar28" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 542.57, 294.523 )
+
+[node name="Pickle Jar29" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 542.57, 222.523 )
+
+[node name="Pickle Jar30" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 542.57, 150.523 )
+
+[node name="Pickle Jar31" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 463.949, 294.523 )
+
+[node name="Pickle Jar32" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 463.949, 222.523 )
+
+[node name="Pickle Jar33" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 463.949, 150.523 )
+
+[node name="Pickle Jar34" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 382.519, 294.523 )
+
+[node name="Pickle Jar35" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 382.519, 222.523 )
+
+[node name="Pickle Jar36" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 382.519, 150.523 )
+
+[node name="Pickle Jar37" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 306.706, 294.523 )
+
+[node name="Pickle Jar38" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 306.706, 222.523 )
+
+[node name="Pickle Jar39" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 306.706, 150.523 )
+
+[node name="Pickle Jar40" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 225.276, 294.523 )
+
+[node name="Pickle Jar41" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 225.276, 222.523 )
+
+[node name="Pickle Jar42" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 225.276, 150.523 )
+
+[node name="Pickle Jar43" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 146.654, 294.523 )
+
+[node name="Pickle Jar44" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 146.654, 222.523 )
+
+[node name="Pickle Jar45" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 146.654, 150.523 )
+
+[node name="Pickle Jar46" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 65.2249, 294.523 )
+
+[node name="Pickle Jar47" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 65.2249, 222.523 )
+
+[node name="Pickle Jar48" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 65.2249, 150.523 )
+
+[node name="Pickle Jar49" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1258.59, 294.523 )
+
+[node name="Pickle Jar50" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1258.59, 222.523 )
+
+[node name="Pickle Jar51" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1258.59, 150.523 )
+
+[node name="Pickle Jar52" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1177.16, 294.523 )
+
+[node name="Pickle Jar53" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1177.16, 222.523 )
+
+[node name="Pickle Jar54" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1177.16, 150.523 )
+
+[node name="Pickle Jar55" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1098.54, 294.523 )
+
+[node name="Pickle Jar56" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1098.54, 222.523 )
+
+[node name="Pickle Jar57" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1098.54, 150.523 )
+
+[node name="Pickle Jar58" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1017.11, 294.523 )
+
+[node name="Pickle Jar59" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1017.11, 222.523 )
+
+[node name="Pickle Jar60" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1017.11, 150.523 )
+
+[node name="Pickle Jar61" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 941.294, 294.523 )
+
+[node name="Pickle Jar62" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 941.294, 222.523 )
+
+[node name="Pickle Jar63" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 941.294, 150.523 )
+
+[node name="Pickle Jar64" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 859.865, 294.523 )
+
+[node name="Pickle Jar65" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 859.865, 222.523 )
+
+[node name="Pickle Jar66" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 859.865, 150.523 )
+
+[node name="Pickle Jar67" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 781.243, 294.523 )
+
+[node name="Pickle Jar68" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 781.243, 222.523 )
+
+[node name="Pickle Jar69" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 781.243, 150.523 )
+
+[node name="Pickle Jar70" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 699.814, 294.523 )
+
+[node name="Pickle Jar71" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 699.814, 222.523 )
+
+[node name="Pickle Jar72" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 699.814, 150.523 )
+
+[node name="Pickle Jar73" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1895.99, 302.947 )
+
+[node name="Pickle Jar74" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1895.99, 230.947 )
+
+[node name="Pickle Jar75" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1895.99, 158.947 )
+
+[node name="Pickle Jar76" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1814.56, 302.947 )
+
+[node name="Pickle Jar77" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1814.56, 230.947 )
+
+[node name="Pickle Jar78" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1814.56, 158.947 )
+
+[node name="Pickle Jar79" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1735.93, 302.947 )
+
+[node name="Pickle Jar80" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1735.93, 230.947 )
+
+[node name="Pickle Jar81" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1735.93, 158.947 )
+
+[node name="Pickle Jar82" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1654.5, 302.947 )
+
+[node name="Pickle Jar83" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1654.5, 230.947 )
+
+[node name="Pickle Jar84" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1654.5, 158.947 )
+
+[node name="Pickle Jar85" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1578.69, 302.947 )
+
+[node name="Pickle Jar86" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1578.69, 230.947 )
+
+[node name="Pickle Jar87" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1578.69, 158.947 )
+
+[node name="Pickle Jar88" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1497.26, 302.947 )
+
+[node name="Pickle Jar89" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1497.26, 230.947 )
+
+[node name="Pickle Jar90" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1497.26, 158.947 )
+
+[node name="Pickle Jar91" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1418.64, 302.947 )
+
+[node name="Pickle Jar92" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1418.64, 230.947 )
+
+[node name="Pickle Jar93" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1418.64, 158.947 )
+
+[node name="Pickle Jar94" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1337.21, 302.947 )
+
+[node name="Pickle Jar95" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1337.21, 230.947 )
+
+[node name="Pickle Jar96" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1337.21, 158.947 )
+
+[node name="Pickle Jar97" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2550.23, 300.139 )
+
+[node name="Pickle Jar98" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2550.23, 228.139 )
+
+[node name="Pickle Jar99" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2550.23, 156.139 )
+
+[node name="Pickle Jar100" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2468.8, 300.139 )
+
+[node name="Pickle Jar101" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2468.8, 228.139 )
+
+[node name="Pickle Jar102" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2468.8, 156.139 )
+
+[node name="Pickle Jar103" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2390.18, 300.139 )
+
+[node name="Pickle Jar104" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2390.18, 228.139 )
+
+[node name="Pickle Jar105" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2390.18, 156.139 )
+
+[node name="Pickle Jar106" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2308.75, 300.139 )
+
+[node name="Pickle Jar107" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2308.75, 228.139 )
+
+[node name="Pickle Jar108" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2308.75, 156.139 )
+
+[node name="Pickle Jar109" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2232.94, 300.139 )
+
+[node name="Pickle Jar110" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2232.94, 228.139 )
+
+[node name="Pickle Jar111" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2232.94, 156.139 )
+
+[node name="Pickle Jar112" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2151.51, 300.139 )
+
+[node name="Pickle Jar113" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2151.51, 228.139 )
+
+[node name="Pickle Jar114" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2151.51, 156.139 )
+
+[node name="Pickle Jar115" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2072.88, 300.139 )
+
+[node name="Pickle Jar116" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2072.88, 228.139 )
+
+[node name="Pickle Jar117" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2072.88, 156.139 )
+
+[node name="Pickle Jar118" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1991.45, 300.139 )
+
+[node name="Pickle Jar119" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1991.45, 228.139 )
+
+[node name="Pickle Jar120" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1991.45, 156.139 )
+
+[node name="Pickle Jar121" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3207.28, 297.331 )
+
+[node name="Pickle Jar122" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3207.28, 225.331 )
+
+[node name="Pickle Jar123" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3207.28, 153.331 )
+
+[node name="Pickle Jar124" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3125.85, 297.331 )
+
+[node name="Pickle Jar125" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3125.85, 225.331 )
+
+[node name="Pickle Jar126" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3125.85, 153.331 )
+
+[node name="Pickle Jar127" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3047.23, 297.331 )
+
+[node name="Pickle Jar128" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3047.23, 225.331 )
+
+[node name="Pickle Jar129" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3047.23, 153.331 )
+
+[node name="Pickle Jar130" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2965.8, 297.331 )
+
+[node name="Pickle Jar131" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2965.8, 225.331 )
+
+[node name="Pickle Jar132" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2965.8, 153.331 )
+
+[node name="Pickle Jar133" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2889.99, 297.331 )
+
+[node name="Pickle Jar134" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2889.99, 225.331 )
+
+[node name="Pickle Jar135" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2889.99, 153.331 )
+
+[node name="Pickle Jar136" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2808.56, 297.331 )
+
+[node name="Pickle Jar137" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2808.56, 225.331 )
+
+[node name="Pickle Jar138" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2808.56, 153.331 )
+
+[node name="Pickle Jar139" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2729.94, 297.331 )
+
+[node name="Pickle Jar140" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2729.94, 225.331 )
+
+[node name="Pickle Jar141" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2729.94, 153.331 )
+
+[node name="Pickle Jar142" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2648.51, 297.331 )
+
+[node name="Pickle Jar143" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2648.51, 225.331 )
+
+[node name="Pickle Jar144" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2648.51, 153.331 )
+
+[node name="Pickle Jar145" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2564.27, 538.812 )
+
+[node name="Pickle Jar146" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2564.27, 466.812 )
+
+[node name="Pickle Jar147" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2564.27, 394.812 )
+
+[node name="Pickle Jar148" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2482.84, 538.812 )
+
+[node name="Pickle Jar149" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2482.84, 466.812 )
+
+[node name="Pickle Jar150" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2482.84, 394.812 )
+
+[node name="Pickle Jar151" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2404.22, 538.812 )
+
+[node name="Pickle Jar152" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2404.22, 466.812 )
+
+[node name="Pickle Jar153" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2404.22, 394.812 )
+
+[node name="Pickle Jar154" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2322.79, 538.812 )
+
+[node name="Pickle Jar155" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2322.79, 466.812 )
+
+[node name="Pickle Jar156" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2322.79, 394.812 )
+
+[node name="Pickle Jar157" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2246.97, 538.812 )
+
+[node name="Pickle Jar158" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2246.97, 466.812 )
+
+[node name="Pickle Jar159" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2246.97, 394.812 )
+
+[node name="Pickle Jar160" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2165.55, 538.812 )
+
+[node name="Pickle Jar161" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2165.55, 466.812 )
+
+[node name="Pickle Jar162" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2165.55, 394.812 )
+
+[node name="Pickle Jar163" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2086.92, 538.812 )
+
+[node name="Pickle Jar164" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2086.92, 466.812 )
+
+[node name="Pickle Jar165" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2086.92, 394.812 )
+
+[node name="Pickle Jar166" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2005.49, 538.812 )
+
+[node name="Pickle Jar167" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2005.49, 466.812 )
+
+[node name="Pickle Jar168" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2005.49, 394.812 )
+
+[node name="Pickle Jar169" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1643.27, 541.62 )
+
+[node name="Pickle Jar170" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1643.27, 469.62 )
+
+[node name="Pickle Jar171" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1643.27, 397.62 )
+
+[node name="Pickle Jar172" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1561.84, 541.62 )
+
+[node name="Pickle Jar173" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1561.84, 469.62 )
+
+[node name="Pickle Jar174" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1561.84, 397.62 )
+
+[node name="Pickle Jar175" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1483.22, 541.62 )
+
+[node name="Pickle Jar176" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1483.22, 469.62 )
+
+[node name="Pickle Jar177" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1483.22, 397.62 )
+
+[node name="Pickle Jar178" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1401.79, 541.62 )
+
+[node name="Pickle Jar179" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1401.79, 469.62 )
+
+[node name="Pickle Jar180" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1401.79, 397.62 )
+
+[node name="Pickle Jar181" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1325.98, 541.62 )
+
+[node name="Pickle Jar182" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1325.98, 469.62 )
+
+[node name="Pickle Jar183" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1325.98, 397.62 )
+
+[node name="Pickle Jar184" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1244.55, 541.62 )
+
+[node name="Pickle Jar185" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1244.55, 469.62 )
+
+[node name="Pickle Jar186" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1244.55, 397.62 )
+
+[node name="Pickle Jar187" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1165.93, 541.62 )
+
+[node name="Pickle Jar188" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1165.93, 469.62 )
+
+[node name="Pickle Jar189" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1165.93, 397.62 )
+
+[node name="Pickle Jar190" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1084.5, 541.62 )
+
+[node name="Pickle Jar191" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1084.5, 469.62 )
+
+[node name="Pickle Jar192" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1084.5, 397.62 )
+
+[node name="Pickle Jar193" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 618.384, 538.812 )
+
+[node name="Pickle Jar194" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 618.384, 466.812 )
+
+[node name="Pickle Jar195" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 618.384, 394.812 )
+
+[node name="Pickle Jar196" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 536.954, 538.812 )
+
+[node name="Pickle Jar197" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 536.954, 466.812 )
+
+[node name="Pickle Jar198" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 536.954, 394.812 )
+
+[node name="Pickle Jar199" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 458.333, 538.812 )
+
+[node name="Pickle Jar200" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 458.333, 466.812 )
+
+[node name="Pickle Jar201" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 458.333, 394.812 )
+
+[node name="Pickle Jar202" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 376.903, 538.812 )
+
+[node name="Pickle Jar203" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 376.903, 466.812 )
+
+[node name="Pickle Jar204" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 376.903, 394.812 )
+
+[node name="Pickle Jar205" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 301.09, 538.812 )
+
+[node name="Pickle Jar206" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 301.09, 466.812 )
+
+[node name="Pickle Jar207" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 301.09, 394.812 )
+
+[node name="Pickle Jar208" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 219.66, 538.812 )
+
+[node name="Pickle Jar209" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 219.66, 466.812 )
+
+[node name="Pickle Jar210" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 219.66, 394.812 )
+
+[node name="Pickle Jar211" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 141.038, 538.812 )
+
+[node name="Pickle Jar212" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 141.038, 466.812 )
+
+[node name="Pickle Jar213" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 141.038, 394.812 )
+
+[node name="Pickle Jar214" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 59.6093, 538.812 )
+
+[node name="Pickle Jar215" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 59.6093, 466.812 )
+
+[node name="Pickle Jar216" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 59.6093, 394.812 )
+
+[node name="Pickle Jar217" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1264.2, 541.62 )
+
+[node name="Pickle Jar218" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1264.2, 469.62 )
+
+[node name="Pickle Jar219" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1264.2, 397.62 )
+
+[node name="Pickle Jar220" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1182.77, 541.62 )
+
+[node name="Pickle Jar221" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1182.77, 469.62 )
+
+[node name="Pickle Jar222" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1182.77, 397.62 )
+
+[node name="Pickle Jar223" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1104.15, 541.62 )
+
+[node name="Pickle Jar224" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1104.15, 469.62 )
+
+[node name="Pickle Jar225" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1104.15, 397.62 )
+
+[node name="Pickle Jar226" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1022.72, 541.62 )
+
+[node name="Pickle Jar227" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1022.72, 469.62 )
+
+[node name="Pickle Jar228" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1022.72, 397.62 )
+
+[node name="Pickle Jar229" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 946.91, 541.62 )
+
+[node name="Pickle Jar230" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 946.91, 469.62 )
+
+[node name="Pickle Jar231" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 946.91, 397.62 )
+
+[node name="Pickle Jar232" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 865.48, 541.62 )
+
+[node name="Pickle Jar233" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 865.48, 469.62 )
+
+[node name="Pickle Jar234" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 865.48, 397.62 )
+
+[node name="Pickle Jar235" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 786.859, 541.62 )
+
+[node name="Pickle Jar236" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 786.859, 469.62 )
+
+[node name="Pickle Jar237" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 786.859, 397.62 )
+
+[node name="Pickle Jar238" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 705.43, 541.62 )
+
+[node name="Pickle Jar239" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 705.43, 469.62 )
+
+[node name="Pickle Jar240" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 705.43, 397.62 )
+
+[node name="Pickle Jar241" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2266.63, 541.62 )
+
+[node name="Pickle Jar242" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2266.63, 469.62 )
+
+[node name="Pickle Jar243" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2266.63, 397.62 )
+
+[node name="Pickle Jar244" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2185.2, 541.62 )
+
+[node name="Pickle Jar245" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2185.2, 469.62 )
+
+[node name="Pickle Jar246" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2185.2, 397.62 )
+
+[node name="Pickle Jar247" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2106.58, 541.62 )
+
+[node name="Pickle Jar248" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2106.58, 469.62 )
+
+[node name="Pickle Jar249" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2106.58, 397.62 )
+
+[node name="Pickle Jar250" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2025.15, 541.62 )
+
+[node name="Pickle Jar251" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2025.15, 469.62 )
+
+[node name="Pickle Jar252" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2025.15, 397.62 )
+
+[node name="Pickle Jar253" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1949.34, 541.62 )
+
+[node name="Pickle Jar254" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1949.34, 469.62 )
+
+[node name="Pickle Jar255" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1949.34, 397.62 )
+
+[node name="Pickle Jar256" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1867.91, 541.62 )
+
+[node name="Pickle Jar257" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1867.91, 469.62 )
+
+[node name="Pickle Jar258" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1867.91, 397.62 )
+
+[node name="Pickle Jar259" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1789.28, 541.62 )
+
+[node name="Pickle Jar260" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1789.28, 469.62 )
+
+[node name="Pickle Jar261" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1789.28, 397.62 )
+
+[node name="Pickle Jar262" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1707.86, 541.62 )
+
+[node name="Pickle Jar263" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1707.86, 469.62 )
+
+[node name="Pickle Jar264" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1707.86, 397.62 )
+
+[node name="Pickle Jar265" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3179.2, 533.196 )
+
+[node name="Pickle Jar266" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3179.2, 461.196 )
+
+[node name="Pickle Jar267" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3179.2, 389.196 )
+
+[node name="Pickle Jar268" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3097.77, 533.196 )
+
+[node name="Pickle Jar269" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3097.77, 461.196 )
+
+[node name="Pickle Jar270" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3097.77, 389.196 )
+
+[node name="Pickle Jar271" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3019.15, 533.196 )
+
+[node name="Pickle Jar272" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3019.15, 461.196 )
+
+[node name="Pickle Jar273" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3019.15, 389.196 )
+
+[node name="Pickle Jar274" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2937.72, 533.196 )
+
+[node name="Pickle Jar275" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2937.72, 461.196 )
+
+[node name="Pickle Jar276" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2937.72, 389.196 )
+
+[node name="Pickle Jar277" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2861.91, 533.196 )
+
+[node name="Pickle Jar278" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2861.91, 461.196 )
+
+[node name="Pickle Jar279" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2861.91, 389.196 )
+
+[node name="Pickle Jar280" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2780.48, 533.196 )
+
+[node name="Pickle Jar281" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2780.48, 461.196 )
+
+[node name="Pickle Jar282" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2780.48, 389.196 )
+
+[node name="Pickle Jar283" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2701.86, 533.196 )
+
+[node name="Pickle Jar284" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2701.86, 461.196 )
+
+[node name="Pickle Jar285" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2701.86, 389.196 )
+
+[node name="Pickle Jar286" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2620.43, 533.196 )
+
+[node name="Pickle Jar287" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2620.43, 461.196 )
+
+[node name="Pickle Jar288" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2620.43, 389.196 )
+
+[node name="Pickle Jar4" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1840, -139 )
+
+[node name="Pickle Jar5" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2488, -140.524 )
+
+[node name="Pickle Jar10" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2608, -139 )
+
+[node name="Pickle Jar11" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3568, 118.523 )
+
+[node name="Pickle Jar12" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3568, -9.47717 )
+
+[node name="Pickle Jar13" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3568, 54.5228 )
+
+[node name="Pickle Jar14" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3952, -217.477 )
+
+[node name="Pickle Jar15" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3952, -345.477 )
+
+[node name="Pickle Jar17" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 5368, 117 )
+
+[node name="Pickle Jar18" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 5496, 115.476 )
+
+[node name="Pickle Jar19" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 5624, 118.523 )
+
+[node name="Pickle Jar20" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 5744, 117 )
+
+[node name="Pickle Jar21" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 5872, 118.523 )
+
+[node name="Pickle Jar22" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 6000, 118.523 )
+
+[node name="Pickle Jar23" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 6128, 118.523 )
+
+[node name="Pickle Jar24" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 6384, 113.953 )
+
+[node name="Pickle Jar25" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 6384, -12.5242 )
+
+[node name="Pickle Jar26" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 6384, 46.5228 )
+
+[node name="Pickle Jar27" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 6384, -81.4772 )
+
+[node name="Pickle Jar16" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 3952, -281.477 )
+
+[node name="Pickle Jar6" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 1968, -140.524 )
+
+[node name="Pickle Jar7" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2096, -140.524 )
+
+[node name="Pickle Jar8" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2224, -139 )
+
+[node name="Pickle Jar9" parent="Jars" instance=ExtResource( 1 )]
+position = Vector2( 2352, -137.477 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Green Heart" parent="Node" instance=ExtResource( 20 )]
+position = Vector2( 2920, -289.477 )
+
+[node name="Green Heart2" parent="Node" instance=ExtResource( 20 )]
+position = Vector2( 7184, -108.524 )
+
+[node name="Bad Guys" type="Node" parent="."]
+
+[node name="Angry Tomato" parent="Bad Guys" instance=ExtResource( 8 )]
+position = Vector2( 3568, 230.523 )
+
+[node name="Angry Tomato2" parent="Bad Guys" instance=ExtResource( 8 )]
+position = Vector2( 7376, 582.523 )
+
+[node name="Angry Tomato3" parent="Bad Guys" instance=ExtResource( 8 )]
+position = Vector2( 2256, 654.523 )
+
+[node name="Angry Tomato4" parent="Bad Guys" instance=ExtResource( 8 )]
+position = Vector2( 1432, 654.523 )
+
+[node name="Angry Tomato6" parent="Bad Guys" instance=ExtResource( 8 )]
+position = Vector2( 3072, 358.523 )
+
+[node name="Onionette" parent="Bad Guys" instance=ExtResource( 19 )]
+position = Vector2( 1176, 654.523 )
+
+[node name="Onionette2" parent="Bad Guys" instance=ExtResource( 19 )]
+position = Vector2( 2416, 654.523 )
+
+[node name="Onionette4" parent="Bad Guys" instance=ExtResource( 19 )]
+position = Vector2( 3952, -73.4772 )
+
+[node name="Onionette5" parent="Bad Guys" instance=ExtResource( 19 )]
+position = Vector2( 6648, 46.5228 )
+
+[node name="Mystery Blocks" type="Node" parent="."]
+
+[node name="Mystery Block" parent="Mystery Blocks" instance=ExtResource( 9 )]
+position = Vector2( 216, 494.523 )
+
+[node name="Mystery Block2" parent="Mystery Blocks" instance=ExtResource( 9 )]
+position = Vector2( 5128, -17.4772 )
+
+[node name="Empty Blocks" type="Node" parent="."]
+
+[node name="Empty Block" parent="Empty Blocks" instance=ExtResource( 12 )]
+position = Vector2( -16, 94.5228 )
+scale = Vector2( 1, 22 )
+
+[node name="Empty Block2" parent="Empty Blocks" instance=ExtResource( 12 )]
+position = Vector2( 9328, 158.523 )
+scale = Vector2( 1, 22 )
+
+[node name="Hidden Blocks" type="Node" parent="."]
+
+[node name="Hidden Block1" parent="Hidden Blocks" instance=ExtResource( 18 )]
+position = Vector2( 1744, 302.523 )
+
+[node name="DropZone" type="Node" parent="."]
+
+[node name="DropZone" parent="DropZone" instance=ExtResource( 15 )]
+position = Vector2( 4744, 894.523 )
+scale = Vector2( 150, 1 )
+
+[node name="ScreenShake" type="Node2D" parent="."]
+position = Vector2( 8, 694.523 )
+script = ExtResource( 16 )
+
+[node name="Tween" type="Tween" parent="ScreenShake"]
+
+[node name="Level_Complete" parent="." instance=ExtResource( 17 )]
+position = Vector2( 8456, 1454.52 )
+target_stage = "res://src/Level/Water Level.tscn"
+
+[node name="Mushroom Island" parent="." instance=ExtResource( 5 )]
+autoplay = false
+
+[node name="Checkpoint" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4168, 966.523 )
+scale = Vector2( 3, 3 )
+level_checkpoint = "greens1"
+[connection signal="jar_collected" from="Jars/Pickle Jar" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar2" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar3" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar28" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar29" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar30" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar31" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar32" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar33" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar34" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar35" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar36" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar37" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar38" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar39" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar40" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar41" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar42" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar43" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar44" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar45" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar46" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar47" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar48" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar49" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar50" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar51" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar52" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar53" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar54" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar55" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar56" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar57" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar58" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar59" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar60" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar61" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar62" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar63" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar64" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar65" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar66" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar67" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar68" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar69" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar70" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar71" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar72" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar73" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar74" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar75" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar76" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar77" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar78" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar79" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar80" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar81" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar82" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar83" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar84" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar85" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar86" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar87" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar88" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar89" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar90" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar91" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar92" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar93" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar94" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar95" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar96" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar97" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar98" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar99" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar100" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar101" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar102" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar103" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar104" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar105" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar106" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar107" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar108" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar109" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar110" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar111" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar112" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar113" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar114" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar115" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar116" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar117" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar118" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar119" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar120" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar121" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar122" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar123" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar124" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar125" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar126" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar127" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar128" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar129" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar130" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar131" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar132" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar133" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar134" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar135" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar136" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar137" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar138" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar139" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar140" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar141" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar142" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar143" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar144" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar145" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar146" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar147" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar148" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar149" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar150" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar151" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar152" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar153" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar154" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar155" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar156" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar157" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar158" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar159" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar160" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar161" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar162" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar163" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar164" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar165" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar166" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar167" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar168" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar169" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar170" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar171" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar172" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar173" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar174" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar175" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar176" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar177" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar178" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar179" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar180" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar181" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar182" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar183" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar184" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar185" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar186" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar187" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar188" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar189" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar190" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar191" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar192" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar193" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar194" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar195" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar196" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar197" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar198" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar199" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar200" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar201" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar202" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar203" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar204" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar205" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar206" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar207" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar208" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar209" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar210" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar211" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar212" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar213" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar214" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar215" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar216" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar217" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar218" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar219" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar220" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar221" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar222" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar223" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar224" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar225" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar226" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar227" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar228" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar229" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar230" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar231" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar232" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar233" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar234" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar235" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar236" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar237" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar238" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar239" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar240" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar241" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar242" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar243" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar244" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar245" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar246" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar247" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar248" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar249" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar250" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar251" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar252" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar253" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar254" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar255" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar256" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar257" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar258" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar259" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar260" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar261" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar262" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar263" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar264" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar265" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar266" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar267" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar268" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar269" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar270" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar271" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar272" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar273" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar274" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar275" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar276" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar277" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar278" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar279" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar280" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar281" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar282" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar283" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar284" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar285" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar286" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar287" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar288" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar4" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar5" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar10" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar11" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar12" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar13" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar14" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar15" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar17" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar18" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar19" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar20" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar21" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar22" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar23" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar24" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar25" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar26" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar27" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar16" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar6" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar7" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar8" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="jar_collected" from="Jars/Pickle Jar9" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
+[connection signal="green_heart_collected" from="Node/Green Heart" to="PlayerElements" method="_on_Green_Heart_green_heart_collected"]
+[connection signal="green_heart_collected" from="Node/Green Heart2" to="PlayerElements" method="_on_Green_Heart_green_heart_collected"]
+[connection signal="tween_completed" from="ScreenShake/Tween" to="ScreenShake" method="_on_Tween_tween_completed"]

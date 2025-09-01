@@ -1,0 +1,261 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://assets/art/Actors/Angry Tomato.png/2.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/Actors/Angry Tomato.png/4.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/Actors/Angry Tomato.png/3.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/Actors/Angry Tomato.png/0.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/Actors/Angry Tomato.png/1.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/Actors/Hot Pickle No Legs.png/3.png" type="Texture" id=6]
+[ext_resource path="res://assets/art/Actors/Hot Pickle No Legs.png/2.png" type="Texture" id=7]
+[ext_resource path="res://assets/art/Actors/Hot Pickle No Legs.png/0.png" type="Texture" id=8]
+[ext_resource path="res://assets/art/Actors/Hot Pickle No Legs.png/1.png" type="Texture" id=9]
+[ext_resource path="res://Minigames/Pickle Pong/Pickle Pong.gd" type="Script" id=10]
+[ext_resource path="res://Minigames/Pickle Pong/Tomato.gd" type="Script" id=11]
+[ext_resource path="res://Minigames/Pickle Pong/Left Player.gd" type="Script" id=12]
+[ext_resource path="res://src/Blocks/Empty Block.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Minigames/Pickle Pong/Right Player.gd" type="Script" id=14]
+[ext_resource path="res://assets/art/Objects/Big TV.png" type="Texture" id=15]
+[ext_resource path="res://assets/art/Actors/Red Pickle No Legs.png/3.png" type="Texture" id=16]
+[ext_resource path="res://assets/art/Actors/Red Pickle No Legs.png/0.png" type="Texture" id=17]
+[ext_resource path="res://assets/art/Actors/Red Pickle No Legs.png/1.png" type="Texture" id=18]
+[ext_resource path="res://assets/art/Actors/Red Pickle No Legs.png/2.png" type="Texture" id=19]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 24.0
+height = 80.0
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 24.0
+height = 80.0
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 17.8885
+
+[node name="Pickle Pong" type="Node2D"]
+position = Vector2( 320, 96 )
+script = ExtResource( 10 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = -320.0
+margin_top = -96.0
+margin_right = 1608.0
+margin_bottom = 984.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 704.0
+color = Color( 0.0235294, 0.670588, 0.92549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left Player" type="KinematicBody2D" parent="."]
+script = ExtResource( 12 )
+
+[node name="Left Player Sprite" type="AnimatedSprite" parent="Left Player"]
+position = Vector2( 104, 352 )
+frames = SubResource( 1 )
+animation = "New Anim"
+frame = 2
+playing = true
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Player"]
+visible = false
+position = Vector2( 104, 352 )
+shape = SubResource( 2 )
+
+[node name="Right Player" type="KinematicBody2D" parent="."]
+script = ExtResource( 14 )
+
+[node name="Right Player Sprite" type="AnimatedSprite" parent="Right Player"]
+position = Vector2( 1168, 352 )
+frames = SubResource( 5 )
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Player"]
+position = Vector2( 1168, 352 )
+shape = SubResource( 6 )
+
+[node name="Tomato" type="RigidBody2D" parent="."]
+script = ExtResource( 11 )
+
+[node name="Tomato Sprite" type="AnimatedSprite" parent="Tomato"]
+position = Vector2( 608, 352 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tomato"]
+visible = false
+position = Vector2( 616, 352 )
+shape = SubResource( 4 )
+
+[node name="Empty Blocks" type="Node" parent="."]
+
+[node name="Empty Block" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 352, 64 )
+
+[node name="Empty Block2" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 416, 64 )
+
+[node name="Empty Block3" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 480, 64 )
+
+[node name="Empty Block4" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 544, 64 )
+
+[node name="Empty Block5" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 608, 64 )
+
+[node name="Empty Block6" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 672, 64 )
+
+[node name="Empty Block7" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 736, 64 )
+
+[node name="Empty Block8" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 800, 64 )
+
+[node name="Empty Block9" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 864, 64 )
+
+[node name="Empty Block10" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 928, 64 )
+
+[node name="Empty Block11" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 992, 64 )
+
+[node name="Empty Block12" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1056, 64 )
+
+[node name="Empty Block13" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1120, 64 )
+
+[node name="Empty Block14" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1184, 64 )
+
+[node name="Empty Block15" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1248, 64 )
+
+[node name="Empty Block16" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1312, 64 )
+
+[node name="Empty Block17" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1376, 64 )
+
+[node name="Empty Block18" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1440, 64 )
+
+[node name="Empty Block19" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1504, 64 )
+
+[node name="Empty Block20" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1568, 64 )
+
+[node name="Empty Block21" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 352, 832 )
+
+[node name="Empty Block22" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 416, 832 )
+
+[node name="Empty Block23" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 480, 832 )
+
+[node name="Empty Block24" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 544, 832 )
+
+[node name="Empty Block25" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 608, 832 )
+
+[node name="Empty Block26" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 672, 832 )
+
+[node name="Empty Block27" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 736, 832 )
+
+[node name="Empty Block28" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 800, 832 )
+
+[node name="Empty Block29" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 864, 832 )
+
+[node name="Empty Block30" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 928, 832 )
+
+[node name="Empty Block31" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 992, 832 )
+
+[node name="Empty Block32" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1056, 832 )
+
+[node name="Empty Block33" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1120, 832 )
+
+[node name="Empty Block34" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1184, 832 )
+
+[node name="Empty Block35" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1248, 832 )
+
+[node name="Empty Block36" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1312, 832 )
+
+[node name="Empty Block37" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1376, 832 )
+
+[node name="Empty Block38" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1440, 832 )
+
+[node name="Empty Block39" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1504, 832 )
+
+[node name="Empty Block40" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1568, 832 )
+
+[node name="Empty Block41" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1632, 832 )
+
+[node name="Empty Block53" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 1632, 64 )
+
+[node name="Empty Block54" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 288, 832 )
+
+[node name="Empty Block66" parent="Empty Blocks" instance=ExtResource( 13 )]
+position = Vector2( 288, 64 )
+
+[node name="Big TV" type="Sprite" parent="."]
+visible = false
+position = Vector2( 644, 344 )
+scale = Vector2( 6.03125, 6.03125 )
+texture = ExtResource( 15 )

@@ -1,0 +1,51 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/art/Objects/Pickle Jar Wiggle.png/8.png" type="Texture" id=1]
+[ext_resource path="res://src/Objects/Pickle Jar.gd" type="Script" id=2]
+[ext_resource path="res://assets/art/Objects/Pickle Jar Wiggle.png/9.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/Objects/Pickle Jar Wiggle.png/10.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/Objects/Pickle Jar Wiggle.png/11.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/Objects/Pickle Jar Wiggle.png/0.png" type="Texture" id=6]
+[ext_resource path="res://assets/art/Objects/Pickle Jar Wiggle.png/5.png" type="Texture" id=7]
+[ext_resource path="res://assets/art/Objects/Pickle Jar Wiggle.png/6.png" type="Texture" id=8]
+[ext_resource path="res://assets/art/Objects/Pickle Jar Wiggle.png/3.png" type="Texture" id=9]
+[ext_resource path="res://assets/art/Objects/Pickle Jar Wiggle.png/4.png" type="Texture" id=10]
+[ext_resource path="res://assets/art/Objects/Pickle Jar Wiggle.png/2.png" type="Texture" id=11]
+[ext_resource path="res://assets/art/Objects/Pickle Jar Wiggle.png/7.png" type="Texture" id=12]
+[ext_resource path="res://assets/art/Objects/Pickle Jar Wiggle.png/1.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 18.2245, 20.1414 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( -12.6215, -17.0948, 16.7019, -17.8564, 13.2745, 14.5135, -13.3831, 14.8944 )
+
+[node name="Pickle Jar" type="Area2D"]
+collision_layer = 4
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+frame = 7
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -1.52329 )
+shape = SubResource( 2 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+light_mask = 4
+occluder = SubResource( 3 )
+light_mask = 4
+
+[connection signal="body_shape_entered" from="." to="." method="_on_Pickle_Jar_body_shape_entered"]

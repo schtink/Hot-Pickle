@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/art/Actors/Beet Drop..png" type="Texture" id=1]
+[ext_resource path="res://src/Actors/Beet Drop.gd" type="Script" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 55.9239
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( -41.0365, -35.9681, -42.3296, -35.3073, -20.1083, -48.5965, -3.33336, -52.5179, 12.788, -50.5572, 30.87, -39.0108, 45.4664, -24.6323, 53.3092, -9.38242, 53.3092, 10.2246, 49.6056, 27.4352, 39.8021, 42.6852, 24.3343, 54.8851, 9.73799, 60.1136, -10.9583, 59.6779, -29.9118, 51.3994, -46.251, 38.328, -53.8759, 19.3746, -56.0545, -4.15388, -49.301, -21.8002, -43.201, -34.4359, -43.201, -34.4359, -43.201, -34.4359 )
+
+[node name="Beet Drop" type="KinematicBody2D" groups=[
+"enemy",
+]]
+collision_layer = 2
+collision_mask = 11
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
+"double",
+"enemy",
+]]
+position = Vector2( -1, -1 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+speed_scale = 2.0
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -1.08928, 4.79283 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -0.0156708, 33.4262 )
+enabled = true
+cast_to = Vector2( 0, 768 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+light_mask = 2
+occluder = SubResource( 3 )
+light_mask = 2
+
+[node name="DropTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="DropTimer" to="." method="_on_DropTimer_timeout"]

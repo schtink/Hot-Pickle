@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Metal Pickle.ogg-15829307e26846b6c2d52b3ea3bea9b3.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Metal Pickle.ogg"
+dest_files=[ "res://.import/Metal Pickle.ogg-15829307e26846b6c2d52b3ea3bea9b3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
