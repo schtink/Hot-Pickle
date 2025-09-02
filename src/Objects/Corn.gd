@@ -9,7 +9,7 @@ func _physics_process(delta):
 	velocity.x = SPEED * delta * direction
 	rotate(SPIN)
 	translate(velocity)
-	pass
+
 
 func _set_shoot_direction(dir):
 	direction = dir
@@ -24,5 +24,6 @@ func _on_Corn_body_entered(body):
 	queue_free()
 
 func _on_Corn_area_shape_exited(area_id, area, area_shape, self_shape):
+	print("Corn exited area shape")  # Debug statement
 	queue_free()
 

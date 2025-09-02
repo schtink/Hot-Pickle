@@ -13,15 +13,15 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "default",
-"speed": 12.0
-}, {
 "frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "dead",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -30,20 +30,15 @@ radius = 32.0
 [sub_resource type="OccluderPolygon2D" id=3]
 polygon = PoolVector2Array( 0, -32, 16, -24, 24, -16, 24, 16, 8, 32, -8, 32, -24, 16, -24, -16 )
 
-[node name="Angry Tomato" type="KinematicBody2D" groups=[
-"enemy",
-]]
+[node name="Angry Tomato" type="KinematicBody2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 11
 script = ExtResource( 6 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
-"enemy",
-]]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=["enemy"]]
 position = Vector2( -1, -1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-frame = 4
 speed_scale = 2.0
 playing = true
 

@@ -1017,6 +1017,7 @@ position = Vector2( 5968, 1296 )
 [node name="Door" parent="." instance=ExtResource( 52 )]
 position = Vector2( 10848, 1136 )
 target_stage = "res://src/Level/World2/Grease Trap2.tscn"
+
 [connection signal="jar_collected" from="Jars/Pickle Jar6" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
 [connection signal="jar_collected" from="Jars/Pickle Jar7" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
 [connection signal="jar_collected" from="Jars/Pickle Jar2" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]

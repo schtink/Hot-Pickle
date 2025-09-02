@@ -40,20 +40,15 @@ radius = 249.002
 [sub_resource type="OccluderPolygon2D" id=3]
 polygon = PoolVector2Array( -6.92291, -253.205, 48.8573, -248.956, 101.982, -231.454, 146.606, -206.988, 188.042, -170.332, 203.979, -152.801, 220.979, -120.927, 239.573, -81.6149, 250.729, -44.428, 253.916, 6.57103, 243.822, 76.1635, 225.229, 117.069, 214.142, 142.411, 176.755, 186.028, 111.783, 201.577, 110.649, 210.651, 109.798, 253.755, 23.0227, 253.471, 24.4406, 226.532, 52.7985, 227.099, 53.6492, 204.412, -28.0214, 205.547, -29.1557, 252.054, -103.453, 253.755, -103.453, 226.532, -79.3491, 224.546, -80.767, 206.965, -185.124, 186.831, -230.496, 110.548, -245.526, 78.7871, -254.034, 31.9966, -253.75, -42.301, -242.794, -92.7709, -215.7, -141.114, -155.139, -205.394, -73.3279, -243.643, -46.7659, -250.549 )
 
-[node name="BurgerBoss" type="KinematicBody2D" groups=[
-"enemy",
-]]
+[node name="BurgerBoss" type="KinematicBody2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 11
 script = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
-"enemy",
-]]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=["enemy"]]
 position = Vector2( -1, -1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-frame = 3
 speed_scale = 0.5
 playing = true
 

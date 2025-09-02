@@ -38,19 +38,9 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 30 ), ExtResource( 31 ) ],
+"frames": [ ExtResource( 35 ), ExtResource( 34 ), ExtResource( 32 ), ExtResource( 33 ) ],
 "loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "wall_slide",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 25 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 3 ), ExtResource( 1 ) ],
-"loop": true,
-"name": "run",
+"name": "dash",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 11 ) ],
@@ -58,9 +48,19 @@ animations = [ {
 "name": "fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 35 ), ExtResource( 34 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 24 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 23 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ) ],
 "loop": true,
-"name": "dash",
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 25 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "run",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 19 ), ExtResource( 10 ), ExtResource( 18 ) ],
@@ -73,9 +73,9 @@ animations = [ {
 "name": "swim",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 24 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 23 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": true,
-"name": "idle",
+"name": "wall_slide",
 "speed": 5.0
 } ]
 
@@ -101,11 +101,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 22, 63 )
 
-[node name="Player" type="KinematicBody2D" groups=[
-"persist",
-"player",
-"save",
-]]
+[node name="Player" type="KinematicBody2D" groups=["persist", "player", "save"]]
 collision_mask = 14
 script = ExtResource( 2 )
 
@@ -115,7 +111,6 @@ script = ExtResource( 2 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 4
 speed_scale = 2.0
 playing = true
 flip_h = true
@@ -234,8 +229,9 @@ wait_time = 0.5
 one_shot = true
 
 [node name="DashTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.125
 one_shot = true
+
 [connection signal="animation_finished" from="Body/hot_pickle" to="." method="_on_hot_pickle_animation_finished"]
 [connection signal="player_dead_finished" from="player_dead" to="." method="_on_player_dead_player_dead_finished"]
 [connection signal="animation_finished" from="player_dead/player_dead_animation" to="player_dead" method="_on_player_dead_animation_animation_finished"]

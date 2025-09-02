@@ -908,6 +908,7 @@ scale = Vector2( 300, 1 )
 position = Vector2( 10176.2, -160.413 )
 scale = Vector2( 3, 3 )
 level_checkpoint = "space1"
+
 [connection signal="jar_collected" from="Pickle Jars/Pickle Jar" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
 [connection signal="jar_collected" from="Pickle Jars/Pickle Jar2" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
 [connection signal="jar_collected" from="Pickle Jars/Pickle Jar3" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]

@@ -17,6 +17,11 @@ const UP = Vector2(0, -1)
 const SLOPE_STOP = 64
 const DROP_THRU_BIT = 1
 
+var TRAIL_INTERVAL := 0.03     # seconds between echoes
+var TRAIL_LIFETIME := 0.45     # seconds until an echo fully fades
+var TRAIL_START_ALPHA := 0.9  # initial opacity of the echo
+var TRAIL_TINT := Color(1, 1, 1)  # tint; leave white for normal
+
 var velocity = Vector2()
 var move_speed = 5 * Main.UNIT_SIZE
 var gravity
@@ -32,12 +37,20 @@ var jump_duration = 0.5
 # States
 var is_attacking = false
 var is_dead = false
-var is_grounded
+var is_grounded = false
 var is_dashing = false
 var is_jumping = false
 var is_falling = false
 var is_wall_sliding = false
 var is_stunned = false
+var dashed_in_air := false
+
+var coyote_time = 0.1  # Time in seconds for coyote time
+var coyote_timer = 0.0  # Timer to track coyote time
+
+var DASH_DISTANCE := 5 * Main.UNIT_SIZE      # exact pixels to travel
+var dash_remaining := 0.0
+var dash_direction := 1
 
 # Special character behaviors base don level type
 export(String, "Normal", "Water", "Space", "Auto") var special_condition
@@ -63,6 +76,8 @@ onready var body = $Body
 onready var wall_slide_cooldown = $WallSlideCoolDown
 onready var wall_slide_sticky_timer = $WallSlideStickyTimer
 
+var _trail_timer : Timer = null
+
 func _ready():
 	Main._refresh_player_data()
 	_start_point()
@@ -72,10 +87,17 @@ func _ready():
 		min_jump_height = 0
 		max_jump_height = 1.6 * Main.UNIT_SIZE
 	if special_condition == "Space":
+		DASH_DISTANCE = 50 * Main.UNIT_SIZE
 		dash_timer.wait_time = 2.0
 		jump_duration = 1.3
 		max_jump_height = 6 * Main.UNIT_SIZE
 	_set_gravity_and_velocity()
+	
+	_trail_timer = Timer.new()
+	_trail_timer.one_shot = false
+	_trail_timer.wait_time = TRAIL_INTERVAL
+	add_child(_trail_timer)
+	_trail_timer.connect("timeout", self, "_spawn_afterimage")
 
 func _set_gravity_and_velocity():
 	gravity = 2 * max_jump_height / pow(jump_duration, 2)
@@ -93,57 +115,120 @@ func _start_point():
 func _physics_process(delta):
 	
 	if is_dead == false and Main.playerInert == false:
-	#	_handle_move_input()
 		if is_stunned == false:
 			_collide_with_enemy()
 		else:
 			sprite.modulate.a = 0.0 if Engine.get_frames_drawn() % 2 == 0 else 1.0
-	#	_apply_gravity(delta)
-	#	_apply_movement()
+		#_handle_move_input()
+		#_apply_gravity(delta)
+		#_apply_movement(delta)
+
 		if Main.power_up >= 1:
 			_shoot()
 
 func _apply_gravity(delta):
-	velocity.y += gravity * delta 
+	if is_dashing:
+		return
+	velocity.y += gravity * delta
 
-func _apply_movement():
-	if is_jumping && velocity.y >= 0:
+func _apply_movement(delta):
+	if is_dashing:
+		var prev_snap := Vector2.ZERO  # ensure no floor snapping while dashing
+		var before := global_position
+
+		velocity = Vector2(_dash_speed() * dash_direction, 0)
+		# move first, then measure distance actually traveled
+		move_and_slide_with_snap(velocity, Vector2.ZERO, UP, true)
+
+		var moved := (global_position - before).length()
+		dash_remaining -= moved
+
+		# stop if we finished the distance or we got blocked
+			
+		if dash_remaining <= 0.0 or moved <= 0.001:
+			is_dashing = false
+			dash_timer.stop()
+			velocity = Vector2.ZERO
+			if has_method("_trail_stop"):  # if you're using the afterimage trail
+				_trail_stop()
+		return
+
+	if is_jumping and velocity.y >= 0:
 		is_jumping = false
 
 	var snap = Vector2.DOWN * 32 if !is_jumping else Vector2.ZERO
 
-	if move_direction == 0 && abs(velocity.x) < SLOPE_STOP:
+	if move_direction == 0 and abs(velocity.x) < SLOPE_STOP:
 		velocity.x = 0
 
 	var stop_on_slope = true if get_floor_velocity().x == 0 else false
 
 	velocity = move_and_slide_with_snap(velocity, snap, UP, stop_on_slope)
 
-	is_grounded = !is_jumping && _check_is_grounded()
+	# grounded and coyote timer
+	if _check_is_grounded():
+		is_grounded = true
+		coyote_timer = 0.0
+		dashed_in_air = false
+	else:
+		is_grounded = false
+		coyote_timer += delta
+
 
 func _update_move_direction():
-	if !(Input.is_action_just_pressed("Dash")) && special_condition != "Auto":
-		move_direction = -int(Input.is_action_pressed("Move_Left")) + int(Input.is_action_pressed("Move_Right"))
-	elif special_condition == "Auto":
-		move_direction = 1
-	elif (dash_timer.is_stopped()) && !is_jumping && !velocity.y > 0 && velocity.x != 0:
-		AudioManager.play("res://assets/audio/dash.wav")
-		sprite.play("dash")
-		dash_timer.start();
-		is_dashing = true
-		move_direction = -int(Input.is_action_pressed("Move_Left")) + int(Input.is_action_pressed("Move_Right"))
-		#velocity.x = lerp(velocity.x, move_speed * move_direction * 32, _get_h_weight())
-		velocity.x += move_direction * move_speed * 4
-		velocity.y = max_jump_velocity /2
-	elif (dash_timer.is_stopped()) && velocity.y < 0:
-		AudioManager.play("res://assets/audio/dash.wav")
-		sprite.play("dash")
-		dash_timer.start();
-		is_dashing = true
-		move_direction = -int(Input.is_action_pressed("Move_Left")) + int(Input.is_action_pressed("Move_Right"))
-		#velocity.x = lerp(velocity.x, move_speed * move_direction * 32, _get_h_weight())
-		velocity.x += move_direction * move_speed * 2.5
+	# movement input
+	move_direction = -int(Input.is_action_pressed("Move_Left")) + int(Input.is_action_pressed("Move_Right"))
 
+	if special_condition == "Auto":
+		move_direction = 1
+		
+	if Input.is_action_just_pressed("Dash") and dash_timer.is_stopped():
+		if is_grounded or !dashed_in_air:
+			_perform_dash()
+	# dash
+#	if Input.is_action_just_pressed("Dash") and dash_timer.is_stopped():
+##		_perform_dash()
+#		if is_jumping:
+#			_perform_dash()
+#			velocity.y = max_jump_velocity / 2
+#		elif velocity.y < 0:
+#			_perform_dash()
+
+#	# jump with coyote time
+#	if Input.is_action_just_pressed("Jump"):
+#		if is_grounded or coyote_timer < coyote_time:
+#			is_jumping = true
+#			velocity.y = max_jump_velocity   # already negative
+#			coyote_timer = coyote_time       # consume coyote
+#			return
+
+func can_coyote_jump() -> bool:
+	return is_grounded or coyote_timer < coyote_time
+
+func do_jump():
+	is_jumping = true
+	velocity.y = max_jump_velocity        # already negative
+	coyote_timer = coyote_time            # consume the coyote window
+
+func _perform_dash():
+	AudioManager.play("res://assets/audio/dash.wav")
+	
+	# Choose a direction. Prefer current input, fall back to facing.
+	var dir := -int(Input.is_action_pressed("Move_Left")) + int(Input.is_action_pressed("Move_Right"))
+	if dir == 0:
+		dir = int(sign(body.scale.x))
+	if dir == 0:
+		dir = 1
+
+	dash_direction = dir
+	is_dashing = true
+	dash_remaining = DASH_DISTANCE
+	dash_timer.start()
+	
+	if !is_grounded:
+		dashed_in_air = true
+	
+	_trail_start()
 
 func _handle_move_input():
 	_update_move_direction()
@@ -194,16 +279,15 @@ func _handle_wall_slide_sticky():
 		wall_slide_sticky_timer.stop()
 
 func _get_h_weight():
-	if is_on_floor():
+	if is_grounded:
 		return 0.2
 	else:
 		if move_direction == 0:
 			return 0.02
-		elif move_direction == sign(velocity.x) && abs(velocity.x) > move_speed:
+		elif move_direction == sign(velocity.x) and abs(velocity.x) > move_speed:
 			return 0.0
 		else:
 			return 0.1
-	#return 0.2 if is_grounded else  0.1
  
 func _check_is_grounded():
 	#for raycast in raycasts.get_children():
@@ -318,3 +402,65 @@ func _on_StunTimer_timeout():
 
 func _on_DashTimer_timeout():
 	is_dashing = false
+	if has_method("_trail_stop"):
+		_trail_stop()
+	
+func _dash_speed() -> float:
+	# Distance divided by configured dash duration
+	return DASH_DISTANCE / dash_timer.wait_time
+
+func _trail_start():
+	if _trail_timer:
+		_spawn_afterimage()         # pop one immediately
+		_trail_timer.start()
+	for i in range(3):
+		_spawn_afterimage()
+
+func _trail_stop():
+	if _trail_timer:
+		_trail_timer.stop()
+
+func _spawn_afterimage():
+	# Grab the current frame texture from the AnimatedSprite
+	if not sprite or not sprite.frames:
+		return
+	var anim := sprite.animation
+	var frame := sprite.frame
+	if not sprite.frames.has_animation(anim):
+		return
+	var tex := sprite.frames.get_frame(anim, frame)
+	if tex == null:
+		return
+
+	# Create a Sprite echo as a sibling in the world (so it stays put)
+	var echo := Sprite.new()
+	echo.texture = tex
+	# Match transform in world space
+	echo.global_position = sprite.global_position
+	echo.rotation = sprite.global_rotation
+	echo.scale = sprite.global_scale
+	# Flip to match facing (you scale Body.x to face)
+	echo.flip_h = body.scale.x < 0
+	# Visuals
+	echo.modulate = Color(TRAIL_TINT.r, TRAIL_TINT.g, TRAIL_TINT.b, TRAIL_START_ALPHA)
+	echo.z_index = sprite.z_index + 1  # draw just behind the player
+	get_parent().add_child(echo)
+
+	# Fade & cleanup via Tween
+	var tw := Tween.new()
+	echo.add_child(tw)
+	# fade out slower at start, faster at end
+	tw.interpolate_property(
+		echo, "modulate:a",
+		TRAIL_START_ALPHA, 0.0,
+		TRAIL_LIFETIME, Tween.TRANS_CUBIC, Tween.EASE_OUT
+	)
+	# optional: gently shrink to sell speed
+	tw.interpolate_property(
+		echo, "scale",
+		echo.scale, echo.scale * 0.92,
+		TRAIL_LIFETIME, Tween.TRANS_CUBIC, Tween.EASE_OUT
+	)
+	tw.start()
+	tw.connect("tween_all_completed", echo, "queue_free")
+

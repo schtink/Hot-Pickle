@@ -30,19 +30,14 @@ radius = 32.0
 [sub_resource type="OccluderPolygon2D" id=3]
 polygon = PoolVector2Array( 0, -32, 16, -24, 24, -16, 24, 16, 8, 32, -8, 32, -24, 16, -24, -16 )
 
-[node name="Boulder" type="KinematicBody2D" groups=[
-"dropzone",
-"enemy",
-]]
+[node name="Boulder" type="KinematicBody2D" groups=["dropzone", "enemy"]]
 scale = Vector2( 10, 10 )
 collision_layer = 2
 collision_mask = 11
 script = ExtResource( 6 )
 hp = 9000
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
-"enemy",
-]]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=["enemy"]]
 position = Vector2( -1, -1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
