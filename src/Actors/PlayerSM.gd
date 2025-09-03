@@ -8,6 +8,7 @@ func _ready():
 	add_state("wall_slide")
 	add_state("stunned")
 	add_state("dash")
+	add_state("slope_slide")
 	call_deferred("set_state", states.idle)
 
 func _input(event):
@@ -40,7 +41,7 @@ func _state_logic(delta):
 	if Main.playerInert == false:
 		parent._update_move_direction()
 		parent._update_wall_direction()
-		if state != states.wall_slide:
+		if state != states.wall_slide and state != states.slope_slide:
 			parent._handle_move_input()
 		parent._apply_gravity(delta)
 		if state == states.wall_slide:
@@ -56,9 +57,15 @@ func _get_transition(delta):
 	# enter dash once when a dash is actually in progress
 	if state != states.dash and parent.is_dashing:
 		return states.dash
-
+	
+	# enter slope slide if grounded and flagged
+	if state != states.slope_slide and parent.is_grounded and parent.is_slope_sliding:
+		return states.slope_slide
+	
 	match state:
 		states.idle:
+			if parent.is_slope_sliding:
+				return states.slope_slide
 			if !parent.is_grounded:
 				if parent.velocity.y < 0:
 					return states.jump
@@ -69,6 +76,8 @@ func _get_transition(delta):
 #			if parent.dash_timer.time_left > 0 and parent.velocity.x != 0:
 #				return states.dash
 		states.run:
+			if parent.is_slope_sliding:
+				return states.slope_slide
 			if !parent.is_grounded:
 				if parent.velocity.y < 0:
 					return states.jump
@@ -114,6 +123,14 @@ func _get_transition(delta):
 				return states.fall
 #			if parent.dash_timer.time_left > 0 and parent.velocity.x != 0:
 #				return states.dash
+		states.slope_slide:
+			# leave slope slide when no longer sliding, no longer grounded, or player starts moving
+			if not parent.is_grounded or not parent.is_slope_sliding or parent.move_direction != 0:
+				if parent.is_grounded:
+					return states.run if parent.velocity.x != 0 else states.idle
+				else:
+					return states.fall
+			return null
 	return null
 
 func _enter_state(new_state, old_state):
@@ -127,10 +144,20 @@ func _enter_state(new_state, old_state):
 		states.fall:
 			parent.sprite.play("fall")
 		states.wall_slide:
-			parent.sprite.play("wall_slide") #TO-DO -- Create Wall Slide Animation
+			parent.sprite.play("wall_slide")
 			parent.body.scale.x = parent.wall_direction
 		states.dash:
 			pass
+		states.slope_slide:
+			parent.set_slope_visual(true)
+			if parent.sprite.animation != "wall_slide":
+				parent.sprite.play("wall_slide")
+			# If he faces the wrong way, invert this to -parent.slope_dir
+			if parent.slope_dir != 0:
+				parent.body.scale.x = -parent.slope_dir
+
+			# optionally start a looping slide SFX here
+			# AudioManager.play("res://assets/audio/effects/slope_slide.wav")
 
 func _exit_state(old_state, new_state):
 	match old_state:
@@ -138,6 +165,11 @@ func _exit_state(old_state, new_state):
 			parent.wall_slide_cooldown.start()
 		states.dash:
 			pass
+		states.slope_slide:
+			parent.set_slope_visual(false)
+			# AudioManager.stop("res://assets/audio/effects/slope_slide.wav")
+			parent.is_slope_sliding = false
+
 
 func _on_WallSlideStickyTimer_timeout():
 	if state == states.wall_slide:
