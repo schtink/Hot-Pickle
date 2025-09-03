@@ -23,7 +23,6 @@ func _on_Corn_body_entered(body):
 		body._dead(3)
 	queue_free()
 
-func _on_Corn_area_shape_exited(area_id, area, area_shape, self_shape):
+func _on_VisibilityNotifier2D_screen_exited():
 	print("Corn exited area shape")  # Debug statement
 	queue_free()
-

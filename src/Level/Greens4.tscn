@@ -1059,6 +1059,7 @@ autoplay = false
 position = Vector2( 4168, 966.523 )
 scale = Vector2( 3, 3 )
 level_checkpoint = "greens1"
+
 [connection signal="jar_collected" from="Jars/Pickle Jar" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
 [connection signal="jar_collected" from="Jars/Pickle Jar2" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
 [connection signal="jar_collected" from="Jars/Pickle Jar3" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]

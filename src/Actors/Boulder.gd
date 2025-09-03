@@ -24,7 +24,7 @@ func _ready():
 func _dead(damage):
 	hp = hp - damage
 	totalHealth.scale.x = ((hp * 100.00) / inithp) / 100.00
-	print(totalHealth.scale.x)
+	#print(totalHealth.scale.x)
 	if hp <= 0:
 		is_dead = true
 		totalHealth.scale.x = 0.0

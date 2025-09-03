@@ -29,5 +29,7 @@ scale = Vector2( 0.8, 0.8 )
 light_mask = 16
 occluder = SubResource( 2 )
 light_mask = 16
+
 [connection signal="area_shape_exited" from="." to="." method="_on_Peppercorn_area_shape_exited"]
 [connection signal="body_entered" from="." to="." method="_on_Peppercorn_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

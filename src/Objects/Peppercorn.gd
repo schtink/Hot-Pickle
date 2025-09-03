@@ -23,5 +23,6 @@ func _on_Peppercorn_body_entered(body):
 		body._dead(1)
 	queue_free()
 
-func _on_Corn_area_shape_exited(area_id, area, area_shape, self_shape):
+func _on_VisibilityNotifier2D_screen_exited():
+	print("Peppercorn exited area shape")  # Debug statement
 	queue_free()
