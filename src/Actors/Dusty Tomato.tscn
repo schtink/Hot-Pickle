@@ -30,21 +30,15 @@ radius = 32.0
 [sub_resource type="OccluderPolygon2D" id=3]
 polygon = PoolVector2Array( 0, -32, 16, -24, 24, -16, 24, 16, 8, 32, -8, 32, -24, 16, -24, -16 )
 
-[node name="Dusty Tomato" type="KinematicBody2D" groups=[
-"enemy",
-]]
+[node name="Dusty Tomato" type="KinematicBody2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 11
 script = ExtResource( 6 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
-"double",
-"enemy",
-]]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=["double", "enemy"]]
 position = Vector2( -1, -1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-frame = 8
 speed_scale = 2.0
 playing = true
 
@@ -78,4 +72,5 @@ __meta__ = {
 [node name="TotalHealth" type="Sprite" parent="HealthBar"]
 position = Vector2( 20, 2 )
 texture = ExtResource( 10 )
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

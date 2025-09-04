@@ -37,6 +37,19 @@ func _input(event):
 		parent._wall_jump()
 		set_state(states.jump)
 
+	# Slope slide
+	if state == states.slope_slide:
+		if event.is_action_pressed("Jump"):
+			parent.do_jump()
+			AudioManager.play("res://assets/audio/effects/jump2.wav")
+			set_state(states.jump)
+			return
+		if event.is_action_pressed("Dash") and parent.dash_timer.is_stopped() and not parent.dashed_in_air:
+			parent._perform_dash()
+			set_state(states.dash)
+			return
+
+
 func _state_logic(delta):
 	if Main.playerInert == false:
 		parent._update_move_direction()
@@ -152,10 +165,10 @@ func _enter_state(new_state, old_state):
 			parent.set_slope_visual(true)
 			if parent.sprite.animation != "wall_slide":
 				parent.sprite.play("wall_slide")
-			# If he faces the wrong way, invert this to -parent.slope_dir
 			if parent.slope_dir != 0:
 				parent.body.scale.x = -parent.slope_dir
-
+			if not parent.is_in_group("slope_slide"):
+				parent.add_to_group("slope_slide")
 			# optionally start a looping slide SFX here
 			# AudioManager.play("res://assets/audio/effects/slope_slide.wav")
 
@@ -167,8 +180,10 @@ func _exit_state(old_state, new_state):
 			pass
 		states.slope_slide:
 			parent.set_slope_visual(false)
-			# AudioManager.stop("res://assets/audio/effects/slope_slide.wav")
+			if parent.is_in_group("slope_slide"):
+				parent.remove_from_group("slope_slide")
 			parent.is_slope_sliding = false
+			# AudioManager.stop("res://assets/audio/effects/slope_slide.wav")
 
 
 func _on_WallSlideStickyTimer_timeout():

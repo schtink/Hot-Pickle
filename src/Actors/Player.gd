@@ -17,12 +17,12 @@ const UP = Vector2(0, -1)
 const SLOPE_STOP = 64
 const DROP_THRU_BIT = 1
 const SLOPE_SLIDE_MIN_ANGLE := deg2rad(20)   # tweak to taste
-const SLOPE_SLIDE_ENTER := deg2rad(20)  # start sliding at 45°
-const SLOPE_SLIDE_EXIT  := deg2rad(15)  # stop sliding below 40°
+const SLOPE_SLIDE_ENTER := deg2rad(45)  # start sliding at 45°
+const SLOPE_SLIDE_EXIT  := deg2rad(40)  # stop sliding below 40°
 const SLIDE_SPEED_EPS   := 20.0         # do not enter slide if moving faster than this up the hill
 var SLOPE_VISUAL_OFFSET := Vector2(0, 35)
 var _body_base_pos := Vector2.ZERO
-var SLIDE_CONST_SPEED := 15.0 * Main.UNIT_SIZE   # exact slide speed along the slope
+var SLIDE_CONST_SPEED := 10.0 * Main.UNIT_SIZE   # exact slide speed along the slope
 var SLIDE_NORMAL_PUSH := 80.0                   # tiny push into the floor to keep contact
 
 
@@ -180,20 +180,17 @@ func _apply_movement(delta):
 	if is_slope_sliding:
 		stop_on_slope = false
 
-	if is_slope_sliding:
-		# Surface basis
-		var n := get_floor_normal().normalized()
-		var t := Vector2(n.y, -n.x)   # one of the two tangents
+	# snapshot grounded before moving
+	var was_grounded : bool = is_grounded
 
-		# Make sure t points downhill (same direction as gravity)
-		# If it points upward, flip it.
+	# constant speed downhill while sliding
+	if is_slope_sliding:
+		var n := get_floor_normal().normalized()
+		var t := Vector2(n.y, -n.x)
 		if t.dot(Vector2.DOWN) < 0.0:
 			t = -t
-
-		# Force constant downhill speed and a tiny push into the ground
 		velocity = t * SLIDE_CONST_SPEED + (-n * SLIDE_NORMAL_PUSH)
 
-	var was_grounded : bool = is_grounded
 	velocity = move_and_slide_with_snap(velocity, snap, UP, stop_on_slope)
 	_update_slope_state()
 
@@ -201,13 +198,11 @@ func _apply_movement(delta):
 	if _check_is_grounded():
 		is_grounded = true
 		coyote_timer = 0.0
-		# only reset air-dash when we actually landed on non-slope ground
 		if not was_grounded and not is_slope_sliding:
 			dashed_in_air = false
 	else:
 		is_grounded = false
 		coyote_timer += delta
-
 
 
 func _update_move_direction():
@@ -219,8 +214,9 @@ func _update_move_direction():
 		
 	if Input.is_action_just_pressed("Dash") and dash_timer.is_stopped():
 		var grounded_for_dash : bool = is_grounded and not is_slope_sliding
-		if grounded_for_dash or !dashed_in_air:
+		if grounded_for_dash or not dashed_in_air:
 			_perform_dash()
+
 
 func can_coyote_jump() -> bool:
 	return is_grounded or coyote_timer < coyote_time
@@ -232,8 +228,7 @@ func do_jump():
 
 func _perform_dash():
 	AudioManager.play("res://assets/audio/dash.wav")
-	
-	# Choose a direction. Prefer current input, fall back to facing.
+
 	var dir := -int(Input.is_action_pressed("Move_Left")) + int(Input.is_action_pressed("Move_Right"))
 	if dir == 0:
 		dir = int(sign(body.scale.x))
@@ -244,11 +239,13 @@ func _perform_dash():
 	is_dashing = true
 	dash_remaining = DASH_DISTANCE
 	dash_timer.start()
-	
+
 	if !is_grounded or is_slope_sliding:
 		dashed_in_air = true
-	
+
+
 	_trail_start()
+
 
 func _handle_move_input():
 	_update_move_direction()
@@ -321,6 +318,9 @@ func _collide_with_enemy():
 			var collision = get_slide_collision(i)
 			if is_instance_valid(collision.collider):
 				if collision.collider.is_in_group("enemy") or collision.collider.is_in_group("dropzone"):
+					# ignore damage when slope-sliding into slide-killable enemies
+					if is_in_group("slope_slide") and collision.collider.is_in_group("slide_killable"):
+						continue
 					if collision.collider.is_dead == false:
 						if collision.collider.is_in_group("dropzone"):
 							Main.player_health = 0
@@ -329,6 +329,7 @@ func _collide_with_enemy():
 						if collision.collider.is_in_group("double"):
 							_dead(2)
 						_dead(1)
+
 
 func _drop_health(damage):
 	Main.player_health -= damage

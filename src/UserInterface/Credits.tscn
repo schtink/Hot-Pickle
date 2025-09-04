@@ -61,5 +61,6 @@ margin_left = -960.0
 margin_top = -540.0
 margin_right = -960.0
 margin_bottom = -540.0
+
 [connection signal="finished" from="Just a Pickle" to="." method="_on_Just_a_Pickle_finished"]
 [connection signal="fadein_finished" from="CanvasLayer/FadeIn" to="." method="_on_FadeIn_fadein_finished"]

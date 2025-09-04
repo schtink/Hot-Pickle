@@ -21,6 +21,8 @@ var damage = 2
 
 func _ready():
 	inithp = hp
+	if not is_in_group("slide_killable"):
+		add_to_group("slide_killable")
 
 func _dead(damage):
 	hp = hp - damage
@@ -61,9 +63,14 @@ func _move():
 func _collide_with_player():
 	if get_slide_count() > 0:
 		for i in range(get_slide_count()):
-			var collision = get_slide_collision(i)
-			if collision.collider.is_in_group("player"):
-				get_slide_collision(i).collider._dead(damage)
+			var c = get_slide_collision(i)
+			if c.collider and c.collider.is_in_group("player"):
+				var player = c.collider
+				if player.is_in_group("slope_slide") and not is_dead:
+					_dead(hp)  # insta-kill; or _dead(4) for chunk damage
+				else:
+					player._dead(damage)
+
 
 func _on_AnimatedSprite_animation_finished():
 	if is_dead == true:

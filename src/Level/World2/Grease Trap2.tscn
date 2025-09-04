@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://src/UserInterface/PlayerElements.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Background/Greens_DarkRed.tscn" type="PackedScene" id=2]
@@ -59,6 +59,7 @@
 [ext_resource path="res://assets/art/Blocks/Grease Trap/Kitchen Wall Normal.png" type="Texture" id=57]
 [ext_resource path="res://assets/art/Blocks/Grease Trap/Window-Wide.png" type="Texture" id=58]
 [ext_resource path="res://src/Objects/FireShader.tscn" type="PackedScene" id=59]
+[ext_resource path="res://src/Objects/Checkpoint.tscn" type="PackedScene" id=60]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 96, 0, 96, 0, 82.5926, 63.6776, 82.6551 )
@@ -1018,7 +1019,6 @@ position = Vector2( 256, 248 )
 
 [node name="Mystery Block5" parent="Mystery Blocks" instance=ExtResource( 14 )]
 position = Vector2( 9992, 304 )
-power_up = 4
 
 [node name="Empty Blocks" type="Node" parent="."]
 
@@ -1240,6 +1240,12 @@ position = Vector2( 10656, 1040 )
 [node name="AudioTrigger" parent="." instance=ExtResource( 17 )]
 position = Vector2( 13408, 432 )
 audioToPlay = "res://assets/audio/effects/burger-beatyou-crushed.wav"
+
+[node name="Checkpoint" parent="." instance=ExtResource( 60 )]
+position = Vector2( 9026, 1232 )
+scale = Vector2( 3, 3 )
+level_checkpoint = "gt2"
+
 [connection signal="jar_collected" from="Jars/Pickle Jar" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
 [connection signal="jar_collected" from="Jars/Pickle Jar6" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
 [connection signal="jar_collected" from="Jars/Pickle Jar28" to="PlayerElements" method="_on_Pickle_Jar_jar_collected"]
